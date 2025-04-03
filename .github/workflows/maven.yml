@@ -29,5 +29,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file javamaker/pom.xml
+     steps: 
+     - uses: actions/checkout@v4
+     - name: Run Unit Tests
+       run: mvn test
 
   
