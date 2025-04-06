@@ -11,7 +11,7 @@ public abstract class BodyParts
 	String name;
 	int xAxis;
 	int yAxis;
-	String URL;
+	String filePath;
 	
 	/**
 	 * Default constructor for BodyParts
