@@ -1,3 +1,4 @@
+package application;
 /**
  * @author Joy Janney
  * This is the abstract class that all of the part parts will
@@ -22,7 +23,7 @@ public abstract class BodyParts
 		this.name = "";
 		this.xAxis = 0;
 		this.yAxis = 0;
-		this.URL = "";
+		this.filePath = "";
 	}
 	
 	/**
@@ -37,7 +38,7 @@ public abstract class BodyParts
 	{
 		this.type = t;
 		this.name = n;
-		this.URL = url;
+		this.filePath = url;
 		this.xAxis = x;
 		this.yAxis = y;
 	}
@@ -83,7 +84,7 @@ public abstract class BodyParts
 	 */
 	public String getURL()
 	{
-		return this.URL;
+		return this.filePath;
 	}
 	
 	
@@ -129,6 +130,6 @@ public abstract class BodyParts
 	 */
 	public void setURL(String url)
 	{
-		this.URL = url;
+		this.filePath = url;
 	}
 }
