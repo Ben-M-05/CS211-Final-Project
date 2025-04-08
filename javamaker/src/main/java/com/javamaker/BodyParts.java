@@ -1,3 +1,5 @@
+package com.javamaker;
+
 /**
  * @author Joy Janney
  * This is the abstract class that all of the part parts will
