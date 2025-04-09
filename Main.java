@@ -47,8 +47,9 @@ public class Main extends Application {
 			//preparing the left option pane
 			VBox partsOption = new VBox();
 			root.setRight(partsOption);
-			
+      
 			// Head Buttons	- Sarah Parr		
+
 			Image head01 = new Image(String.format("file:" + FileOrg.findFile("head01")));
 			ImageView iHead01 = new ImageView(head01);
 			iHead01.setFitWidth(50);
@@ -79,6 +80,7 @@ public class Main extends Application {
 			iHead06.setFitWidth(50);
 			iHead06.setPreserveRatio(true);
 			
+
 			// Options - Sarah Parr
 			Button bHead1 = new Button("", iHead01);
 			Button bHead2 = new Button("", iHead02);
@@ -96,6 +98,7 @@ public class Main extends Application {
 			bHead6.setOnAction(a -> userHead.setFilePath(FileOrg.findFile("head06")));
 			
 			// Head tab - Sarah Parr
+
 			GridPane gpHead = new GridPane();
 			gpHead.add(bHead1, 0, 0);
 			gpHead.add(bHead2, 1, 0);
