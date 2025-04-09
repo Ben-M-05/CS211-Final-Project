@@ -15,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
 /**
  * @author Joy Janney except where otherwise marked
@@ -30,32 +31,84 @@ public class Main extends Application {
 			 * 			option pane.
 			 * Left - The option pane for the selected body part
 			 * 			These will be made of VBoxes that include images as buttons
-			 * Center - The image of their avator
+			 * Center - The image of their avatr
 			 */
 			BorderPane root = new BorderPane();
 			
 			//FIXME need to update when generate feature is working
-			//Preparing the avator image
+			//Preparing the avatar image
 			Image portrait = new Image(String.format("file:" + FileOrg.findFile("eye01")));
 			ImageView portraitI = new ImageView(portrait);
-			portraitI.setFitWidth(100);
+			portraitI.setFitWidth(200);
 			portraitI.setPreserveRatio(true);
+			root.setCenter(portraitI);
 			
 			//preparing the left option pane
 			VBox partsOption = new VBox();
-			root.setLeft(partsOption);
+			root.setRight(partsOption);
 			
-			//FIXME should be taken out when VBoxes are working
-			//		THIS IS ONLY TEMP CODE!!!!!
-			Button head = new Button("Head");
-			Button torso = new Button("Torso");
+		// Head Buttons			
+			Image head01 = new Image(String.format("file:" + FileOrg.findFile("head01")));
+			ImageView iHead01 = new ImageView(head01);
+			iHead01.setFitWidth(50);
+			iHead01.setPreserveRatio(true);
+			
+			Image head02 = new Image(String.format("file:" + FileOrg.findFile("head02")));
+			ImageView iHead02 = new ImageView(head02);
+			iHead02.setFitWidth(50);
+			iHead02.setPreserveRatio(true);
+			
+			Image head03 = new Image(String.format("file:" + FileOrg.findFile("head03")));
+			ImageView iHead03 = new ImageView(head03);
+			iHead03.setFitWidth(50);
+			iHead03.setPreserveRatio(true);
+			
+			Image head04 = new Image(String.format("file:" + FileOrg.findFile("head04")));
+			ImageView iHead04 = new ImageView(head04);
+			iHead04.setFitWidth(50);
+			iHead04.setPreserveRatio(true);
+			
+			Image head05 = new Image(String.format("file:" + FileOrg.findFile("head05")));
+			ImageView iHead05 = new ImageView(head05);
+			iHead05.setFitWidth(50);
+			iHead05.setPreserveRatio(true);
+			
+			Image head06 = new Image(String.format("file:" + FileOrg.findFile("head06")));
+			ImageView iHead06 = new ImageView(head06);
+			iHead06.setFitWidth(50);
+			iHead06.setPreserveRatio(true);
+			
+			// Options
+			Button bHead1 = new Button("", iHead01);
+			Button bHead2 = new Button("", iHead02);
+			Button bHead3 = new Button("", iHead03);
+			Button bHead4 = new Button("", iHead04);
+			Button bHead5 = new Button("", iHead05);
+			Button bHead6 = new Button("", iHead06);
+			
+			// Head tab
+			GridPane gpHead = new GridPane();
+			gpHead.add(bHead1, 0, 0);
+			gpHead.add(bHead2, 1, 0);
+			gpHead.add(bHead3, 2, 0);
+			gpHead.add(bHead4, 0, 1);
+			gpHead.add(bHead5, 1, 1);
+			gpHead.add(bHead6, 2, 1);
+			
+			Button headButton = new Button("Head");
+			headButton.setOnAction(a -> root.setRight(gpHead));
+			
+		///
+				
+			//https://docs.oracle.com/javafx/2/ui_controls/button.html
 			portraitI.setFitWidth(50);
-			//https://docs.oracle.com/javafx/2/ui_controls/button.htm
 			Button eye = new Button("", portraitI);
+			
+			Button torso = new Button("Torso");
 			Button hair = new Button("Hair");
 			
 			//Preparing the VBox for the user to select their avator
-			VBox headVBox = new VBox(head);
+			
 			VBox torsoVBox = new VBox(torso);
 			VBox eyeVBox = new VBox(eye);
 			VBox hairVBox = new VBox(hair);
@@ -64,27 +117,25 @@ public class Main extends Application {
 			 * The VBoxes will only show the user the options related to the tab
 			 * Basically, if they click eye, it will show them the eye options
 			 */
-			Button headButton = new Button("Head");
-			headButton.setOnAction(_ -> root.setLeft(headVBox));
+			
 			
 			Button torsoButton = new Button("Torso");
-			torsoButton.setOnAction(_ -> root.setLeft(torsoVBox));
+			torsoButton.setOnAction(a -> root.setRight(torsoVBox));
 			
 			Button eyeButton = new Button("Eye");
-			eyeButton.setOnAction(_ -> root.setLeft(eyeVBox));
+			eyeButton.setOnAction(a -> root.setRight(eyeVBox));
 			
 			Button hairButton = new Button("Hair");
-			hairButton.setOnAction(_ -> root.setLeft(hairVBox));
+			hairButton.setOnAction(a -> root.setRight(hairVBox));
 			
 			//Preparing the options in the top button in a HBOX
 			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton);
 			
 			//Displaying the buttons and the avator image
 			root.setTop(bodyParts);
-			root.setCenter(portraitI);
 
 			//default code
-			Scene scene = new Scene(root, 500, 500);
+			Scene scene = new Scene(root, 750, 500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -98,6 +149,8 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+		
+		
 	}
 	
 }
