@@ -82,7 +82,7 @@ public abstract class BodyParts
 	 * 
 	 * @return the URL
 	 */
-	public String getURL()
+	public String getFilePath()
 	{
 		return this.filePath;
 	}
@@ -128,8 +128,9 @@ public abstract class BodyParts
 	 * sets the URL
 	 * @param url - where the image is stored
 	 */
-	public void setURL(String url)
+	public void setFilePath(String fP)
 	{
-		this.filePath = url;
+		this.filePath = fP;
+		System.out.println("NEW FILEPATH: " + fP);
 	}
 }
