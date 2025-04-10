@@ -1,4 +1,3 @@
-package com.javamaker;
 
 /**
  * @author Joy Janney
@@ -13,7 +12,7 @@ public abstract class BodyParts
 	String name;
 	int xAxis;
 	int yAxis;
-	String URL;
+	String filePath;
 	
 	/**
 	 * Default constructor for BodyParts
@@ -24,7 +23,7 @@ public abstract class BodyParts
 		this.name = "";
 		this.xAxis = 0;
 		this.yAxis = 0;
-		this.URL = "";
+		this.filePath = "";
 	}
 	
 	/**
@@ -39,7 +38,7 @@ public abstract class BodyParts
 	{
 		this.type = t;
 		this.name = n;
-		this.URL = url;
+		this.filePath = url;
 		this.xAxis = x;
 		this.yAxis = y;
 	}
@@ -83,9 +82,9 @@ public abstract class BodyParts
 	 * 
 	 * @return the URL
 	 */
-	public String getURL()
+	public String getFilePath()
 	{
-		return this.URL;
+		return this.filePath;
 	}
 	
 	
@@ -129,8 +128,9 @@ public abstract class BodyParts
 	 * sets the URL
 	 * @param url - where the image is stored
 	 */
-	public void setURL(String url)
+	public void setFilePath(String fP)
 	{
-		this.URL = url;
+		this.filePath = fP;
+		System.out.println("NEW FILEPATH: " + fP);
 	}
 }
