@@ -166,7 +166,7 @@ public class Main extends Application {
 	
 	public ImageView ImageButton(String filePath, int size)
 	{
-		Image image = new Image(String.format("file:" + FileOrg.eyeFindFile(filePath)));
+		Image image = new Image(String.format("file:" + FileOrg.headFindFile(filePath)));
 		ImageView imageView = new ImageView(image);
 		imageView.setFitWidth(50);
 		imageView.setPreserveRatio(true);
