@@ -1,6 +1,9 @@
 package com.javamaker.Api;
 
 import java.util.regex.Pattern;
+
+import com.javamaker.Modules.FileOrg;
+
 import javafx.scene.image.Image;
 
 /**
@@ -13,59 +16,61 @@ import javafx.scene.image.Image;
 public class ImageHandler {
     
     /**
-     * <h4> Translates the image url to a JavaFX image object </h4>
+     * <h4> Translates the image fileName to a JavaFX image object </h4>
      * 
      * Width and height by default are 500px
      * 
-     * @param URL The Image URL 
-     * @return An JavaFX Image object from the URL
+     * @param fileName The Image fileName 
+     * @return An JavaFX Image object from the fileName
      */
-    public static Image translateImage(String URL) {
+    public static Image translateImage(String fileName) {
         
-        // Ensure that the URL is not empty
-        if(URL.equals("") || URL.equals(null)) {
+        // Ensure that the fileName is not empty
+        if(fileName.equals("") || fileName.equals(null)) {
             throw new NullPointerException();
         }
 
-        //TODO: Check with the others about what type of URL we are using, and where the 
+        //TODO: Check with the others about what type of fileName we are using, and where the 
         //      files will be located
 
-        if(!(Pattern.matches("*.png", URL))) { // Regex match to ensure valid URL
-            throw new IllegalArgumentException(); 
-        }
+        // if(!(Pattern.matches("*.png", fileName))) { // Regex match to ensure valid fileName
+        //     throw new IllegalArgumentException(); 
+        // }
 
+        String file = FileOrg.findFile(fileName);
 
-
-        return new Image(URL, 500, 500, false, false);
+        return new Image(String.format("file: " + file), 500, 500, false, false);
     }
 
     /**
-     * <h4> Translates the image url to a JavafX image object </h4>
+     * <h4> Translates the image fileName to a JavafX image object </h4>
      * 
      * This overload also includes parameters for width and height of the image
      * 
-     * @param URL The Image URL
+     * @param fileName The image file name
      * @param w The width of the image
      * @param h The height of the image 
-     * @return A JavaFX Image object from the URL
+     * @return A JavaFX Image object from the fileName
      */
-    public static Image translateImage(String URL, int w, int h) {
+    public static Image translateImage(String fileName, int w, int h) {
         
-        // Ensure that the URL is not empty
-        if(URL.equals("") || URL.equals(null)) {
+        // Ensure that the fileName is not empty
+        if(fileName.equals("") || fileName.equals(null)) {
             throw new NullPointerException();
         }
 
-        //TODO: Check with the others about what type of URL we are using, and where the 
+        //TODO: Check with the others about what type of fileName we are using, and where the 
         //      files will be located
 
-        if(!(Pattern.matches("*.png", URL))) { // Regex match to ensure valid URL
+        if(!(Pattern.matches("*.png", fileName))) { // Regex match to ensure valid fileName
             throw new IllegalArgumentException(); 
         }
 
 
+        String file = FileOrg.findFile(fileName);
 
-        return new Image(URL, w, h, false, false);
+
+        return new Image(file, w, h, false, false);
     }
 
 }
