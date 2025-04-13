@@ -1,5 +1,6 @@
-package application;
-class Head extends BodyParts
+package com.javamaker.Modules;
+
+public class Head extends BodyParts
 {
 	String type;
 	String name;

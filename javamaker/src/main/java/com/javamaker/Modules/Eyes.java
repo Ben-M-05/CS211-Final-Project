@@ -1,4 +1,7 @@
-package application;
+package com.javamaker.Modules;
+
+import com.javamaker.Modules.FileOrg;
+
 class Eyes extends BodyParts
 {
 	String type;

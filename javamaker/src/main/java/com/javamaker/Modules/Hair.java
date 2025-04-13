@@ -1,4 +1,4 @@
-package application;
+package com.javamaker.Modules;
 class Hair extends BodyParts
 {
 	String type;

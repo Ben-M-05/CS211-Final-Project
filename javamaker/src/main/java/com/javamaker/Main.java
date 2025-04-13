@@ -1,6 +1,9 @@
-package application;
+package com.javamaker;
 import java.io.File;
 import java.util.Scanner;
+
+import com.javamaker.Modules.FileOrg;
+import com.javamaker.Modules.Head;
 
 import java.io.FileNotFoundException;
 	
@@ -148,7 +151,7 @@ public class Main extends Application {
 
 			//default code
 			Scene scene = new Scene(root, 750, 500);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		}

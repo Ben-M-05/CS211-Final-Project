@@ -1,4 +1,5 @@
-package application;
+package com.javamaker.Modules;
+
 class Torso extends BodyParts
 {
 	String type;

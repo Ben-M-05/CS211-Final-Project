@@ -30,7 +30,7 @@ public class ImageHandler {
         //TODO: Check with the others about what type of URL we are using, and where the 
         //      files will be located
 
-        if(!(Pattern.matches("https://.[a-z][0-9]", URL))) { // Regex match to ensure valid URL
+        if(!(Pattern.matches("*.png", URL))) { // Regex match to ensure valid URL
             throw new IllegalArgumentException(); 
         }
 
@@ -59,7 +59,7 @@ public class ImageHandler {
         //TODO: Check with the others about what type of URL we are using, and where the 
         //      files will be located
 
-        if(!(Pattern.matches("https://.[a-z][0-9]", URL))) { // Regex match to ensure valid URL
+        if(!(Pattern.matches("*.png", URL))) { // Regex match to ensure valid URL
             throw new IllegalArgumentException(); 
         }
 

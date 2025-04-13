@@ -1,15 +1,16 @@
 package javamaker;
-import com.javamaker.Api.ImageHandler;
 
-import javafx.scene.image.Image;
+import com.javamaker.Api.ImageHandler;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import javafx.scene.image.Image;
 
 
-public class _imageHandlerTest {
+
+public class imageHandlerTest {
 
     @Test
-    public void startup() {
+    void startup() {
         assertEquals(0, 0);
     }
 

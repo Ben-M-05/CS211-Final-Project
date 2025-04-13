@@ -1,4 +1,4 @@
-package application;
+package com.javamaker.Modules;
 import java.util.HashMap; // taken from https://www.w3schools.com/java/java_hashmap.asp
 
 /**
