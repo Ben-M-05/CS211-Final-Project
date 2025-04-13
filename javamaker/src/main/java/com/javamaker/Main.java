@@ -37,7 +37,7 @@ public class Main extends Application {
 			 * Center - The image of their avatr
 			 */
 			BorderPane root = new BorderPane();
-			Head userHead = new Head();
+			Person userPerson = new Person();
 			
 			//FIXME need to update when generate feature is working
 			//Preparing the avatar image
@@ -50,9 +50,8 @@ public class Main extends Application {
 			//preparing the left option pane
 			VBox partsOption = new VBox();
 			root.setRight(partsOption);
-      
+			
 			// Head Buttons	- Sarah Parr		
-
 			Image head01 = new Image(String.format("file:" + FileOrg.findFile("head01")));
 			ImageView iHead01 = new ImageView(head01);
 			iHead01.setFitWidth(50);
@@ -83,7 +82,6 @@ public class Main extends Application {
 			iHead06.setFitWidth(50);
 			iHead06.setPreserveRatio(true);
 			
-
 			// Options - Sarah Parr
 			Button bHead1 = new Button("", iHead01);
 			Button bHead2 = new Button("", iHead02);
@@ -93,15 +91,14 @@ public class Main extends Application {
 			Button bHead6 = new Button("", iHead06);
 			
 			//updating the FilePath if the user selects a new head - Joy Janney
-			bHead1.setOnAction(a -> userHead.setFilePath(FileOrg.findFile("head01")));
-			bHead2.setOnAction(a -> userHead.setFilePath(FileOrg.findFile("head02")));
-			bHead3.setOnAction(a -> userHead.setFilePath(FileOrg.findFile("head03")));
-			bHead4.setOnAction(a -> userHead.setFilePath(FileOrg.findFile("head04")));
-			bHead5.setOnAction(a -> userHead.setFilePath(FileOrg.findFile("head05")));
-			bHead6.setOnAction(a -> userHead.setFilePath(FileOrg.findFile("head06")));
+			bHead1.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head01")));
+			bHead2.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head02")));
+			bHead3.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head03")));
+			bHead4.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head04")));
+			bHead5.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head05")));
+			bHead6.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head06")));
 			
 			// Head tab - Sarah Parr
-
 			GridPane gpHead = new GridPane();
 			gpHead.add(bHead1, 0, 0);
 			gpHead.add(bHead2, 1, 0);
@@ -169,3 +166,4 @@ public class Main extends Application {
 	}
 	
 }
+
