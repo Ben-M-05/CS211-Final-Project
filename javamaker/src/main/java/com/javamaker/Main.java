@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.javamaker.Modules.FileOrg;
 import com.javamaker.Modules.Head;
+import com.javamaker.Modules.Person;
 
 //TODO: Once Joy finishes the Person class
 //import com.javamaker.Modules.Person; 
@@ -40,7 +41,7 @@ public class Main extends Application {
 			 * Center - The image of their avatr
 			 */
 			BorderPane root = new BorderPane();
-			//Person userPerson = new Person();
+			Person userPerson = new Person();
 			
 			//FIXME need to update when generate feature is working
 			//Preparing the avatar image
@@ -93,13 +94,13 @@ public class Main extends Application {
 			Button bHead5 = new Button("", iHead05);
 			Button bHead6 = new Button("", iHead06);
 			
-			// //updating the FilePath if the user selects a new head - Joy Janney
-			// bHead1.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head01")));
-			// bHead2.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head02")));
-			// bHead3.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head03")));
-			// bHead4.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head04")));
-			// bHead5.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head05")));
-			// bHead6.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head06")));
+			//updating the FilePath if the user selects a new head - Joy Janney
+			bHead1.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head01")));
+			bHead2.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head02")));
+			bHead3.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head03")));
+			bHead4.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head04")));
+			bHead5.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head05")));
+			bHead6.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head06")));
 			
 			// Head tab - Sarah Parr
 			GridPane gpHead = new GridPane();
