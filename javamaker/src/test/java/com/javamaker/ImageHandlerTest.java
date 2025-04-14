@@ -21,6 +21,7 @@ public class ImageHandlerTest {
 
     @BeforeClass 
     public static void startup() throws Exception{
+        System.out.println("Starting tests...");
         CountDownLatch latch = new CountDownLatch(1);
         Platform.startup(() -> {
             latch.countDown();
@@ -30,7 +31,8 @@ public class ImageHandlerTest {
 
     @Test
     public void FileValidation() {
-        Image testImage = new Image(String.format("file: " + FileOrg.findFile("eye01")));
+        System.out.println("Test: File Validation");
+        Image testImage = new Image(String.format("file:" + FileOrg.findFile("eye01")));
         Image resultImage = ImageHandler.translateImage("eye01");
 
         assertEquals(testImage.getUrl(), resultImage.getUrl());
