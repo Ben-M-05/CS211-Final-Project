@@ -27,7 +27,7 @@ public class ImageHandler {
         
         // Ensure that the fileName is not empty
         if(fileName.equals("") || fileName.equals(null)) {
-            throw new NullPointerException();
+            throw new NullPointerException("Unknown Body Part type: \"\" ");
         }
 
         //TODO: Check with the others about what type of fileName we are using, and where the 
@@ -39,7 +39,7 @@ public class ImageHandler {
 
         String file = FileOrg.findFile(fileName);
 
-        return new Image(String.format("file: " + file), 500, 500, false, false);
+        return new Image(String.format("file:" + file), 500, 500, false, false);
     }
 
     /**
@@ -70,7 +70,7 @@ public class ImageHandler {
         String file = FileOrg.findFile(fileName);
 
 
-        return new Image(file, w, h, false, false);
+        return new Image(String.format("file:" + file), w, h, false, false);
     }
 
 }

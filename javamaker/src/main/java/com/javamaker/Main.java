@@ -6,8 +6,8 @@ import com.javamaker.Modules.FileOrg;
 import com.javamaker.Modules.Head;
 import com.javamaker.Modules.Person;
 
-//TODO: Once Joy finishes the Person class
-//import com.javamaker.Modules.Person; 
+import com.javamaker.Modules.Person; 
+import com.javamaker.Api.ImageHandler;
 
 import java.io.FileNotFoundException;
 	
@@ -45,7 +45,8 @@ public class Main extends Application {
 			
 			//FIXME need to update when generate feature is working
 			//Preparing the avatar image
-			Image portrait = new Image(String.format("file:" + FileOrg.findFile("eye01")));
+			System.out.println("Loading Image: " + FileOrg.findFile("eye01"));
+			Image portrait = ImageHandler.translateImage("eye01");
 			ImageView portraitI = new ImageView(portrait);
 			portraitI.setFitWidth(200);
 			portraitI.setPreserveRatio(true);
@@ -95,12 +96,12 @@ public class Main extends Application {
 			Button bHead6 = new Button("", iHead06);
 			
 			//updating the FilePath if the user selects a new head - Joy Janney
-			bHead1.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head01")));
-			bHead2.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head02")));
-			bHead3.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head03")));
-			bHead4.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head04")));
-			bHead5.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head05")));
-			bHead6.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head06")));
+			// bHead1.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head01")));
+			// bHead2.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head02")));
+			// bHead3.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head03")));
+			// bHead4.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head04")));
+			// bHead5.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head05")));
+			// bHead6.setOnAction(a -> userPerson.setHead(FileOrg.findFile("head06")));
 			
 			// Head tab - Sarah Parr
 			GridPane gpHead = new GridPane();
@@ -165,8 +166,6 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		
-		
 	}
 	
 }

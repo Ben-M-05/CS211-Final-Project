@@ -30,8 +30,8 @@ public class ImageHandlerTest {
 
     @Test
     public void FileValidation() {
-        Image testImage = new Image(String.format("file: " + FileOrg.findFile("torso06")));
-        Image resultImage = ImageHandler.translateImage("torso06");
+        Image testImage = new Image(String.format("file: " + FileOrg.findFile("eye01")));
+        Image resultImage = ImageHandler.translateImage("eye01");
 
         assertEquals(testImage.getUrl(), resultImage.getUrl());
     }
