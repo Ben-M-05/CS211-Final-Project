@@ -1,9 +1,11 @@
 package application;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import java.io.FileNotFoundException;
-	
+import java.lang.reflect.Array;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,7 +27,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			final int buttonSize = 50;
+			final int buttonSize = 75;
 			/*
 			 * The display will include three portions: top, left, and center
 			 * Top - The body buttons that will take the user to the correct
@@ -49,71 +51,85 @@ public class Main extends Application {
 			VBox partsOption = new VBox();
 			root.setRight(partsOption);
 			
-			// Head Buttons	- Sarah Parr	
+			// Head Buttons	- OG Sarah Parr	New Joy Janney
 			//https://www.w3schools.com/howto/howto_css_button_on_image.asp
-			Button head01 = new Button("", ImageButton(FileOrg.eyeFindFile("eye01"), 50));
-			Button head02 = new Button("", ImageButton(FileOrg.eyeFindFile("eye02"), 50));
-			Button head03 = new Button("", ImageButton(FileOrg.eyeFindFile("eye03"), 50));
-			Button head04 = new Button("", ImageButton(FileOrg.eyeFindFile("eye04"), 50));
-			Button head05 = new Button("", ImageButton(FileOrg.eyeFindFile("eye05"), 50));
-			Button head06 = new Button("", ImageButton(FileOrg.eyeFindFile("eye06"), 50));
 			
-			/*Image head01 = new Image(String.format("file:" + FileOrg.headFindFile("head01")));
-			ImageView iHead01 = new ImageView(head01);
-			iHead01.setFitWidth(50);
-			iHead01.setPreserveRatio(true);
+			/*
+			 * The names of the hashmaps follow a pattern, [bodypart]xx
+			 * Accordingly, we will loop through all of the hasmaps to display the images
+			 * The buttons will be created and added to a gridpane of their respective body part
+			 * #FIXME make it all one loop. right now i'm having issues with 01 and 10 being
+			 * 		in the same loop
+			 */
 			
-			Image head02 = new Image(String.format("file:" + FileOrg.headFindFile("head02")));
-			ImageView iHead02 = new ImageView(head02);
-			iHead02.setFitWidth(50);
-			iHead02.setPreserveRatio(true);
+			//Making the eye grid pane and adding the eye images as buttons
+			GridPane gpEye = new GridPane();
+			for(int i = 1; i < FileOrg.getEyeLength() && i < 10; i++)
+			{
+				Button eyeImageButton = new Button("", imageButton(String.format("eye0" + i), buttonSize));
+				String t = String.format("eye0" + i);
+				eyeImageButton.setOnAction(a -> userPerson.getEyes().setFilePath(FileOrg.eyeFindFile(t)));
+				gpEye.add(eyeImageButton, (i-1)%3, ((i-1)/3));
+			}
 			
-			Image head03 = new Image(String.format("file:" + FileOrg.headFindFile("head03")));
-			ImageView iHead03 = new ImageView(head03);
-			iHead03.setFitWidth(50);
-			iHead03.setPreserveRatio(true);
+			for(int i = 10; i < FileOrg.getEyeLength(); i++)
+			{
+				String key = String.format("eye" + i);
+				Button eyeImageButton = new Button("", imageButton(key, buttonSize));
+				eyeImageButton.setOnAction(a -> userPerson.getEyes().setFilePath(FileOrg.eyeFindFile(key)));
+				gpEye.add(eyeImageButton, (i-1)%3, ((i-1)/3));
+			}
 			
-			Image head04 = new Image(String.format("file:" + FileOrg.headFindFile("head04")));
-			ImageView iHead04 = new ImageView(head04);
-			iHead04.setFitWidth(50);
-			iHead04.setPreserveRatio(true);
 			
-			Image head05 = new Image(String.format("file:" + FileOrg.headFindFile("head05")));
-			ImageView iHead05 = new ImageView(head05);
-			iHead05.setFitWidth(50);
-			iHead05.setPreserveRatio(true);
+			//Creating the hair gridpane and adding the buttons to it
+			GridPane gpHair = new GridPane();
+			for(int i = 1; i < FileOrg.getHairLength() && i < FileOrg.getHairLength(); i++)
+			{
+				String key = String.format("Hair0" + i);
+				Button hairImageButton = new Button("", imageButton(key, buttonSize));
+				hairImageButton.setOnAction(a -> userPerson.getHair().setFilePath(FileOrg.hairFindFile(key)));
+				gpHair.add(hairImageButton, (i-1)%3, ((i-1)/3));
+			}
+			for(int i = 10; i < FileOrg.getHairLength() && i < FileOrg.getHairLength(); i++)
+			{
+				String key = String.format("Hair" + i);
+				Button hairImageButton = new Button("", imageButton(key, buttonSize));
+				hairImageButton.setOnAction(a -> userPerson.getHair().setFilePath(FileOrg.hairFindFile(key)));
+				gpHair.add(hairImageButton, (i-1)%3, ((i-1)/3));
+			}
 			
-			Image head06 = new Image(String.format("file:" + FileOrg.headFindFile("head06")));
-			ImageView iHead06 = new ImageView(head06);
-			iHead06.setFitWidth(50);
-			iHead06.setPreserveRatio(true);*/
 			
-			// Options - Sarah Parr
-					
-			Button bHead1 = new Button("", ImageButton("head01", 50));
-			Button bHead2 = new Button("", ImageButton("head02", 50));
-			Button bHead3 = new Button("", ImageButton("head03", 50));
-			Button bHead4 = new Button("", ImageButton("head04", 50));
-			Button bHead5 = new Button("", ImageButton("head05", 50));
-			Button bHead6 = new Button("", ImageButton("head06", 50));
+			//Creating the torso gridpane and adding the buttons to it
+			GridPane gpTorso = new GridPane();
+			for(int i = 1; i < 10 && i < FileOrg.getTorsoLength(); i++)
+			{
+				String key = String.format("torso0" + i);
+				Button torsoImageButton = new Button("", imageButton(key, buttonSize));
+				torsoImageButton.setOnAction(a -> userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key)));
+				gpTorso.add(torsoImageButton, (i-1)%3, ((i-1)/3));
+			}
 			
-			//updating the FilePath if the user selects a new head - Joy Janney
-			bHead1.setOnAction(a -> userPerson.getHead().setFilePath(FileOrg.eyeFindFile("head01")));
-			bHead2.setOnAction(a -> userPerson.getHead().setFilePath(FileOrg.eyeFindFile("head02")));
-			bHead3.setOnAction(a -> userPerson.getHead().setFilePath(FileOrg.eyeFindFile("head03")));
-			bHead4.setOnAction(a -> userPerson.getHead().setFilePath(FileOrg.eyeFindFile("head04")));
-			bHead5.setOnAction(a -> userPerson.getHead().setFilePath(FileOrg.eyeFindFile("head05")));
-			bHead6.setOnAction(a -> userPerson.getHead().setFilePath(FileOrg.eyeFindFile("head06")));
+			for(int i = 10; i < FileOrg.getTorsoLength(); i++)
+			{
+				String key = String.format("torso" + i);
+				Button torsoImageButton = new Button("", imageButton(key, buttonSize));
+				torsoImageButton.setOnAction(a -> userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key)));
+				gpTorso.add(torsoImageButton, (i-1)%3, ((i-1)/3));
+			}
 			
-			// Head tab - Sarah Parr
+			
+			//Creating the head gridpane and adding the buttons to it
 			GridPane gpHead = new GridPane();
-			gpHead.add(bHead1, 0, 0);
-			gpHead.add(bHead2, 1, 0);
-			gpHead.add(bHead3, 2, 0);
-			gpHead.add(bHead4, 0, 1);
-			gpHead.add(bHead5, 1, 1);
-			gpHead.add(bHead6, 2, 1);
-			
+			// Options - Sarah Parr
+			for(int i = 1; i < FileOrg.getHeadLength()+1; i++)
+			{
+				Button headImageButton = new Button("", imageButton(String.format("head0" + i), buttonSize));
+				String t = String.format("head0" + i);
+				System.out.println(t);
+				headImageButton.setOnAction(a -> userPerson.getHead().setFilePath(FileOrg.headFindFile(t)));
+				gpHead.add(headImageButton, (i-1)%3, ((i-1)/3));
+			}
+			root.setRight(gpHead); //Presenting a GridPane to display to the user
 			Button headButton = new Button("Head");
 			headButton.setOnAction(a -> root.setRight(gpHead));
 			
@@ -121,28 +137,23 @@ public class Main extends Application {
 				
 			//https://docs.oracle.com/javafx/2/ui_controls/button.html
 			
-			/*If they select a new button for the top, a new VBox will be display
-			 * The VBoxes will only show the user the options related to the tab
+			/*If they select a new button for the top, a new GridPane will be display
+			 * The GridPane will only show the user the options related to the tab
 			 * Basically, if they click eye, it will show them the eye options
 			 */
-			
-			Button eye01 = new Button("", ImageButton(FileOrg.eyeFindFile("eye01"), 50));
-			GridPane eyePane = new GridPane();
-			eyePane.add(eye01, 0, 0);
-			
 			Button torsoButton = new Button("Torso");
-			//torsoButton.setOnAction(a -> root.setRight(torsoVBox));
+			torsoButton.setOnAction(a -> root.setRight(gpTorso));
 			
 			Button eyeButton = new Button("Eye");
-			eyeButton.setOnAction(a -> root.setRight(eyePane));
+			eyeButton.setOnAction(a -> root.setRight(gpEye));
 			
 			Button hairButton = new Button("Hair");
-			//hairButton.setOnAction(a -> root.setRight(hairVBox));
+			hairButton.setOnAction(a -> root.setRight(gpHair));
 			
 			//Preparing the options in the top button in a HBOX
 			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton);
 			
-			//Displaying the buttons and the avator image
+			//Displaying the buttons and the avatar image
 			root.setTop(bodyParts);
 
 			//default code
@@ -164,13 +175,13 @@ public class Main extends Application {
 		
 	}
 	
-	public ImageView ImageButton(String filePath, int size)
+	public ImageView imageButton(String filePath, int size)
 	{
-		Image image = new Image(String.format("file:" + FileOrg.headFindFile(filePath)));
+		Image image = new Image(String.format("file:" + FileOrg.findFile(filePath)));
 		ImageView imageView = new ImageView(image);
-		imageView.setFitWidth(50);
+		imageView.setFitWidth(size);
 		imageView.setPreserveRatio(true);
 		return imageView;
 	}
-	
 }
+
