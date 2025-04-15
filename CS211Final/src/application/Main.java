@@ -27,7 +27,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			final int buttonSize = 75;
+			final int BUTTON_SIZE = 75;
 			/*
 			 * The display will include three portions: top, left, and center
 			 * Top - The body buttons that will take the user to the correct
@@ -66,7 +66,7 @@ public class Main extends Application {
 			GridPane gpEye = new GridPane();
 			for(int i = 1; i < FileOrg.getEyeLength() && i < 10; i++)
 			{
-				Button eyeImageButton = new Button("", imageButton(String.format("eye0" + i), buttonSize));
+				Button eyeImageButton = new Button("", imageButton(String.format("eye0" + i), BUTTON_SIZE));
 				String t = String.format("eye0" + i);
 				eyeImageButton.setOnAction(a -> {
 					try {
@@ -82,7 +82,7 @@ public class Main extends Application {
 			for(int i = 10; i < FileOrg.getEyeLength(); i++)
 			{
 				String key = String.format("eye" + i);
-				Button eyeImageButton = new Button("", imageButton(key, buttonSize));
+				Button eyeImageButton = new Button("", imageButton(key, BUTTON_SIZE));
 				eyeImageButton.setOnAction(a -> {
 					try {
 						userPerson.getEyes().setFilePath(FileOrg.eyeFindFile(key));
@@ -100,7 +100,7 @@ public class Main extends Application {
 			for(int i = 1; i < FileOrg.getHairLength() && i < 10; i++)
 			{
 				String key = String.format("Hair0" + i);
-				Button hairImageButton = new Button("", imageButton(key, buttonSize));
+				Button hairImageButton = new Button("", imageButton(key, BUTTON_SIZE));
 				hairImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHair().setFilePath(FileOrg.hairFindFile(key));
@@ -114,7 +114,7 @@ public class Main extends Application {
 			for(int i = 10; i < FileOrg.getHairLength() && i < FileOrg.getHairLength(); i++)
 			{
 				String key = String.format("Hair" + i);
-				Button hairImageButton = new Button("", imageButton(key, buttonSize));
+				Button hairImageButton = new Button("", imageButton(key, BUTTON_SIZE));
 				hairImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHair().setFilePath(FileOrg.hairFindFile(key));
@@ -132,7 +132,7 @@ public class Main extends Application {
 			for(int i = 1; i < 10 && i < FileOrg.getTorsoLength(); i++)
 			{
 				String key = String.format("torso0" + i);
-				Button torsoImageButton = new Button("", imageButton(key, buttonSize));
+				Button torsoImageButton = new Button("", imageButton(key, BUTTON_SIZE));
 				torsoImageButton.setOnAction(a -> {
 					try {
 						userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key));
@@ -147,7 +147,7 @@ public class Main extends Application {
 			for(int i = 10; i < FileOrg.getTorsoLength(); i++)
 			{
 				String key = String.format("torso" + i);
-				Button torsoImageButton = new Button("", imageButton(key, buttonSize));
+				Button torsoImageButton = new Button("", imageButton(key, BUTTON_SIZE));
 				torsoImageButton.setOnAction(a -> {
 					try {
 						userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key));
@@ -165,9 +165,8 @@ public class Main extends Application {
 			// Options - Sarah Parr
 			for(int i = 1; i < FileOrg.getHeadLength()+1; i++)
 			{
-				Button headImageButton = new Button("", imageButton(String.format("head0" + i), buttonSize));
+				Button headImageButton = new Button("", imageButton(String.format("head0" + i), BUTTON_SIZE));
 				String t = String.format("head0" + i);
-				System.out.println(t);
 				headImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHead().setFilePath(FileOrg.headFindFile(t));
@@ -178,15 +177,12 @@ public class Main extends Application {
 				});
 				gpHead.add(headImageButton, (i-1)%3, ((i-1)/3));
 			}
-			//Button nb = new Button("", imageButton("6", buttonSize));
+			//Button nb = new Button("", imageButton("6", BUTTON_SIZE));
 			root.setRight(gpHead); //Presenting a GridPane to display to the user
 			Button headButton = new Button("Head");
 			headButton.setOnAction(a -> root.setRight(gpHead));
-			
-		///
 				
 			//https://docs.oracle.com/javafx/2/ui_controls/button.html
-			
 			/*If they select a new button for the top, a new GridPane will be display
 			 * The GridPane will only show the user the options related to the tab
 			 * Basically, if they click eye, it will show them the eye options
