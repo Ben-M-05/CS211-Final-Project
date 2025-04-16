@@ -9,6 +9,7 @@ import java.lang.reflect.Array;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -27,7 +28,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			final int BUTTON_SIZE = 75;
+			final int IMAGE_BUTTON_SIZE = 75;
+			final double TEXT_BUTTON_HEIGHT = 35;
+			final double TEXT_BUTTON_WIDTH = 60;
 			/*
 			 * The display will include three portions: top, left, and center
 			 * Top - The body buttons that will take the user to the correct
@@ -64,25 +67,14 @@ public class Main extends Application {
 			
 			//Making the eye grid pane and adding the eye images as buttons
 			GridPane gpEye = new GridPane();
-			for(int i = 1; i < FileOrg.getEyeLength() && i < 10; i++)
+			for(int i = 1; i < FileOrg.getEyeLength()+1; i++)
 			{
-				Button eyeImageButton = new Button("", imageButton(String.format("eye0" + i), BUTTON_SIZE));
-				String t = String.format("eye0" + i);
-				eyeImageButton.setOnAction(a -> {
-					try {
-						userPerson.getEyes().setFilePath(FileOrg.eyeFindFile(t));
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				});
-				gpEye.add(eyeImageButton, (i-1)%3, ((i-1)/3));
-			}
-			
-			for(int i = 10; i < FileOrg.getEyeLength(); i++)
-			{
-				String key = String.format("eye" + i);
-				Button eyeImageButton = new Button("", imageButton(key, BUTTON_SIZE));
+				String key;
+				if(i<10)
+					key = String.format("eye0" + i);
+				else
+					key = String.format("eye" + i);
+				Button eyeImageButton = new Button("", imageButton(key, IMAGE_BUTTON_SIZE));
 				eyeImageButton.setOnAction(a -> {
 					try {
 						userPerson.getEyes().setFilePath(FileOrg.eyeFindFile(key));
@@ -95,26 +87,17 @@ public class Main extends Application {
 			}
 			
 			
+			
 			//Creating the hair gridpane and adding the buttons to it
 			GridPane gpHair = new GridPane();
-			for(int i = 1; i < FileOrg.getHairLength() && i < 10; i++)
+			for(int i = 1; i < FileOrg.getHairLength()+1; i++)
 			{
-				String key = String.format("Hair0" + i);
-				Button hairImageButton = new Button("", imageButton(key, BUTTON_SIZE));
-				hairImageButton.setOnAction(a -> {
-					try {
-						userPerson.getHair().setFilePath(FileOrg.hairFindFile(key));
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				});
-				gpHair.add(hairImageButton, (i-1)%3, ((i-1)/3));
-			}
-			for(int i = 10; i < FileOrg.getHairLength() && i < FileOrg.getHairLength(); i++)
-			{
-				String key = String.format("Hair" + i);
-				Button hairImageButton = new Button("", imageButton(key, BUTTON_SIZE));
+				String key;
+				if(i<10)
+					key = String.format("Hair0" + i);
+				else
+					key = String.format("Hair" + i);
+				Button hairImageButton = new Button("", imageButton(key, IMAGE_BUTTON_SIZE));
 				hairImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHair().setFilePath(FileOrg.hairFindFile(key));
@@ -129,10 +112,14 @@ public class Main extends Application {
 			
 			//Creating the torso gridpane and adding the buttons to it
 			GridPane gpTorso = new GridPane();
-			for(int i = 1; i < 10 && i < FileOrg.getTorsoLength(); i++)
+			for(int i = 1;i < FileOrg.getTorsoLength()+1; i++)
 			{
-				String key = String.format("torso0" + i);
-				Button torsoImageButton = new Button("", imageButton(key, BUTTON_SIZE));
+				String key;
+				if(i<10)
+					 key = String.format("torso0" + i);
+				else
+					key = String.format("torso" + i);
+				Button torsoImageButton = new Button("", imageButton(key, IMAGE_BUTTON_SIZE));
 				torsoImageButton.setOnAction(a -> {
 					try {
 						userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key));
@@ -142,30 +129,13 @@ public class Main extends Application {
 					}
 				});
 				gpTorso.add(torsoImageButton, (i-1)%3, ((i-1)/3));
-			}
-			
-			for(int i = 10; i < FileOrg.getTorsoLength(); i++)
-			{
-				String key = String.format("torso" + i);
-				Button torsoImageButton = new Button("", imageButton(key, BUTTON_SIZE));
-				torsoImageButton.setOnAction(a -> {
-					try {
-						userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key));
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				});
-				gpTorso.add(torsoImageButton, (i-1)%3, ((i-1)/3));
-			}
-			
+			}			
 			
 			//Creating the head gridpane and adding the buttons to it
 			GridPane gpHead = new GridPane();
-			// Options - Sarah Parr
 			for(int i = 1; i < FileOrg.getHeadLength()+1; i++)
 			{
-				Button headImageButton = new Button("", imageButton(String.format("head0" + i), BUTTON_SIZE));
+				Button headImageButton = new Button("", imageButton(String.format("head0" + i), IMAGE_BUTTON_SIZE));
 				String t = String.format("head0" + i);
 				headImageButton.setOnAction(a -> {
 					try {
@@ -177,9 +147,10 @@ public class Main extends Application {
 				});
 				gpHead.add(headImageButton, (i-1)%3, ((i-1)/3));
 			}
-			//Button nb = new Button("", imageButton("6", BUTTON_SIZE));
+			//Button nb = new Button("", imageButton("6", IMAGE_BUTTON_SIZE));
 			root.setRight(gpHead); //Presenting a GridPane to display to the user
 			Button headButton = new Button("Head");
+			headButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			headButton.setOnAction(a -> root.setRight(gpHead));
 				
 			//https://docs.oracle.com/javafx/2/ui_controls/button.html
@@ -188,22 +159,26 @@ public class Main extends Application {
 			 * Basically, if they click eye, it will show them the eye options
 			 */
 			Button torsoButton = new Button("Torso");
+			torsoButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			torsoButton.setOnAction(a -> root.setRight(gpTorso));
 			
 			Button eyeButton = new Button("Eye");
+			eyeButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			eyeButton.setOnAction(a -> root.setRight(gpEye));
 			
 			Button hairButton = new Button("Hair");
+			hairButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			hairButton.setOnAction(a -> root.setRight(gpHair));
 			
 			//Preparing the options in the top button in a HBOX
 			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton);
+			bodyParts.setAlignment(Pos.TOP_RIGHT);
 			
 			//Displaying the buttons and the avatar image
 			root.setTop(bodyParts);
 
 			//default code
-			Scene scene = new Scene(root, 750, 500);
+			Scene scene = new Scene(root, 750, 600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
