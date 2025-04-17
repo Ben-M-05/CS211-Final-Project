@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -41,14 +42,14 @@ public class Main extends Application {
 			 */
 			BorderPane root = new BorderPane();
 			Person userPerson = new Person();
+			StackPane pane = new StackPane();
 			
 			//FIXME need to update when generate feature is working
 			//Preparing the avatar image
-			Image portrait = new Image(String.format("file:" + FileOrg.eyeFindFile("eye01")));
-			ImageView portraitI = new ImageView(portrait);
+			ImageView portraitI = ImageHandler.translateImage("eye01");
 			portraitI.setFitWidth(200);
 			portraitI.setPreserveRatio(true);
-			root.setCenter(portraitI);
+			//root.setCenter(portraitI);
 			
 			//preparing the left option pane
 			VBox partsOption = new VBox();
@@ -100,8 +101,8 @@ public class Main extends Application {
 				Button hairImageButton = new Button("", imageButton(key, IMAGE_BUTTON_SIZE));
 				hairImageButton.setOnAction(a -> {
 					try {
-						userPerson.getHair().setFilePath(FileOrg.hairFindFile(key));
-					} catch (FileNotFoundException e) {
+						userPerson.getHair().setFilePath(key);
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -123,8 +124,8 @@ public class Main extends Application {
 				//The lambda function must be named because Sarah's version will not accept unnamed lambda functions
 				torsoImageButton.setOnAction(a -> {
 					try {
-						userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key));
-					} catch (FileNotFoundException e) {
+						userPerson.getTorso().setFilePath(key);
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -175,9 +176,17 @@ public class Main extends Application {
 			//Preparing the options in the top button in a HBOX
 			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton);
 			bodyParts.setAlignment(Pos.TOP_RIGHT);
-			
+
+			Button displayButton = new Button("Display!");
+			displayButton.setOnAction(e ->  {
+				AvatarWindow.display(pane, userPerson);
+			});
+
+			HBox avatarBox = new HBox(pane, displayButton);
+
 			//Displaying the buttons and the avatar image
 			root.setTop(bodyParts);
+			root.setCenter(avatarBox);
 
 			//default code
 			Scene scene = new Scene(root, 750, 600);
@@ -200,8 +209,7 @@ public class Main extends Application {
 	
 	public ImageView imageButton(String filePath, int size) throws FileNotFoundException
 	{
-		Image image = new Image(String.format("file:" + FileOrg.findFile(filePath)));
-		ImageView imageView = new ImageView(image);
+		ImageView imageView = ImageHandler.translateImage(filePath);
 		imageView.setFitWidth(size);
 		imageView.setPreserveRatio(true);
 		return imageView;

@@ -19,6 +19,6 @@ class Head extends BodyParts
 	 * @throws FileNotFoundException
 	 */
 	Head() throws FileNotFoundException{
-		filePath = FileOrg.headFindFile("head01");
+		filePath = "head01";
 	}
 }

@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 //import com.javamaker.Modules.FileOrg;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * 
@@ -28,11 +29,11 @@ public class ImageHandler {
      * @return An JavaFX Image object from the fileName
      * @throws FileNotFoundException 
      */
-    public static Image translateImage(String fileName) throws FileNotFoundException {
+    public static ImageView translateImage(String fileName) throws FileNotFoundException {
         
         // Ensure that the fileName is not empty
         if(fileName.equals("") || fileName.equals(null)) {
-            throw new NullPointerException();
+            throw new NullPointerException("translateImage: File name is empty");
         }
 
         //TODO: Check with the others about what type of fileName we are using, and where the 
@@ -42,9 +43,11 @@ public class ImageHandler {
         //     throw new IllegalArgumentException(); 
         // }
 
+        
         String file = FileOrg.findFile(fileName);
 
-        return new Image(String.format("file: " + file), 500, 500, false, false);
+        Image image = new Image(String.format("file:" + file), 500, 500, false, false);
+        return new ImageView(image);
     }
 
     /**
