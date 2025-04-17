@@ -37,7 +37,7 @@ public class Main extends Application {
 			 * 			option pane.
 			 * Left - The option pane for the selected body part
 			 * 			These will be made of VBoxes that include images as buttons
-			 * Center - The image of their avatr
+			 * Center - The image of their avatar
 			 */
 			BorderPane root = new BorderPane();
 			Person userPerson = new Person();
@@ -120,6 +120,7 @@ public class Main extends Application {
 				else
 					key = String.format("torso" + i);
 				Button torsoImageButton = new Button("", imageButton(key, IMAGE_BUTTON_SIZE));
+				//The lambda function must be named because Sarah's version will not accept unnamed lambda functions
 				torsoImageButton.setOnAction(a -> {
 					try {
 						userPerson.getTorso().setFilePath(FileOrg.torsoFindFile(key));
@@ -140,6 +141,7 @@ public class Main extends Application {
 				headImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHead().setFilePath(FileOrg.headFindFile(t));
+						
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

@@ -2,6 +2,10 @@ package application;
 
 import java.io.FileNotFoundException;
 
+/**
+ * @author Joy Janney
+ * the hair class for the avatar
+ */
 class Hair extends BodyParts
 {
 	String type;
@@ -10,8 +14,12 @@ class Hair extends BodyParts
 	static int yAxis = 30;
 	String filePath;
 	
+	/**
+	 * Default constructor that sets the hair to Hair01 option
+	 * @throws FileNotFoundException
+	 */
 	Hair() throws FileNotFoundException
 	{
-		String filePath = FileOrg.hairFindFile("Hair01");
+		filePath = FileOrg.hairFindFile("Hair01");
 	}
 }
