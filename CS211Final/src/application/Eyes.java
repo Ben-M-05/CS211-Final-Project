@@ -12,7 +12,7 @@ class Eyes extends BodyParts
 	
 	Eyes() throws FileNotFoundException
 	{
-		String filePath = FileOrg.eyeFindFile("eye01");
+		filePath = "eye01";
 	}
 	
 	@Override

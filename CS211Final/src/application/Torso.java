@@ -12,6 +12,6 @@ class Torso extends BodyParts
 	
 	Torso() throws FileNotFoundException
 	{
-		filePath= FileOrg.torsoFindFile("torso01");
+		filePath = "torso01";
 	}
 }

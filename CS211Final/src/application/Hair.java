@@ -12,6 +12,6 @@ class Hair extends BodyParts
 	
 	Hair() throws FileNotFoundException
 	{
-		String filePath = FileOrg.hairFindFile("Hair01");
+		filePath = "Hair01";
 	}
 }
