@@ -4,9 +4,12 @@ import java.util.HashMap; // taken from https://www.w3schools.com/java/java_hash
 import java.io.FileNotFoundException;
 /**
  * @author Joy Janney
+ * This will hold the file locations and the getters for those locations
  */
 public final class FileOrg
 {
+	
+	//Hashmaps to hold the filepaths
 	//This will hold the file locations under their buttons names
 	static HashMap<String, String> eyeHashMap = new HashMap<String, String>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
@@ -30,10 +33,6 @@ public final class FileOrg
 		
 	}
 	
-	static public int getEyeLength()
-	{
-		return eyeHashMap.size();
-	}
 	
 	static HashMap<String, String> hairHashMap = new HashMap<String, String>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
@@ -70,10 +69,6 @@ public final class FileOrg
 		
 		
 	}
-	static public int getHairLength()
-	{
-		return hairHashMap.size();
-	}
 	
 	static HashMap<String, String> headHashMap = new HashMap<String, String>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
@@ -87,10 +82,6 @@ public final class FileOrg
 		headHashMap.put("head06","CS211Final/src/Images/head/head1-6.png");
 		
 		
-	}
-	static public int getHeadLength()
-	{
-		return headHashMap.size();
 	}
 	
 	static HashMap<String, String> torsoHashMap = new HashMap<String, String>();
@@ -112,11 +103,47 @@ public final class FileOrg
 		
 		
 	}
+	
+	//Getters for the length of the hashmap
+	
+	/**
+	 * 
+	 * @return size of the eyeHashMap
+	 */
+	static public int getEyeLength()
+	{
+		return eyeHashMap.size();
+	}
+	
+	/**
+	 * 
+	 * @return size of the hairHashMap
+	 */
+	static public int getHairLength()
+	{
+		return hairHashMap.size();
+	}
+	
+	/**
+	 * 
+	 * @return size of the torsoHashMap
+	 */
 	static public int getTorsoLength()
 	{
 		return torsoHashMap.size();
 	}
 	
+	/**
+	 * 
+	 * @return size of the headHashMap
+	 */
+	static public int getHeadLength()
+	{
+		return headHashMap.size();
+	}
+	
+	
+	//Getters for the filepath
 	/**
 	 * Takes the button name and returns the file path
 	 * @author Joy Janney
