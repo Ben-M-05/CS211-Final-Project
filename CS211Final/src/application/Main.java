@@ -43,6 +43,7 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			Person userPerson = new Person();
 			StackPane pane = new StackPane();
+
 			
 			//FIXME need to update when generate feature is working
 			//Preparing the avatar image
@@ -50,7 +51,9 @@ public class Main extends Application {
 			portraitI.setFitWidth(200);
 			portraitI.setPreserveRatio(true);
 			//root.setCenter(portraitI);
+
 			
+
 			//preparing the left option pane
 			VBox partsOption = new VBox();
 			root.setRight(partsOption);
