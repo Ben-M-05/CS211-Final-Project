@@ -13,4 +13,11 @@ class Head extends BodyParts
 	Head() throws FileNotFoundException{
 		filePath = "head01";
 	}
+
+	@Override
+	public void setFilePath(String fp)
+	{
+		filePath = fp;
+		System.out.println(fp);
+	}
 }

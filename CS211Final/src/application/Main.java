@@ -72,6 +72,7 @@ public class Main extends Application {
 				eyeImageButton.setOnAction(a -> {
 					try {
 						userPerson.getEyes().setFilePath(t);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -86,8 +87,8 @@ public class Main extends Application {
 				Button eyeImageButton = new Button("", imageButton(key, buttonSize));
 				eyeImageButton.setOnAction(a -> {
 					try {
-						userPerson.getEyes().setFilePath(FileOrg.eyeFindFile(key));
-					} catch (FileNotFoundException e) {
+						userPerson.getEyes().setFilePath(key);
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -105,6 +106,7 @@ public class Main extends Application {
 				hairImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHair().setFilePath(key);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -119,6 +121,7 @@ public class Main extends Application {
 				hairImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHair().setFilePath(key);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -137,6 +140,7 @@ public class Main extends Application {
 				torsoImageButton.setOnAction(a -> {
 					try {
 						userPerson.getTorso().setFilePath(key);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -152,6 +156,7 @@ public class Main extends Application {
 				torsoImageButton.setOnAction(a -> {
 					try {
 						userPerson.getTorso().setFilePath(key);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -172,6 +177,7 @@ public class Main extends Application {
 				headImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHead().setFilePath(t);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -203,20 +209,15 @@ public class Main extends Application {
 			
 			//Preparing the options in the top button in a HBOX
 			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton);
-
-			Button displayButton = new Button("Display!");
-			displayButton.setOnAction(e ->  {
-				AvatarWindow.display(pane, userPerson);
-			});
-
-			HBox avatarBox = new HBox(pane, displayButton);
+			AvatarWindow.display(pane, userPerson);
+			HBox avatarBox = new HBox(pane);
 
 			//Displaying the buttons and the avatar image
 			root.setTop(bodyParts);
 			root.setCenter(avatarBox);
 
 			//default code
-			Scene scene = new Scene(root, 750, 500);
+			Scene scene = new Scene(root, 950, 700);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
