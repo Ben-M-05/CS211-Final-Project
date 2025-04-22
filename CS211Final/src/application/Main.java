@@ -78,8 +78,8 @@ public class Main extends Application {
 				Button eyeImageButton = new Button("", imageButton(key, IMAGE_BUTTON_SIZE));
 				eyeImageButton.setOnAction(a -> {
 					try {
-						userPerson.getEyes().setFilePath(FileOrg.eyeFindFile(key));
-					} catch (FileNotFoundException e) {
+						userPerson.getEyes().setFilePath(key);
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -102,6 +102,7 @@ public class Main extends Application {
 				hairImageButton.setOnAction(a -> {
 					try {
 						userPerson.getHair().setFilePath(key);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -125,6 +126,7 @@ public class Main extends Application {
 				torsoImageButton.setOnAction(a -> {
 					try {
 						userPerson.getTorso().setFilePath(key);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -141,9 +143,9 @@ public class Main extends Application {
 				String t = String.format("head0" + i);
 				headImageButton.setOnAction(a -> {
 					try {
-						userPerson.getHead().setFilePath(FileOrg.headFindFile(t));
-						
-					} catch (FileNotFoundException e) {
+						userPerson.getHead().setFilePath(t);
+						AvatarWindow.display(pane, userPerson);
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
