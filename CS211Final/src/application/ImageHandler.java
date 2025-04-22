@@ -92,7 +92,6 @@ public class ImageHandler {
     public static void modifySize(ImageView image, int width, int height) {
         image.setFitHeight(height);
         image.setFitWidth(width);
-        
     }   
-
+ 
 }
