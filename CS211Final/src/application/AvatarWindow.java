@@ -27,6 +27,10 @@ public class AvatarWindow {
         //TODO: Theres definitely a much better solution, but this is just for testing
 
         try {
+            System.out.println("Hair: " + person.getHair().filePath);
+            System.out.println("Head: " + person.getHead().filePath);
+            System.out.println("Torso: " + person.getTorso().filePath);
+            System.out.println("Eyes: " + person.getEyes().filePath);
             ImageView eyeView = ImageHandler.translateImage(person.getEyes().filePath);
         
             ImageView headView = ImageHandler.translateImage(person.getHead().filePath);

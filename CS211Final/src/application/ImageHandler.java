@@ -33,7 +33,7 @@ public class ImageHandler {
         
         // Ensure that the fileName is not empty
         if(fileName.equals("") || fileName.equals(null)) {
-            throw new NullPointerException("translateImage: File name is empty");
+            throw new NullPointerException("translateImage: File name is empty (" + fileName + ")");
         }
 
         //TODO: Check with the others about what type of fileName we are using, and where the 

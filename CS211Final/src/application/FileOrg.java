@@ -11,52 +11,59 @@ public final class FileOrg
 	
 	//Hashmaps to hold the filepaths
 	//This will hold the file locations under their buttons names
-	static HashMap<String, String> eyeHashMap = new HashMap<String, String>();
+	static HashMap<String, HashMap<String, String>> eyeHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
-
+		HashMap<String, String> eyeStyle1 = new HashMap<String, String>();
 		//importing eyes with no lashes
-		eyeHashMap.put("eye01", "CS211Final/src/Images/eyes/noLash/eyes1-1.png");
-		eyeHashMap.put("eye02", "CS211Final/src/Images/eyes/noLash/eyes1-2.png");
-		eyeHashMap.put("eye03", "CS211Final/src/Images/eyes/noLash/eyes1-3.png");
-		eyeHashMap.put("eye04", "CS211Final/src/Images/eyes/noLash/eyes1-4.png");
-		eyeHashMap.put("eye05", "CS211Final/src/Images/eyes/noLash/eyes1-5.png");
-		eyeHashMap.put("eye06", "CS211Final/src/Images/eyes/noLash/eyes1-6.png");
+		eyeHashMap.put("eyeStyle1", eyeStyle1);//https://www.baeldung.com/java-initialize-hashmap
 
-		//importing eyes with lashes
-		eyeHashMap.put("eye07", "CS211Final/src/Images/eyes/withLash/eyes2-1.png");
-		eyeHashMap.put("eye08", "CS211Final/src/Images/eyes/withLash/eyes2-2.png");
-		eyeHashMap.put("eye09", "CS211Final/src/Images/eyes/withLash/eyes2-3.png");
-		eyeHashMap.put("eye10", "CS211Final/src/Images/eyes/withLash/eyes2-4.png");
-		eyeHashMap.put("eye11", "CS211Final/src/Images/eyes/withLash/eyes2-5.png");
-		eyeHashMap.put("eye12", "CS211Final/src/Images/eyes/withLash/eyes2-6.png");
-		
+			//importing eyes with no lashes
+		eyeStyle1.put("eye1-01", "CS211Final/src/Images/eyes/noLash/eyes1-1.png");
+		eyeStyle1.put("eye1-02", "CS211Final/src/Images/eyes/noLash/eyes1-2.png");
+		eyeStyle1.put("eye1-03", "CS211Final/src/Images/eyes/noLash/eyes1-3.png");
+		eyeStyle1.put("eye1-04", "CS211Final/src/Images/eyes/noLash/eyes1-4.png");
+		eyeStyle1.put("eye1-05", "CS211Final/src/Images/eyes/noLash/eyes1-5.png");
+		eyeStyle1.put("eye1-06", "CS211Final/src/Images/eyes/noLash/eyes1-6.png");
+
+		HashMap<String, String> eyeStyle2 = new HashMap<String, String>();
+		eyeHashMap.put("eyeStyle2", eyeStyle2);//https://www.baeldung.com/java-initialize-hashmap
+
+			//importing eyes with lashes
+		eyeStyle2.put("eye2-01", "CS211Final/src/Images/eyes/withLash/eyes2-1.png");
+		eyeStyle2.put("eye2-02", "CS211Final/src/Images/eyes/withLash/eyes2-2.png");
+		eyeStyle2.put("eye2-03", "CS211Final/src/Images/eyes/withLash/eyes2-3.png");
+		eyeStyle2.put("eye2-04", "CS211Final/src/Images/eyes/withLash/eyes2-4.png");
+		eyeStyle2.put("eye2-05", "CS211Final/src/Images/eyes/withLash/eyes2-5.png");
+		eyeStyle2.put("eye2-06", "CS211Final/src/Images/eyes/withLash/eyes2-6.png");
 		
 	}
 	
 	
-	static HashMap<String, String> hairHashMap = new HashMap<String, String>();
+	static HashMap<String, HashMap<String, String>> hairHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
-		
+		HashMap<String, String> hairStyle1 = new HashMap<String, String>();
+		hairHashMap.put("hairStyle1", hairStyle1);
 		//importing front female hair
-		hairHashMap.put("Hair01", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-1.png");
-		hairHashMap.put("Hair02", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-2.png");
-		hairHashMap.put("Hair03", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-3.png");
-		hairHashMap.put("Hair04", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-4.png");
-		hairHashMap.put("Hair05", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-5.png");
-		hairHashMap.put("Hair06", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-6.png");
-		hairHashMap.put("Hair07", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-7.png");
-		hairHashMap.put("Hair08", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-8.png");
+		hairStyle1.put("Hair1-01", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-1.png");
+		hairStyle1.put("Hair1-02", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-2.png");
+		hairStyle1.put("Hair1-03", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-3.png");
+		hairStyle1.put("Hair1-04", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-4.png");
+		hairStyle1.put("Hair1-05", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-5.png");
+		hairStyle1.put("Hair1-06", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-6.png");
+		hairStyle1.put("Hair1-07", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-7.png");
+		hairStyle1.put("Hair1-08", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-8.png");
 		
+		HashMap<String, String> hairStyle2 = new HashMap<String, String>();
+		hairHashMap.put("hairStyle2", hairStyle2);
 		//importing front male hair
-		hairHashMap.put("Hair09","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-1.png");
-		hairHashMap.put("Hair10","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-2.png");
-		hairHashMap.put("Hair11","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-3.png");
-		hairHashMap.put("Hair12","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-4.png");
-		hairHashMap.put("Hair13","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-5.png");
-		hairHashMap.put("Hair14","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-6.png");
-		hairHashMap.put("Hair15","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-7.png");
-		hairHashMap.put("Hair16","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-8.png");
-		
+		hairStyle2.put("Hair2-01","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-1.png");
+		hairStyle2.put("Hair2-02","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-2.png");
+		hairStyle2.put("Hair2-03","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-3.png");
+		hairStyle2.put("Hair2-04","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-4.png");
+		hairStyle2.put("Hair2-05","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-5.png");
+		hairStyle2.put("Hair2-06","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-6.png");
+		hairStyle2.put("Hair2-07","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-7.png");
+		hairStyle2.put("Hair2-08","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-8.png");
 		//importing back female hair
 		/*hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-1.png");
 		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-2.png");
@@ -70,37 +77,102 @@ public final class FileOrg
 		
 	}
 	
-	static HashMap<String, String> headHashMap = new HashMap<String, String>();
+	static HashMap<String, HashMap<String, String>> headHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
-		
+		HashMap<String, String> headStyle1 = new HashMap<String, String>();
+		headHashMap.put("headStyle1", headStyle1);
 		//importing the heads
-		headHashMap.put("head01","CS211Final/src/Images/head/head1-1.png");
-		headHashMap.put("head02","CS211Final/src/Images/head/head1-2.png");
-		headHashMap.put("head03","CS211Final/src/Images/head/head1-3.png");
-		headHashMap.put("head04","CS211Final/src/Images/head/head1-4.png");
-		headHashMap.put("head05","CS211Final/src/Images/head/head1-5.png");
-		headHashMap.put("head06","CS211Final/src/Images/head/head1-6.png");
-		
-		
+		headStyle1.put("head1-01","CS211Final/src/Images/head/head1-1.png");
+		headStyle1.put("head1-02","CS211Final/src/Images/head/head1-2.png");
+		headStyle1.put("head1-03","CS211Final/src/Images/head/head1-3.png");
+		headStyle1.put("head1-04","CS211Final/src/Images/head/head1-4.png");
+		headStyle1.put("head1-05","CS211Final/src/Images/head/head1-5.png");
+		headStyle1.put("head1-06","CS211Final/src/Images/head/head1-6.png");
 	}
 	
-	static HashMap<String, String> torsoHashMap = new HashMap<String, String>();
+	static HashMap<String, HashMap<String, String>> torsoHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
-		
+		HashMap<String, String> torsoStyle1 = new HashMap<String, String>();
+		torsoHashMap.put("torsoStyle1", torsoStyle1);
 		//importing the torsos
-		torsoHashMap.put("torso01","CS211Final/src/Images/torso/torso1-01.png");
-		torsoHashMap.put("torso02","CS211Final/src/Images/torso/torso1-02.png");
-		torsoHashMap.put("torso03","CS211Final/src/Images/torso/torso1-03.png");
-		torsoHashMap.put("torso04","CS211Final/src/Images/torso/torso1-04.png");
-		torsoHashMap.put("torso05","CS211Final/src/Images/torso/torso1-05.png");
-		torsoHashMap.put("torso06","CS211Final/src/Images/torso/torso1-06.png");
-		torsoHashMap.put("torso07","CS211Final/src/Images/torso/torso1-07.png");
-		torsoHashMap.put("torso08","CS211Final/src/Images/torso/torso1-08.png");
-		torsoHashMap.put("torso09","CS211Final/src/Images/torso/torso1-09.png");
-		torsoHashMap.put("torso10","CS211Final/src/Images/torso/torso1-10.png");
-		torsoHashMap.put("torso11","CS211Final/src/Images/torso/torso1-11.png");
-		torsoHashMap.put("torso12","CS211Final/src/Images/torso/torso1-12.png");
+		torsoStyle1.put("torso1-12","CS211Final/src/Images/torso/torso1-01.png");
+		torsoStyle1.put("torso1-02","CS211Final/src/Images/torso/torso1-02.png");
+		torsoStyle1.put("torso1-03","CS211Final/src/Images/torso/torso1-03.png");
+		torsoStyle1.put("torso1-04","CS211Final/src/Images/torso/torso1-04.png");
+		torsoStyle1.put("torso1-05","CS211Final/src/Images/torso/torso1-05.png");
+		torsoStyle1.put("torso1-06","CS211Final/src/Images/torso/torso1-06.png");
+		torsoStyle1.put("torso1-07","CS211Final/src/Images/torso/torso1-07.png");
+		torsoStyle1.put("torso1-08","CS211Final/src/Images/torso/torso1-08.png");
+		torsoStyle1.put("torso1-09","CS211Final/src/Images/torso/torso1-09.png");
+		torsoStyle1.put("torso1-10","CS211Final/src/Images/torso/torso1-10.png");
+		torsoStyle1.put("torso1-11","CS211Final/src/Images/torso/torso1-11.png");
+		torsoStyle1.put("torso1-01","CS211Final/src/Images/torso/torso1-12.png");	
+	}
+	
+	/*
+	 * This will keep track of the color associated with each image
+	 */
+	static HashMap<String, String> colorHashMap = new HashMap<String, String>();
+	static{
+		/* Eye */
+		//style 1
+		colorHashMap.put("eye1-01", "#000000");
+		colorHashMap.put("eye1-02", "#6d7070");	
+		colorHashMap.put("eye1-03", "#603e2f");	
+		colorHashMap.put("eye1-04", "#605e36");	
+		colorHashMap.put("eye1-05", "#4954a3");	
+		colorHashMap.put("eye1-06", "#466f5a");
+		//style 2
+		colorHashMap.put("eye2-01", "#000000");	
+		colorHashMap.put("eye2-02", "#6d7070");	
+		colorHashMap.put("eye2-03", "#60402f");	
+		colorHashMap.put("eye2-04", "#605e36");	
+		colorHashMap.put("eye2-05", "#4954a2");	
+		colorHashMap.put("eye2-06", "#466f5a");	
+	
+		/* Hair */
+		//style 1
+		colorHashMap.put("Hair1-01", "#191919");
+		colorHashMap.put("Hair1-02", "#3b2213");
+		colorHashMap.put("Hair1-03", "#541d10");
+		colorHashMap.put("Hair1-04", "#733d1e");
+		colorHashMap.put("Hair1-05", "#7e7e85");
+		colorHashMap.put("Hair1-06", "#55471c");
+		colorHashMap.put("Hair1-07", "#714f22");
+		colorHashMap.put("Hair1-08", "#cfad61");
+		//style 2
+		colorHashMap.put("Hair2-01", "#1c1c1c");
+		colorHashMap.put("Hair2-02", "#462817");
+		colorHashMap.put("Hair2-03", "#682414");
+		colorHashMap.put("Hair2-04", "#8e4c24");
+		colorHashMap.put("Hair2-05", "#8e8e95");
+		colorHashMap.put("Hair2-06", "#5b4c1e");
+		colorHashMap.put("Hair2-07", "#956a2e");
+		colorHashMap.put("Hair2-08", "#d0b063");
+
+		/* Head */
+		//style 1
+		colorHashMap.put("head1-01","#fbe5d1");
+		colorHashMap.put("head1-02","#f7d097");
+		colorHashMap.put("head1-03","#e0a867");
+		colorHashMap.put("head1-04","#f8d3c2");
+		colorHashMap.put("head1-05","#b1693d");
+		colorHashMap.put("head1-06","#4d3d30");
 		
+		/* Torso */
+		//style 1
+		colorHashMap.put("torso1-12","#c43526");
+		colorHashMap.put("torso1-02","#ee7c38");
+		colorHashMap.put("torso1-03","#f9db51");
+		colorHashMap.put("torso1-04","#93d349");
+		colorHashMap.put("torso1-05","#377d3c");
+		colorHashMap.put("torso1-06","#224bb1");
+		colorHashMap.put("torso1-07","#60addb");
+		colorHashMap.put("torso1-08","#e46985");
+		colorHashMap.put("torso1-09","#712fac");
+		colorHashMap.put("torso1-10","#493c1e");
+		colorHashMap.put("torso1-11","#e2e2e2");
+		colorHashMap.put("torso1-01","#191916");	
 		
 	}
 	
@@ -154,9 +226,18 @@ public final class FileOrg
 	 */
 	public static String eyeFindFile(String key) throws FileNotFoundException
 	{
-		if(eyeHashMap.get(key)==null)
-			throw new FileNotFoundException("ERROR: FILE NOT FOUND IN ANY HASHMAP");
-		return eyeHashMap.get(key);
+		HashMap<String, String> temp = new HashMap<String, String>();
+		for(String i : eyeHashMap.keySet())
+		{
+			temp = eyeHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				//System.out.println("File found: " + temp.get(key));
+				return temp.get(key);
+			}
+				
+		}
+		return "";
 	}
 	
 	/**
@@ -169,9 +250,21 @@ public final class FileOrg
 	 */
 	public static String hairFindFile(String key) throws FileNotFoundException
 	{
-		if(hairHashMap.get(key)==null)
-			throw new FileNotFoundException("ERROR: FILE NOT FOUND IN HAIR HASHMAP");
-		return hairHashMap.get(key);
+		HashMap<String, String> temp = new HashMap<String, String>();
+		for(String i : hairHashMap.keySet())
+		{
+			//System.out.println("HashMap Big: " + i);
+			temp = hairHashMap.get(i);
+			//System.out.println("Key: " + key);
+			//System.out.println("HashMap: " + temp.keySet());
+			if(temp.get(key)!=null)
+			{
+				//System.out.println("\n***File found: " + temp.get(key) + "\n\n\n");
+				return temp.get(key);
+			}
+				
+		}
+		return "";
 	}
 	
 	/**
@@ -184,9 +277,18 @@ public final class FileOrg
 	 */
 	public static String headFindFile(String key) throws FileNotFoundException
 	{
-		if(headHashMap.get(key)==null)
-			throw new FileNotFoundException("ERROR: FILE NOT FOUND IN HEAD HASHMAP");
-		return headHashMap.get(key);
+		HashMap<String, String> temp = new HashMap<String, String>();
+		for(String i : headHashMap.keySet())
+		{
+			temp = headHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				//System.out.println("File found: " + temp.get(key));
+				return temp.get(key);
+			}
+				
+		}
+		return "";
 	}
 	
 	/**
@@ -199,9 +301,18 @@ public final class FileOrg
 	 */
 	public static String torsoFindFile(String key) throws FileNotFoundException
 	{
-		if(torsoHashMap.get(key)==null)
-			throw new FileNotFoundException("ERROR: FILE NOT FOUND IN TORSO HASHMAP");
-		return torsoHashMap.get(key);
+		HashMap<String, String> temp = new HashMap<String, String>();
+		for(String i : torsoHashMap.keySet())
+		{
+			temp = torsoHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				//System.out.println("File found: " + temp.get(key));
+				return temp.get(key);
+			}
+				
+		}
+		return "";
 	}
 	
 	/**
@@ -216,13 +327,13 @@ public final class FileOrg
 	{
 		//It calls the other methods to see if they have the file path
 		//If not, it moves on to the next one
-		if(eyeHashMap.get(key)!= null)
+		if(eyeFindFile(key)!= "")
 			return eyeFindFile(key);
-		else if(hairHashMap.get(key)!= null)
+		else if(hairFindFile(key)!= "")
 			return hairFindFile(key);
-		else if(headHashMap.get(key)!= null)
+		else if(headFindFile(key)!= "")
 			return headFindFile(key);
-		else if(torsoHashMap.get(key)!= null)
+		else if(torsoFindFile(key)!= "")
 			return torsoFindFile(key);
 		else
 			throw new FileNotFoundException("ERROR: FILE NOT FOUND IN ANY HASHMAP");

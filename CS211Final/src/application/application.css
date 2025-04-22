@@ -1,1 +1,63 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+/*https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/apply-css.htm#:~:
+ * text=Setting%20Styles%20in%20the%20Code&text=Example%2037%2D9%20shows%20how,font%20color%20for%20a%20button.&text=
+ * Button%20buttonColor%20%3D%20new%20Button(%22,shows%20how%20the%20button%20appears.
+ */
+ 
+ /* CSS done by Sarah Parr */
+
+/* Side Panel Options (Buttons & Gridpane */
+.bOpt
+{
+	-fx-color: #e9e9f0;
+	-fx-border-radius: 15px;
+	-fx-background-radius: 15px;
+	-fx-border-color: #5c5d5e;
+	-fx-border-width: 4px;
+	-fx-alignment: baseline-center;
+	-fx-focus-color: transparent;
+}
+
+.bOpt:focused
+{
+	-fx-color: #43bf9a;
+}
+
+.gpOpt
+{
+	-fx-padding: 10px;
+	-fx-spacing: 20px;
+	-fx-background-color: #d9d9db;
+	-fx-border-color: #b1b6ba;
+	-fx-border-width: 5px;
+	-fx-border-radius: 5px;
+	-fx-background-radius: 5px;
+}
+
+/* Header/Main Buttons */
+.bMain
+{
+	-fx-color: #a7a7a8;
+	-fx-border-radius: 5px;
+	-fx-background-radius: 5px;
+	-fx-border-color: #5c5d5e;
+	-fx-border-width: 4px;
+	-fx-focus-color: transparent;
+	-fx-text-base-color: white;
+}
+
+.bMain:focused
+{
+	-fx-color: #43bf9a;
+}
+
+.hbMain
+{
+	-fx-padding: 2px;
+	-fx-background-color: #d9d9db;
+	-fx-border-color: #b1b6ba;
+	-fx-border-width: 5px;
+	-fx-border-radius: 5px;
+	-fx-background-radius: 5px;
+}

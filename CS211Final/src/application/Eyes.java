@@ -20,7 +20,7 @@ class Eyes extends BodyParts
 	 */
 	Eyes() throws FileNotFoundException
 	{
-		filePath = "eye01";
+		filePath = "eye1-01";
 	}
 	
 	@Override
@@ -31,6 +31,5 @@ class Eyes extends BodyParts
 	public void setFilePath(String fp)
 	{
 		filePath = fp;
-		System.out.println(fp);
 	}
 }

@@ -1,4 +1,7 @@
 package application;
+
+import java.io.FileNotFoundException;
+
 /**
  * @author Joy Janney
  * This is the abstract class that all of the part parts will
@@ -84,7 +87,7 @@ public abstract class BodyParts
 	 */
 	public String getFilePath()
 	{
-		return this.filePath;
+		return filePath;
 	}
 	
 	
@@ -127,10 +130,16 @@ public abstract class BodyParts
 	/**
 	 * sets the URL
 	 * @param url - where the image is stored
+	 * @throws FileNotFoundException 
 	 */
 	public void setFilePath(String fP)
 	{
-		this.filePath = fP;
-		System.out.println("NEW FILEPATH: " + fP);
+		filePath = fP;
+		try {
+			System.out.println("New FilePath: " + FileOrg.findFile(fP));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
