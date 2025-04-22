@@ -1,11 +1,10 @@
 package application;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -82,6 +81,7 @@ public class Main extends Application {
 				eyeImageButton.setOnAction(a -> {
 					try {
 						userPerson.getEyes().setFilePath(key);
+						AvatarWindow.display(pane, userPerson);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -182,12 +182,9 @@ public class Main extends Application {
 			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton);
 			bodyParts.setAlignment(Pos.TOP_RIGHT);
 
-			Button displayButton = new Button("Display!");
-			displayButton.setOnAction(e ->  {
-				AvatarWindow.display(pane, userPerson);
-			});
+			AvatarWindow.display(pane, userPerson);
 
-			HBox avatarBox = new HBox(pane, displayButton);
+			HBox avatarBox = new HBox(pane);
 
 			//Displaying the buttons and the avatar image
 			root.setTop(bodyParts);
