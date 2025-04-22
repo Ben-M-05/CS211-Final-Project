@@ -16,7 +16,7 @@ import javafx.scene.image.ImageView;
  * The ImageHandler class will handle processing the images to display on the frontend.
  * 
  * @author Ben Maigur
- * @version 0.0.1
+ * @version 1.0.1
  */
 public class ImageHandler {
     
@@ -46,7 +46,7 @@ public class ImageHandler {
         
         String file = FileOrg.findFile(fileName);
 
-        Image image = new Image(String.format("file:" + file), 500, 500, false, false);
+        Image image = new Image(String.format("file:" + file), 500, 500, true, false);
         return new ImageView(image);
     }
 
@@ -79,7 +79,20 @@ public class ImageHandler {
         String file = FileOrg.findFile(fileName);
 
 
-        return new Image(file, w, h, false, false);
+        return new Image(file, w, h, true, false);
     }
+
+    /**
+     * Modifies the size of the component
+     * 
+     * @param image Image being modified 
+     * @param width New width of the image
+     * @param height New height of the image
+     */
+    public static void modifySize(ImageView image, int width, int height) {
+        image.setFitHeight(height);
+        image.setFitWidth(width);
+        
+    }   
 
 }
