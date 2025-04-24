@@ -40,15 +40,13 @@ public class AvatarWindow {
             ImageView hairView = ImageHandler.translateImage(person.getHair().getFilePath());
             
 
-            System.out.println(person.getHair().filePath);
-            System.out.println(person.getHead().filePath);
-            System.out.println(person.getTorso().filePath);
-            System.out.println(person.getEyes().filePath);
-
-            if(!(pane.getChildren().isEmpty())) {
-                pane.getChildren().removeAll();
-            } 
-            pane.getChildren().addAll(torsoView, headView, eyeView, hairView);
+            if(pane.getChildren().size() == 0) {
+                pane.getChildren().addAll(torsoView, headView, eyeView, hairView);
+            } else {
+                pane.getChildren().clear();
+                pane.getChildren().addAll(torsoView, headView, eyeView, hairView);
+            }
+            
         } catch(Exception e) {
             System.out.println(e);
         }
