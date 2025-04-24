@@ -68,8 +68,6 @@ public class Main extends Application {
 			 * The names of the hashmaps follow a pattern, [bodypart]xx
 			 * Accordingly, we will loop through all of the hasmaps to display the images
 			 * The buttons will be created and added to a gridpane of their respective body part
-			 * #FIXME make it all one loop. right now i'm having issues with 01 and 10 being
-			 * 		in the same loop
 			 */
 			
 			//Making the eye grid pane and adding the eye images as buttons
@@ -216,13 +214,13 @@ public class Main extends Application {
 	 * @return DELETE
 	 * @throws FileNotFoundException DELETE
 	 */
-	public ImageView imageButton(String filePath, int size) throws FileNotFoundException
+	/*public ImageView imageButton(String filePath, int size) throws FileNotFoundException
 	{
 		ImageView imageView = ImageHandler.translateImage(filePath);
 		imageView.setFitWidth(size);
 		imageView.setPreserveRatio(true);
 		return imageView;
-	}
+	}*/
 	
 	/**
 	 * This will display the colors of the selected body parts style that are available
@@ -267,7 +265,6 @@ public class Main extends Application {
 				if(key == "Hair")
 				{
 					p.getHair().setFilePath(i);
-					System.out.println("HAIR FILE PATH:" + p.getHair().getFilePath());
 				}
 				else if(key == "eye")
 				{
@@ -327,7 +324,10 @@ public class Main extends Application {
 			completeKey = hash.substring(1, end) + "-01";
 			
 			//Creating the style button
-			Button imageButton = new Button("", imageButton(completeKey, size));
+			System.out.println("Height: " + height + "Width: " + width);
+			Button imageButton = new Button("", ImageHandler.translateImage(completeKey, width, height));
+			imageButton.setMaxHeight(height);
+			imageButton.setMaxWidth(width);
 			imageButton.setAlignment(Pos.TOP_RIGHT);
 
 			int num = n;

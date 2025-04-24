@@ -61,7 +61,7 @@ public class ImageHandler {
      * @return A JavaFX Image object from the fileName
      * @throws FileNotFoundException if file not found
      */
-    public static Image translateImage(String fileName, int w, int h) throws FileNotFoundException {
+    public static ImageView translateImage(String fileName, int w, int h) throws FileNotFoundException {
         
         // Ensure that the fileName is not empty
         if(fileName.equals("") || fileName.equals(null)) {
@@ -71,15 +71,11 @@ public class ImageHandler {
         //TODO: Check with the others about what type of fileName we are using, and where the 
         //      files will be located
 
-        if(!(Pattern.matches("*.png", fileName))) { // Regex match to ensure valid fileName
-            throw new IllegalArgumentException(); 
-        }
-
 
         String file = FileOrg.findFile(fileName);
 
-
-        return new Image(file, w, h, false, false);
+        Image image = new Image(String.format("file:" + file), w, h, false, false);
+        return new ImageView(image);
     }
 
 }
