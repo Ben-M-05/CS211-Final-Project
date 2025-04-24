@@ -27,13 +27,13 @@ public class ImageHandler {
      * 
      * @param fileName The Image fileName 
      * @return An JavaFX Image object from the fileName
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException if file not found
      */
     public static ImageView translateImage(String fileName) throws FileNotFoundException {
         
         // Ensure that the fileName is not empty
         if(fileName.equals("") || fileName.equals(null)) {
-            throw new NullPointerException("translateImage: File name is empty");
+            throw new NullPointerException("translateImage: File name is empty (" + fileName + ")");
         }
 
         //TODO: Check with the others about what type of fileName we are using, and where the 
@@ -59,7 +59,7 @@ public class ImageHandler {
      * @param w The width of the image
      * @param h The height of the image 
      * @return A JavaFX Image object from the fileName
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException if file not found
      */
     public static Image translateImage(String fileName, int w, int h) throws FileNotFoundException {
         
