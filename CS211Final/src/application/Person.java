@@ -3,17 +3,33 @@ package application;
 import java.io.FileNotFoundException;
 
 /**
+ * This class houses the avatar Person
  * @author Joy Janney
  * This class will contain all of the objects for the person
  * This will allows for multiple avatars
  */
 public class Person
 {
+	/**
+	 * head object
+	 */
 	Head head;
+	/**
+	 * torso object
+	 */
 	Torso torso;
+	/**
+	 * eye object
+	 */
 	Eyes eyes;
+	/**
+	 * hair object
+	 */
 	Hair hair;
-	
+	/**
+	 * default constructor for the person
+	 * @throws FileNotFoundException if file not found
+	 */
 	Person() throws FileNotFoundException
 	{
 		head = new Head();
@@ -23,7 +39,7 @@ public class Person
 	}
 	
 	/**
-	 * Will return the head object for the avatar
+	 * returns the head object for the avatar
 	 * @return Head: the head object
 	 */
 	public Head getHead()
@@ -32,7 +48,7 @@ public class Person
 	}
 	
 	/**
-	 * Will return the torso object for the person
+	 * returns the torso object for the person
 	 * @return Torso: the torso object
 	 */
 	public Torso getTorso()
@@ -41,7 +57,7 @@ public class Person
 	}
 	
 	/**
-	 * Will return the eye object for the person
+	 * returns the eye object for the person
 	 * @return Eyes: the eyes object
 	 */
 	public Eyes getEyes()
@@ -50,7 +66,7 @@ public class Person
 	}
 	
 	/**
-	 * 
+	 * returns the hair object
 	 * @return Hair: the hair object
 	 */
 	public Hair getHair()
@@ -59,7 +75,7 @@ public class Person
 	}
 	
 	/**
-	 * Will copy a head object and set it to avatar's head
+	 * copies a head object and set it to avatar's head
 	 * @param h - Head: the head object to be copied
 	 */
 	public void setHead(Head h)
@@ -72,7 +88,7 @@ public class Person
 	}
 	
 	/**
-	 * Will copy a torso object and set it to the avatar's torso
+	 * copies a torso object and set it to the avatar's torso
 	 * @param t - Torso: the torso object to be copies\d
 	 */
 	public void setTorso(Torso t)
@@ -85,7 +101,7 @@ public class Person
 	}
 	
 	/**
-	 * Will copy a eye object and set it to the avatar's eyes
+	 * copes eye object and set it to the avatar's eyes
 	 * @param e - Eyes: the eye object to be copied
 	 */
 	public void setEyes(Eyes e)
@@ -98,7 +114,7 @@ public class Person
 	}
 	
 	/**
-	 * Will copy a hair object and set it to the avatar's hair
+	 * copies a hair object and set it to the avatar's hair
 	 * @param h - Hair: the hair object to be copied
 	 */
 	public void setHair(Hair h)

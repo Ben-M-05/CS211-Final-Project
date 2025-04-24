@@ -3,14 +3,23 @@ package application;
 import java.util.HashMap; // taken from https://www.w3schools.com/java/java_hashmap.asp
 import java.io.FileNotFoundException;
 /**
+ * holds the file locations and the getters for those locations
  * @author Joy Janney
- * This will hold the file locations and the getters for those locations
  */
 public final class FileOrg
 {
+	/**
+	 * defualt construcotr for FileOrg
+	 */
+	FileOrg(){
+		
+	}
 	
-	//Hashmaps to hold the filepaths
-	//This will hold the file locations under their buttons names
+	/**
+	 * Hashmaps to hold the filepaths
+	 * holds the file locations under their buttons names
+	 * 
+	 */
 	static HashMap<String, HashMap<String, String>> eyeHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		HashMap<String, String> eyeStyle1 = new HashMap<String, String>();
@@ -38,12 +47,14 @@ public final class FileOrg
 		
 	}
 	
-	
+	/**
+	 * This will hold the hair style hash maps
+	 */
 	static HashMap<String, HashMap<String, String>> hairHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		HashMap<String, String> hairStyle1 = new HashMap<String, String>();
 		hairHashMap.put("hairStyle1", hairStyle1);
-		//importing front female hair
+		//front female hair
 		hairStyle1.put("Hair1-01", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-1.png");
 		hairStyle1.put("Hair1-02", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-2.png");
 		hairStyle1.put("Hair1-03", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-3.png");
@@ -55,7 +66,7 @@ public final class FileOrg
 		
 		HashMap<String, String> hairStyle2 = new HashMap<String, String>();
 		hairHashMap.put("hairStyle2", hairStyle2);
-		//importing front male hair
+		//front male hair
 		hairStyle2.put("Hair2-01","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-1.png");
 		hairStyle2.put("Hair2-02","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-2.png");
 		hairStyle2.put("Hair2-03","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-3.png");
@@ -77,6 +88,9 @@ public final class FileOrg
 		
 	}
 	
+	/**
+	 * holds the head style hashmaps
+	 */
 	static HashMap<String, HashMap<String, String>> headHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		HashMap<String, String> headStyle1 = new HashMap<String, String>();
@@ -89,7 +103,9 @@ public final class FileOrg
 		headStyle1.put("head1-05","CS211Final/src/Images/head/head1-5.png");
 		headStyle1.put("head1-06","CS211Final/src/Images/head/head1-6.png");
 	}
-	
+	/**
+	 * Holds the torso style hashmaps
+	 */
 	static HashMap<String, HashMap<String, String>> torsoHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		HashMap<String, String> torsoStyle1 = new HashMap<String, String>();
@@ -109,8 +125,8 @@ public final class FileOrg
 		torsoStyle1.put("torso1-01","CS211Final/src/Images/torso/torso1-12.png");	
 	}
 	
-	/*
-	 * This will keep track of the color associated with each image
+	/**
+	 * keeps track of the color associated with each image
 	 */
 	static HashMap<String, String> colorHashMap = new HashMap<String, String>();
 	static{
@@ -179,7 +195,7 @@ public final class FileOrg
 	//Getters for the length of the hashmap
 	
 	/**
-	 * 
+	 * return the size of the eye hashmap
 	 * @return size of the eyeHashMap
 	 */
 	static public int getEyeLength()
@@ -188,7 +204,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * 
+	 * returns the size of the hair hashmap
 	 * @return size of the hairHashMap
 	 */
 	static public int getHairLength()
@@ -197,7 +213,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * 
+	 * returns the size of the torso hashmap
 	 * @return size of the torsoHashMap
 	 */
 	static public int getTorsoLength()
@@ -206,7 +222,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * 
+	 * returns the size of the head hashmap
 	 * @return size of the headHashMap
 	 */
 	static public int getHeadLength()
@@ -218,11 +234,10 @@ public final class FileOrg
 	//Getters for the filepath
 	/**
 	 * Takes the button name and returns the file path
-	 * @author Joy Janney
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException if file not found
 	 */
 	public static String eyeFindFile(String key) throws FileNotFoundException
 	{
@@ -242,11 +257,10 @@ public final class FileOrg
 	
 	/**
 	 * Takes the button name and returns the file path
-	 * @author Joy Janney
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException if file not found in png hashmap
 	 */
 	public static String hairFindFile(String key) throws FileNotFoundException
 	{
@@ -269,11 +283,10 @@ public final class FileOrg
 	
 	/**
 	 * Takes the button name and returns the file path
-	 * @author Joy Janney
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException if file not found
 	 */
 	public static String headFindFile(String key) throws FileNotFoundException
 	{
@@ -293,11 +306,10 @@ public final class FileOrg
 	
 	/**
 	 * Takes the button name and returns the file path
-	 * @author Joy Janney
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException if file not found in png hashmaps
 	 */
 	public static String torsoFindFile(String key) throws FileNotFoundException
 	{
@@ -318,10 +330,10 @@ public final class FileOrg
 	/**
 	 * Takes the button name and returns the file path
 	 * This one searched all of the hasmaps not just a specific one
-	 * @author Joy Janney
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
+	 * @throws FileNotFoundException if file not found
 	 */
 	public static String findFile(String key) throws FileNotFoundException
 	{

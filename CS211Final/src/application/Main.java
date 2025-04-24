@@ -26,11 +26,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 /**
- * @author Joy Janney except where otherwise marked
- * #FIXME Comment Me!!
+ * Main Class where the buttons will be created
+ * and user input recorded
  */
 public class Main extends Application {
+	
 	@Override
+	/**
+	 * The scene where everything will happen
+	 * @author Joy Janney
+	 */
 	public void start(Stage primaryStage) {
 		try {
 			final int IMAGE_BUTTON_SIZE = 75;
@@ -119,15 +124,15 @@ public class Main extends Application {
 			
 			
 			//Button nb = new Button("", imageButton("6", IMAGE_BUTTON_SIZE));
-			root.setRight(gpHead); //Presenting a GridPane to display to the user
+			root.setCenter(gpHead); //Presenting a GridPane to display to the user
 			Button headButton = new Button("Head");
 			headButton.getStyleClass().add("bMain");
 			headButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
 			headButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			headButton.setOnAction(a -> 
 			{
-				root.setRight(gpHead);
-				root.setCenter(blankGP);
+				root.setCenter(gpHead);
+				root.setRight(blankGP);
 			});
 				
 			//https://docs.oracle.com/javafx/2/ui_controls/button.html
@@ -142,9 +147,9 @@ public class Main extends Application {
 			torsoButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			torsoButton.setOnAction(a -> 
 			{
-				root.setRight(gpTorso);
+				root.setCenter(gpTorso);
 
-				root.setCenter(blankGP);
+				root.setRight(blankGP);
 			});
 			
 			//creating the eye style gridpane
@@ -154,8 +159,8 @@ public class Main extends Application {
 			eyeButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			eyeButton.setOnAction(a -> 
 			{
-				root.setRight(gpEye);
-				root.setCenter(blankGP);
+				root.setCenter(gpEye);
+				root.setRight(blankGP);
 			});
 			
 			//creating the hair style gridpane
@@ -165,8 +170,8 @@ public class Main extends Application {
 			hairButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
 			hairButton.setOnAction(a -> 
 			{
-				root.setRight(gpHair);
-				root.setCenter(blankGP);
+				root.setCenter(gpHair);
+				root.setRight(blankGP);
 			});
 			
 			//Preparing the options in the top button in a HBOX
@@ -194,12 +199,23 @@ public class Main extends Application {
 		}
 	}
 	
+	/**
+	 * does nothing except launch args
+	 * @param args nothing needs to be in here
+	 */
 	public static void main(String[] args) {
 		launch(args);
 		
 		
 	}
 	
+	/**
+	 * DELETE - SHOULD NOT USE
+	 * @param filePath DELETE
+	 * @param size DELETE
+	 * @return DELETE
+	 * @throws FileNotFoundException DELETE
+	 */
 	public ImageView imageButton(String filePath, int size) throws FileNotFoundException
 	{
 		ImageView imageView = ImageHandler.translateImage(filePath);
@@ -213,12 +229,12 @@ public class Main extends Application {
 	 * @param p - Person: the avatar that is currently being modified
 	 * @param size - int: the size of the button
 	 * @param key - String: the name of the body part
-	 * @param hm - HashMap<String, String>: the hasmap associated with the body part
+	 * @param hm - HashMap: the hasmap associated with the body part
 	 * @param styleNum - int: the number associated with that body part style
 	 * @param height - int: the height of the button
 	 * @param width - int: the width of the button
-	 * @return a GridPane with the colors of the style options
-	 * @throws FileNotFoundException
+	 * @param r - BorderPane: the root node of the stage
+	 * @throws FileNotFoundException - if file not found
 	 */
 	public void colorButtonGP(Person p, int size, String key,
 			HashMap<String, String> hm, int styleNum,BorderPane r,
@@ -251,10 +267,12 @@ public class Main extends Application {
 				if(key == "Hair")
 				{
 					p.getHair().setFilePath(i);
+					System.out.println("HAIR FILE PATH:" + p.getHair().getFilePath());
 				}
 				else if(key == "eye")
 				{
 					p.getEyes().setFilePath(i);
+					System.out.println("NEW: " + p.getEyes().getFilePath());
 				}
 				else if(key == "torso")
 				{
@@ -276,21 +294,20 @@ public class Main extends Application {
 			n++;
 		}
 		//displaying the gridpane
-		r.setCenter(gp);
+		r.setRight(gp);
 	}
 	
 	/**
-	 * 
+	 * Creates the style buttons for the body parts
 	 * @param p - Person: the avatar that is being updated
 	 * @param gp - GridPane: the gridpane that should be updated
 	 * @param size - the size of the button
 	 * @param key - String: what body part style options need to be dislpayed
-	 * @param hm - HashMap<String, HashMap<String, String>>:
-	 * 				the associated hashmap with the body part
+	 * @param hm - HashMap: the associated hashmap with the body part
 	 * @param r - BorderPane: the root node that should be updated
 	 * @param height - int: height of the button
 	 * @param width - int: width of the button
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException - if file not found
 	 */
 	public void styleButtonCreate(Person p, GridPane gp, int size, String key,
 			HashMap<String, HashMap<String, String>> hm, BorderPane r,

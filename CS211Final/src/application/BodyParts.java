@@ -3,18 +3,32 @@ package application;
 import java.io.FileNotFoundException;
 
 /**
- * @author Joy Janney
- * This is the abstract class that all of the part parts will
- * 	inherit from.
+ * Abstract class that all of the part parts will inherit from.
  * It includes basic items and functions that are needed to 
  * 	set and get the accessories
+ * @author Joy Janney
  */
-public abstract class BodyParts
+public class BodyParts
 {
+	/**
+	 * type
+	 */
 	String type;
+	/**
+	 * name
+	 */
 	String name;
+	/**
+	 * x axis
+	 */
 	int xAxis;
+	/**
+	 * y axis
+	 */
 	int yAxis;
+	/**
+	 * filepath
+	 */
 	String filePath;
 	
 	/**
@@ -47,6 +61,7 @@ public abstract class BodyParts
 	}
 	
 	/**
+	 * returns the type
 	 * @return the type
 	 */
 	public String getType()
@@ -55,7 +70,7 @@ public abstract class BodyParts
 	}
 	
 	/**
-	 *
+	 * returns the name
 	 * @return the name
 	 */
 	public String getName()
@@ -64,7 +79,7 @@ public abstract class BodyParts
 	}
 	
 	/**
-	 * 
+	 * returns the xaxis
 	 * @return the xAxis
 	 */
 	public int getXAxis()
@@ -73,8 +88,8 @@ public abstract class BodyParts
 	}
 	
 	/**
-	 * the y axis
-	 * @return
+	 * returns the y axis
+	 * @return the y axis
 	 */
 	public int getYAxis()
 	{
@@ -82,11 +97,12 @@ public abstract class BodyParts
 	}
 	
 	/**
-	 * 
-	 * @return the URL
+	 * returns the filepath
+	 * @return the filepath
 	 */
 	public String getFilePath()
 	{
+		System.out.println("**GETTING FP: " + filePath);
 		return filePath;
 	}
 	
@@ -129,8 +145,7 @@ public abstract class BodyParts
 	
 	/**
 	 * sets the URL
-	 * @param url - where the image is stored
-	 * @throws FileNotFoundException 
+	 * @param fP - String: where the image is stored
 	 */
 	public void setFilePath(String fP)
 	{

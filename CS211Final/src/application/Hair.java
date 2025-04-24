@@ -3,35 +3,50 @@ package application;
 import java.io.FileNotFoundException;
 
 /**
+ * Hair class
  * @author Joy Janney
- * the hair class for the avatar
  */
 class Hair extends BodyParts
 {
+	/**
+	 * type
+	 */
 	String type;
+	/**
+	 * name
+	 */
 	String name;
+	/**
+	 * x axis
+	 */
 	static int xAxis = 30;
+	/**
+	 * y axis
+	 */
 	static int yAxis = 30;
+	/**
+	 * filepath
+	 */
 	String filePath;
 	
 	/**
 	 * Default constructor that sets the hair to Hair01 option
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if file not found
 	 */
 	Hair() throws FileNotFoundException
 	{
-		filePath = "Hair1-01";
+		super.setFilePath("Hair1-01");
 	}
 	
-	@Override
+	//@Override
 	/**
 	 * Sets the eye to the image file provided
 	 * @param fp - the filepath of the image to set the eye to
 	 */
-	public void setFilePath(String fp)
+	/*public void setFilePath(String fp)
 	{
 
 		filePath = fp;
 		System.out.println("Hair New FilePath: " + filePath);
-	}
+	}*/
 }

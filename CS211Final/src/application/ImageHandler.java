@@ -27,7 +27,7 @@ public class ImageHandler {
      * 
      * @param fileName The Image fileName 
      * @return An JavaFX Image object from the fileName
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException if file not found
      */
     public static ImageView translateImage(String fileName) throws FileNotFoundException {
         
@@ -59,7 +59,7 @@ public class ImageHandler {
      * @param w The width of the image
      * @param h The height of the image 
      * @return A JavaFX Image object from the fileName
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException if file not found
      */
     public static Image translateImage(String fileName, int w, int h) throws FileNotFoundException {
         
