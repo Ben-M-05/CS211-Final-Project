@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 /**
  * 
  * The ImageHandler class will handle processing the images to display on the frontend.
- * 
  * @author Ben Maigur
  * @version 0.0.1
  */
