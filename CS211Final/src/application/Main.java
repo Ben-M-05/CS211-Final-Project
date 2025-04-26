@@ -159,8 +159,6 @@ public class Main extends Application {
 			blankGP.add(blankB1, 0, 0);
 			blankGP.add(blankB2, 1, 0);
 			blankGP.add(blankB3, 2, 0);
-			
-			
 			//Button nb = new Button("", imageButton("6", IMAGE_BUTTON_SIZE));
 			root.setCenter(gpHead); //Presenting a GridPane to display to the user
 			Button headButton = new Button("Head");
