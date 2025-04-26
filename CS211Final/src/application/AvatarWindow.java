@@ -38,13 +38,17 @@ public class AvatarWindow {
             ImageView goateeView = ImageHandler.translateImage(person.getGoatee().getFilePath());
             ImageView mustacheView = ImageHandler.translateImage(person.getMustache().getFilePath());
             ImageView moleView = ImageHandler.translateImage(person.getMole().getFilePath());
-           
+            
 
-            if(!(pane.getChildren().isEmpty())) {
-                pane.getChildren().removeAll();
-            } 
-            pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
-            		glassesView, goateeView, mustacheView, moleView);
+            if(pane.getChildren().size() == 0) {
+            	pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
+                		glassesView, goateeView, mustacheView, moleView);
+            } else {
+                pane.getChildren().clear();
+                pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
+                		glassesView, goateeView, mustacheView, moleView);
+            }
+            //github.com/Ben-M-05/CS211-Final-Project.git
         } catch(Exception e) {
             System.out.println(e);
         }
