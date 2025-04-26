@@ -8,17 +8,9 @@ import java.io.FileNotFoundException;
  */
 public final class FileOrg
 {
-	/**
-	 * defualt construcotr for FileOrg
-	 */
-	FileOrg(){
-		
-	}
 	
 	/**
-	 * Hashmaps to hold the filepaths
-	 * holds the file locations under their buttons names
-	 * 
+	 * holds the eye filepaths
 	 */
 	static HashMap<String, HashMap<String, String>> eyeHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
@@ -48,7 +40,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * This will hold the hair style hash maps
+	 * holds hairstyle filepaths
 	 */
 	static HashMap<String, HashMap<String, String>> hairHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
@@ -89,7 +81,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * holds the head style hashmaps
+	 * holds head filepaths
 	 */
 	static HashMap<String, HashMap<String, String>> headHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
@@ -123,6 +115,124 @@ public final class FileOrg
 		torsoStyle1.put("torso1-10","CS211Final/src/Images/torso/torso1-10.png");
 		torsoStyle1.put("torso1-11","CS211Final/src/Images/torso/torso1-11.png");
 		torsoStyle1.put("torso1-01","CS211Final/src/Images/torso/torso1-12.png");	
+	}
+	
+	/**
+	 * Holds mouths filepaths
+	 */
+	static HashMap<String, HashMap<String, String>> mouthHashMap = new HashMap<String, HashMap<String, String>>();
+	static{//https://www.baeldung.com/java-initialize-hashmap
+		HashMap<String, String> mouthStyle1 = new HashMap<String, String>();
+		//importing eyes with no lashes
+		mouthHashMap.put("mouthStyle1", mouthStyle1);//https://www.baeldung.com/java-initialize-hashmap
+
+			//line
+		mouthStyle1.put("mouth1-01", "CS211Final/src/Images/mouth/mouth1/mouth1-1.png");
+		
+		
+		HashMap<String, String> mouthStyle2 = new HashMap<String, String>();
+		//importing eyes with no lashes
+		mouthHashMap.put("mouthStyle2", mouthStyle2);//https://www.baeldung.com/java-initialize-hashmap
+
+			//lips
+		mouthStyle2.put("mouth2-01", "CS211Final/src/Images/mouth/mouth2/mouth2-1.png");
+		mouthStyle2.put("mouth2-02", "CS211Final/src/Images/mouth/mouth2/mouth2-2.png");
+		mouthStyle2.put("mouth2-03", "CS211Final/src/Images/mouth/mouth2/mouth2-3.png");
+		mouthStyle2.put("mouth2-04", "CS211Final/src/Images/mouth/mouth2/mouth2-4.png");
+		mouthStyle2.put("mouth2-05", "CS211Final/src/Images/mouth/mouth2/mouth2-5.png");
+		
+	}
+	
+	/**
+	 * holds the nose filepaths
+	 */
+	static HashMap<String, HashMap<String, String>> noseHashMap = new HashMap<String, HashMap<String, String>>();
+	static{//https://www.baeldung.com/java-initialize-hashmap
+		//only one style currently
+		HashMap<String, String> noseStyle1 = new HashMap<String, String>();
+		noseStyle1.put("nose1-01", "CS211Final/src/Images/nose/nose1/nose1-1.png");
+		noseStyle1.put("nose1-02", "CS211Final/src/Images/nose/nose1/nose1-2.png");
+		noseStyle1.put("nose1-03", "CS211Final/src/Images/nose/nose1/nose1-3.png");
+		noseStyle1.put("nose1-04", "CS211Final/src/Images/nose/nose1/nose1-4.png");
+		noseStyle1.put("nose1-05", "CS211Final/src/Images/nose/nose1/nose1-5.png");
+		noseStyle1.put("nose1-06", "CS211Final/src/Images/nose/nose1/nose1-6.png");
+		noseHashMap.put("mouthStyle1", noseStyle1);
+		
+	}
+	
+	/**
+	 * holds the goatee filepaths
+	 */
+	static HashMap<String, HashMap<String, String>> goateeHashMap = new HashMap<String, HashMap<String, String>>();
+	static{//https://www.baeldung.com/java-initialize-hashmap
+		HashMap<String, String> goateeStyle1 = new HashMap<String, String>();
+		goateeStyle1.put("goatee1-01", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-1.png");
+		goateeStyle1.put("goatee1-02", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-2.png");
+		goateeStyle1.put("goatee1-03", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-3.png");
+		goateeStyle1.put("goatee1-04", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-4.png");
+		goateeStyle1.put("goatee1-05", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-5.png");
+		goateeStyle1.put("goatee1-06", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-6.png");
+		goateeStyle1.put("goatee1-07", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-7.png");
+		goateeStyle1.put("goatee1-08", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-8.png");
+		goateeStyle1.put("goatee1-09", "CS211Final/src/Images/blank.png");
+		
+		
+		goateeHashMap.put("goateeStyle1", goateeStyle1);
+	}
+	
+	/**
+	 * holds the mustache filepaths
+	 */
+	static HashMap<String, HashMap<String, String>> mustacheHashMap = new HashMap<String, HashMap<String, String>>();
+	static {
+		
+		HashMap<String, String> mustahceStyle1 = new HashMap<String, String>();
+		mustahceStyle1.put("mustache1-01", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-1.png");
+		mustahceStyle1.put("mustache1-02", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-2.png");
+		mustahceStyle1.put("mustache1-03", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-3.png");
+		mustahceStyle1.put("mustache1-04", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-4.png");
+		mustahceStyle1.put("mustache1-05", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-5.png");
+		mustahceStyle1.put("mustache1-06", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-6.png");
+		mustahceStyle1.put("mustache1-07", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-7.png");
+		mustahceStyle1.put("mustache1-08", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-8.png");
+		mustahceStyle1.put("mustache1-09", "CS211Final/src/Images/blank.png");
+		
+		mustacheHashMap.put("facialStyle1", mustahceStyle1);
+		
+	}
+	
+	/**
+	 * holds the glasses filepath
+	 */
+	static HashMap<String, HashMap<String, String>> glassesHashMap = new HashMap<String, HashMap<String, String>>();
+	static{//https://www.baeldung.com/java-initialize-hashmap
+		
+		HashMap<String, String> glassesStyle1 = new HashMap<String, String>();
+		glassesStyle1.put("glasses1-01", "CS211Final/src/Images/glasses/glasses1/glasses1-1.png");
+		glassesStyle1.put("glasses1-02", "CS211Final/src/Images/glasses/glasses1/glasses1-2.png");
+		glassesStyle1.put("glasses1-03", "CS211Final/src/Images/glasses/glasses1/glasses1-3.png");
+		glassesStyle1.put("glasses1-04", "CS211Final/src/Images/glasses/glasses1/glasses1-4.png");
+		glassesStyle1.put("glasses1-05", "CS211Final/src/Images/glasses/glasses1/glasses1-5.png");
+		glassesStyle1.put("glasses1-06", "CS211Final/src/Images/glasses/glasses1/glasses1-6.png");
+		glassesStyle1.put("glasses1-07", "CS211Final/src/Images/blank.png");
+		
+		
+		glassesHashMap.put("glasssesStyle1", glassesStyle1);
+		
+	}
+	
+	/**
+	 * holds the mole filepaths
+	 */
+	static HashMap<String, HashMap<String, String>> moleHashMap = new HashMap<String, HashMap<String, String>>();
+	static{//https://www.baeldung.com/java-initialize-hashmap
+		//options are mole or no mole
+		HashMap<String, String> moleStyle1 = new HashMap<String, String>();
+		moleStyle1.put("mole1-01", "CS211Final/src/Images/mole/mole1/mole1-1.png");
+		moleStyle1.put("mole1-02", "CS211Final/src/Images/blank.png");
+		
+		moleHashMap.put("moleStyle1", moleStyle1);
+		
 	}
 	
 	/**
@@ -188,52 +298,64 @@ public final class FileOrg
 		colorHashMap.put("torso1-09","#712fac");
 		colorHashMap.put("torso1-10","#493c1e");
 		colorHashMap.put("torso1-11","#e2e2e2");
-		colorHashMap.put("torso1-01","#191916");	
+		colorHashMap.put("torso1-01","#191916");
 		
-	}
-	
-	//Getters for the length of the hashmap
-	
-	/**
-	 * return the size of the eye hashmap
-	 * @return size of the eyeHashMap
-	 */
-	static public int getEyeLength()
-	{
-		return eyeHashMap.size();
-	}
-	
-	/**
-	 * returns the size of the hair hashmap
-	 * @return size of the hairHashMap
-	 */
-	static public int getHairLength()
-	{
-		return hairHashMap.size();
-	}
-	
-	/**
-	 * returns the size of the torso hashmap
-	 * @return size of the torsoHashMap
-	 */
-	static public int getTorsoLength()
-	{
-		return torsoHashMap.size();
-	}
-	
-	/**
-	 * returns the size of the head hashmap
-	 * @return size of the headHashMap
-	 */
-	static public int getHeadLength()
-	{
-		return headHashMap.size();
+		/* Mouth */
+		//style 1
+		colorHashMap.put("mouth1-01","#000000");
+		colorHashMap.put("mouth2-01","#e53f33");
+		colorHashMap.put("mouth2-02","#e3392b");
+		colorHashMap.put("mouth2-03","#df392d");
+		colorHashMap.put("mouth2-04","#d86a57");
+		colorHashMap.put("mouth2-05","#aa7094");
+		//style2
+		colorHashMap.put("nose1-01", "#000000");
+		colorHashMap.put("nose1-02", "#000000");
+		colorHashMap.put("nose1-03", "#000000");
+		colorHashMap.put("nose1-04", "#000000");
+		colorHashMap.put("nose1-05", "#000000");
+		colorHashMap.put("nose1-06", "#000000");
+		
+		/* Glasses */
+		colorHashMap.put("glasses1-01", "#000000");
+		colorHashMap.put("glasses1-02", "#222220");
+		colorHashMap.put("glasses1-03", "#9b2c20");
+		colorHashMap.put("glasses1-04", "#2f3a6d");
+		colorHashMap.put("glasses1-05", "#a06c28");
+		colorHashMap.put("glasses1-06", "#7f7872");
+		colorHashMap.put("glasses1-07", "#ffffff");
+		
+		/* Goatee */
+		colorHashMap.put("goatee1-01", "#c69247");
+		colorHashMap.put("goatee1-02", "#674520");
+		colorHashMap.put("goatee1-03", "#3b3013");
+		colorHashMap.put("goatee1-04", "#5d5d63");
+		colorHashMap.put("goatee1-05", "#562e16");
+		colorHashMap.put("goatee1-06", "#3e160b");
+		colorHashMap.put("goatee1-07", "#3b1510");
+		colorHashMap.put("goatee1-08", "#141414");
+		colorHashMap.put("goatee1-09", "#ffffff");
+		
+		/* Mustache */
+		colorHashMap.put("mustache1-01", "#cca85c");
+		colorHashMap.put("mustache1-02", "#885f28");
+		colorHashMap.put("mustache1-03", "#50431a");
+		colorHashMap.put("mustache1-04", "#7f7f86");
+		colorHashMap.put("mustache1-05", "#7a4120");
+		colorHashMap.put("mustache1-06", "#591f12");
+		colorHashMap.put("mustache1-07", "#402415");
+		colorHashMap.put("mustache1-08", "#1b1b1b");
+		colorHashMap.put("mustache1-09", "#ffffff");
+		
+		/* mole */
+		colorHashMap.put("mole1-01", "#000000");
+		colorHashMap.put("mole1-02", "#ffffff");
 	}
 	
 	
 	//Getters for the filepath
 	/**
-	 * Takes the button name and returns the file path
+	 * Takes the eye button name and returns the file path if its in the eye hashmap
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
@@ -256,7 +378,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * Takes the button name and returns the file path
+	 * Takes the hair button name and returns the file path if found in the hair hashmap
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
@@ -267,13 +389,9 @@ public final class FileOrg
 		HashMap<String, String> temp = new HashMap<String, String>();
 		for(String i : hairHashMap.keySet())
 		{
-			//System.out.println("HashMap Big: " + i);
 			temp = hairHashMap.get(i);
-			//System.out.println("Key: " + key);
-			//System.out.println("HashMap: " + temp.keySet());
 			if(temp.get(key)!=null)
 			{
-				//System.out.println("\n***File found: " + temp.get(key) + "\n\n\n");
 				return temp.get(key);
 			}
 				
@@ -282,7 +400,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * Takes the button name and returns the file path
+	 * Takes the head button name and returns the file path if its in the head hashmap
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
@@ -305,7 +423,7 @@ public final class FileOrg
 	}
 	
 	/**
-	 * Takes the button name and returns the file path
+	 * Takes the torso button name and returns the file path if it in the torso hashmap
 	 * @param key - String: key associated with the filepath
 	 * 		int the hashmap
 	 * @return the file path
@@ -328,6 +446,144 @@ public final class FileOrg
 	}
 	
 	/**
+	 * Takes the mouth button name and returns the file path if its in the mouth hashmap
+	 * @param key - String: key associated with the filepath
+	 * 		int the hashmap
+	 * @return the file path
+	 * @throws FileNotFoundException if file not found in png hashmaps
+	 */
+	public static String mouthFindFile(String key) throws FileNotFoundException
+	{
+		HashMap<String, String> temp = new HashMap<String, String>();
+		for(String i : mouthHashMap.keySet())
+		{
+			temp = mouthHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				//System.out.println("File found: " + temp.get(key));
+				return temp.get(key);
+			}
+				
+		}
+		return "";
+	}
+	
+	/**
+	 * Takes the nose button name and returns the file path if it is in the nose file path
+	 * @param key - String: key associated with the filepath
+	 * 		int the hashmap
+	 * @return the file path
+	 * @throws FileNotFoundException if file not found in png hashmaps
+	 */
+	public static String noseFindFile(String key) throws FileNotFoundException
+	{
+		HashMap<String, String> temp = new HashMap<String, String>();
+		
+		for(String i : noseHashMap.keySet())
+		{
+			temp = noseHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				return temp.get(key);
+			}
+				
+		}
+		return "";
+	}
+	
+	/**
+	 * Takes the glasses button name and returns the file path if it sin the glasses hashmap
+	 * @param key - String: key associated with the filepath
+	 * 		int the hashmap
+	 * @return the file path
+	 * @throws FileNotFoundException if file not found in png hashmaps
+	 */
+	public static String glassesFindFile(String key) throws FileNotFoundException
+	{
+		HashMap<String, String> temp = new HashMap<String, String>();
+		
+		for(String i : glassesHashMap.keySet())
+		{
+			temp = glassesHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				return temp.get(key);
+			}
+				
+		}
+		return "";
+	}
+	
+	/**
+	 * Takes the goatee button name and returns the file path if it is in the goatee hashmap
+	 * @param key - String: key associated with the filepath
+	 * 		int the hashmap
+	 * @return the file path
+	 * @throws FileNotFoundException if file not found in png hashmaps
+	 */
+	public static String goateeFindFile(String key) throws FileNotFoundException
+	{
+		HashMap<String, String> temp = new HashMap<String, String>();
+		
+		for(String i : goateeHashMap.keySet())
+		{
+			temp = goateeHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				return temp.get(key);
+			}
+				
+		}
+		return "";
+	}
+	/**
+	 * Takes the mustache button name and returns the file path if it sin the mustache filepath
+	 * @param key - String: key associated with the filepath
+	 * 		int the hashmap
+	 * @return the file path
+	 * @throws FileNotFoundException if file not found in png hashmaps
+	 */
+	public static String mustacheFindFile(String key) throws FileNotFoundException
+	{
+		HashMap<String, String> temp = new HashMap<String, String>();
+		
+		for(String i : mustacheHashMap.keySet())
+		{
+			temp = mustacheHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				return temp.get(key);
+			}
+				
+		}
+		return "";
+	}
+	
+	/**
+	 * Takes the mole button name and returns the file path if it sin the mole filepath
+	 * @param key - String: key associated with the filepath
+	 * 		int the hashmap
+	 * @return the file path
+	 * @throws FileNotFoundException if file not found in png hashmaps
+	 */
+	public static String moleFindFile(String key) throws FileNotFoundException
+	{
+		HashMap<String, String> temp = new HashMap<String, String>();
+		
+		for(String i : moleHashMap.keySet())
+		{
+			temp = moleHashMap.get(i);
+			if(temp.get(key)!=null)
+			{
+				return temp.get(key);
+			}
+				
+		}
+		return "";
+	}
+	
+	
+	/**
 	 * Takes the button name and returns the file path
 	 * This one searched all of the hasmaps not just a specific one
 	 * @param key - String: key associated with the filepath
@@ -347,8 +603,20 @@ public final class FileOrg
 			return headFindFile(key);
 		else if(torsoFindFile(key)!= "")
 			return torsoFindFile(key);
+		else if(mouthFindFile(key)!= "")
+			return mouthFindFile(key);
+		else if(noseFindFile(key)!= "")
+			return noseFindFile(key);
+		else if(glassesFindFile(key)!= "")
+			return glassesFindFile(key);
+		else if(goateeFindFile(key)!= "")
+			return goateeFindFile(key);
+		else if(mustacheFindFile(key)!= "")
+			return mustacheFindFile(key);
+		else if(moleFindFile(key)!= "")
+			return moleFindFile(key);
 		else
-			throw new FileNotFoundException("ERROR: FILE NOT FOUND IN ANY HASHMAP");
+			throw new FileNotFoundException("ERROR: FILE " + key + " NOT FOUND IN ANY HASHMAP");
 			//if not hashmap has the file, return null
 			
 	}

@@ -25,12 +25,6 @@ public class AvatarWindow {
         //TODO: Theres definitely a much better solution, but this is just for testing
 
         try {
-            System.out.println("Hair: " + person.getHair().getFilePath());
-            System.out.println("Head: " + person.getHead().getFilePath());
-            System.out.println("Torso: " + person.getTorso().getFilePath());
-            System.out.println("Eyes: " + person.getEyes().getFilePath());
-            
-            System.out.println(person.getEyes().getFilePath());
             ImageView eyeView = ImageHandler.translateImage(person.getEyes().getFilePath());
             
             ImageView headView = ImageHandler.translateImage(person.getHead().getFilePath());
@@ -38,15 +32,23 @@ public class AvatarWindow {
             ImageView torsoView = ImageHandler.translateImage(person.getTorso().getFilePath());
             
             ImageView hairView = ImageHandler.translateImage(person.getHair().getFilePath());
+            ImageView mouthView = ImageHandler.translateImage(person.getMouth().getFilePath());
+            ImageView noseView = ImageHandler.translateImage(person.getNose().getFilePath());
+            ImageView glassesView = ImageHandler.translateImage(person.getGlasses().getFilePath());
+            ImageView goateeView = ImageHandler.translateImage(person.getGoatee().getFilePath());
+            ImageView mustacheView = ImageHandler.translateImage(person.getMustache().getFilePath());
+            ImageView moleView = ImageHandler.translateImage(person.getMole().getFilePath());
             
 
             if(pane.getChildren().size() == 0) {
-                pane.getChildren().addAll(torsoView, headView, eyeView, hairView);
+            	pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
+                		glassesView, goateeView, mustacheView, moleView);
             } else {
                 pane.getChildren().clear();
-                pane.getChildren().addAll(torsoView, headView, eyeView, hairView);
+                pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
+                		glassesView, goateeView, mustacheView, moleView);
             }
-            
+            //github.com/Ben-M-05/CS211-Final-Project.git
         } catch(Exception e) {
             System.out.println(e);
         }
