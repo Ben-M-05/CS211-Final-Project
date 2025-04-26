@@ -4,9 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicReference;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import javafx.application.Application;
+import javafx.beans.property.Property;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -14,11 +18,13 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -53,6 +59,11 @@ public class Main extends Application {
 			Person userPerson = new Person();
 			StackPane pane = new StackPane();
 			
+			// Tracks the selected part to be modified by the sliders
+			// https://stackoverflow.com/questions/30026824/modifying-local-variable-from-inside-lambda
+			
+
+
 			//preparing the left option pane
 			VBox partsOption = new VBox();
 			partsOption.setAlignment(Pos.TOP_RIGHT);
@@ -182,7 +193,6 @@ public class Main extends Application {
 			torsoButton.setOnAction(a -> 
 			{
 				root.setCenter(gpTorso);
-
 				root.setRight(blankGP);
 			});
 			
@@ -278,6 +288,7 @@ public class Main extends Application {
 			//Displaying the buttons and the avatar image
 			root.setTop(bodyParts);
 
+
 			//default code
 			Scene scene = new Scene(root, 1000, 800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -317,10 +328,14 @@ public class Main extends Application {
 			HashMap<String, String> hm, int styleNum,BorderPane r,
 			int height, int width) throws FileNotFoundException
 	{
+		AtomicReference<PARTS> selectedPart = new AtomicReference<>(PARTS.EYES);
 		//The avatar image
 		StackPane pane = new StackPane();
+
+		GridPane gpParent = new GridPane();
+
 		//Where the button will be put
-		GridPane gp = new GridPane();
+		GridPane gpColor = new GridPane();
 		//The number of the option
 		int n = 1;
 
@@ -345,40 +360,53 @@ public class Main extends Application {
 				//figuring out with body part file path needs to be updated
 				if(key == "Hair")
 				{
+					selectedPart.set(PARTS.HAIR);
 					p.getHair().setFilePath(i);
+
 				}
 				else if(key == "eye")
 				{
+					selectedPart.set(PARTS.EYES);
 					p.getEyes().setFilePath(i);
 				}
 				else if(key == "torso")
 				{
+					selectedPart.set(PARTS.TORSO);
 					p.getTorso().setFilePath(i);
 				}
 				else if(key == "head")
 				{
+					selectedPart.set(PARTS.HEAD);
 					p.getHead().setFilePath(i, p);
 				}
 				else if(key == "mouth")
 				{
+					selectedPart.set(PARTS.MOUTH);
 					p.getMouth().setFilePath(i);
 				}
 				else if(key == "glasses")
 				{
+					selectedPart.set(PARTS.GLASSES);
 					p.getGlasses().setFilePath(i);
 				}
 				else if(key == "goatee")
 				{
+					selectedPart.set(PARTS.GOATEE);
 					p.getGoatee().setFilePath(i);
 				}
 				else if(key == "mustache")
 				{		
+					selectedPart.set(PARTS.MOUSTACHE);
 					p.getMustache().setFilePath(i);
 				}
 				else if(key == "mole")
 				{		
+					selectedPart.set(PARTS.MOLE);
 					p.getMole().setFilePath(i);
 				}
+
+				// Sliders for size and location modification 
+				
 				
 				//displaying the updated avatar
 				AvatarWindow.display(pane, p);
@@ -387,7 +415,7 @@ public class Main extends Application {
 			});
 			
 			//adding the button to the gridpane
-			gp.add(imageButton, (n-1)%3, ((n-1)/3));
+			gpColor.add(imageButton, (n-1)%3, ((n-1)/3));
 			n++;
 		}
 		while(n<=3)
@@ -396,11 +424,46 @@ public class Main extends Application {
 			blank.setMinHeight(height);
 			blank.setMinWidth(width);
 			blank.setStyle("-fx-background-color: transparent");
-			gp.add(blank, (n-1)%3, ((n-1)/3));
+			gpColor.add(blank, (n-1)%3, ((n-1)/3));
 			n++;
 		}
+
+		Slider sizeSlider = new Slider(0, 5, 1);
+		sizeSlider.setShowTickMarks(true);
+
+		sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+				public void changed(ObservableValue<? extends Number> observerable, Number oldValue, Number newValue) {
+					System.out.println("slider: " + selectedPart);
+					int newSize = (int) (100 * (double) newValue);
+
+					AvatarWindow.modifySize(pane, selectedPart.get(), newSize);
+					System.out.println(newSize);
+				}
+			});
+
+		Slider locationSlider = new Slider(0, 5, 1);
+		locationSlider.setShowTickMarks(true);
+
+		locationSlider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> observerable, Number oldValue, Number newValue) {
+				System.out.println("slider: " + selectedPart);
+				int newLocation = (int) (100 * (double) newValue);
+
+				AvatarWindow.modifyLocation(pane, selectedPart.get(), newLocation);
+				System.out.println(newLocation);
+			}
+		});
+
+		Text sizeText = new Text("Size");
+		Text locationText = new Text("Location");
+
+		gpParent.add(gpColor, 0, 0);
+		gpParent.add(sizeText, 0, 1);
+		gpParent.add(sizeSlider, 0, 2);
+		gpParent.add(locationText, 0, 3);
+		gpParent.add(locationSlider, 0, 4);
 		//displaying the gridpane
-		r.setRight(gp);
+		r.setRight(gpParent);
 	}
 	
 	/**
@@ -454,6 +517,7 @@ public class Main extends Application {
 			gp.add(imageButton, (n)%3, ((n)/3));
 			n++;
 		}
+
 	}
 }
 
