@@ -103,6 +103,46 @@ public class Main extends Application {
 			styleButtonCreate(userPerson, gpHead, IMAGE_BUTTON_SIZE, "head",
 					FileOrg.headHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
 			
+			//Creating the mouth gridpane and adding the buttons to it
+			GridPane gpMouth = new GridPane();
+			gpMouth.getStyleClass().add("gpOpt");
+			gpMouth.setHgap(1);
+			gpMouth.setVgap(1);
+			styleButtonCreate(userPerson, gpMouth, IMAGE_BUTTON_SIZE, "mouth",
+					FileOrg.mouthHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+			
+			//Creating the glasses gridpane and adding the buttons to it
+			GridPane gpGlasses = new GridPane();
+			gpGlasses.getStyleClass().add("gpOpt");
+			gpGlasses.setHgap(1);
+			gpGlasses.setVgap(1);
+			styleButtonCreate(userPerson, gpGlasses, IMAGE_BUTTON_SIZE, "glasses",
+					FileOrg.glassesHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+			
+			//Creating the goatee gridpane and adding the buttons to it
+			GridPane gpGoatee = new GridPane();
+			gpGoatee.getStyleClass().add("gpOpt");
+			gpGoatee.setHgap(1);
+			gpGoatee.setVgap(1);
+			styleButtonCreate(userPerson, gpGoatee, IMAGE_BUTTON_SIZE, "goatee",
+					FileOrg.goateeHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+			
+			//Creating the mustache gridpane and adding the buttons to it
+			GridPane gpMustache = new GridPane();
+			gpMustache.getStyleClass().add("gpOpt");
+			gpMustache.setHgap(1);
+			gpMustache.setVgap(1);
+			styleButtonCreate(userPerson, gpMustache, IMAGE_BUTTON_SIZE, "mustache",
+					FileOrg.mustacheHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+			
+			//Creating the mole gridpane and adding the buttons to it
+			GridPane gpMole = new GridPane();
+			gpMole.getStyleClass().add("gpOpt");
+			gpMole.setHgap(1);
+			gpMole.setVgap(1);
+			styleButtonCreate(userPerson, gpMole, IMAGE_BUTTON_SIZE, "mole",
+					FileOrg.moleHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+			
 			//Creating a blank gridpane so that if no style is selected
 					//the buttons won't visibly shift
 			GridPane blankGP = new GridPane();
@@ -172,8 +212,66 @@ public class Main extends Application {
 				root.setRight(blankGP);
 			});
 			
+			
+			//creating the mouth style gridpane
+			Button mouthButton = new Button("Mouth");
+			mouthButton.getStyleClass().add("bMain");
+			mouthButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+			mouthButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
+			mouthButton.setOnAction(a -> 
+			{
+				root.setCenter(gpMouth);
+				root.setRight(blankGP);
+			});
+			
+			//creating the glasses style gridpane
+			Button glassesButton = new Button("Glasses");
+			glassesButton.getStyleClass().add("bMain");
+			glassesButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+			glassesButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
+			glassesButton.setOnAction(a -> 
+			{
+				root.setCenter(gpGlasses);
+				root.setRight(blankGP);
+			});
+			
+			//creating the goatee style gridpane
+			Button goateeButton = new Button("Goatee");
+			goateeButton.getStyleClass().add("bMain");
+			goateeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+			goateeButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
+			goateeButton.setOnAction(a -> 
+			{
+				root.setCenter(gpGoatee);
+				root.setRight(blankGP);
+			});
+			
+			//creating the mustache style gridpane
+			Button mustacheButton = new Button("Mustache");
+			mustacheButton.getStyleClass().add("bMain");
+			mustacheButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+			mustacheButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
+			mustacheButton.setOnAction(a -> 
+			{
+				root.setCenter(gpMustache);
+				root.setRight(blankGP);
+			});
+			
+			//creating the mole style gridpane
+			Button moleButton = new Button("Mole");
+			moleButton.getStyleClass().add("bMain");
+			moleButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+			moleButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
+			moleButton.setOnAction(a -> 
+			{
+				root.setCenter(gpMole);
+				root.setRight(blankGP);
+			});
+			
+			
 			//Preparing the options in the top button in a HBOX
-			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton);
+			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton,
+					mouthButton, glassesButton, goateeButton, mustacheButton, moleButton);
 			bodyParts.setAlignment(Pos.TOP_RIGHT);
 
 			//displaying the default avatar
@@ -208,21 +306,6 @@ public class Main extends Application {
 	}
 	
 	/**
-	 * DELETE - SHOULD NOT USE
-	 * @param filePath DELETE
-	 * @param size DELETE
-	 * @return DELETE
-	 * @throws FileNotFoundException DELETE
-	 */
-	/*public ImageView imageButton(String filePath, int size) throws FileNotFoundException
-	{
-		ImageView imageView = ImageHandler.translateImage(filePath);
-		imageView.setFitWidth(size);
-		imageView.setPreserveRatio(true);
-		return imageView;
-	}*/
-	
-	/**
 	 * This will display the colors of the selected body parts style that are available
 	 * @param p - Person: the avatar that is currently being modified
 	 * @param size - int: the size of the button
@@ -255,9 +338,11 @@ public class Main extends Application {
 			
 			//Checking for if a color has been registered with that button
 			if(FileOrg.colorHashMap.containsKey(i))
+			{
 				imageButton.getStyleClass().add("bOpt");
 				//This will overwrite the current background color to the correct one
 				imageButton.setStyle("-fx-background-color: " + FileOrg.colorHashMap.get(i));
+			}
 			
 			imageButton.setOnAction(a ->{
 				//Setting the file path to the correct location of the png
@@ -269,7 +354,6 @@ public class Main extends Application {
 				else if(key == "eye")
 				{
 					p.getEyes().setFilePath(i);
-					System.out.println("NEW: " + p.getEyes().getFilePath());
 				}
 				else if(key == "torso")
 				{
@@ -277,7 +361,27 @@ public class Main extends Application {
 				}
 				else if(key == "head")
 				{
-					p.getHead().setFilePath(i);
+					p.getHead().setFilePath(i, p);
+				}
+				else if(key == "mouth")
+				{
+					p.getMouth().setFilePath(i);
+				}
+				else if(key == "glasses")
+				{
+					p.getGlasses().setFilePath(i);
+				}
+				else if(key == "goatee")
+				{
+					p.getGoatee().setFilePath(i);
+				}
+				else if(key == "mustache")
+				{		
+					p.getMustache().setFilePath(i);
+				}
+				else if(key == "mole")
+				{		
+					p.getMole().setFilePath(i);
 				}
 				
 				//displaying the updated avatar
@@ -288,6 +392,15 @@ public class Main extends Application {
 			
 			//adding the button to the gridpane
 			gp.add(imageButton, (n-1)%3, ((n-1)/3));
+			n++;
+		}
+		while(n<=3)
+		{
+			Button blank = new Button("");
+			blank.setMinHeight(height);
+			blank.setMinWidth(width);
+			blank.setStyle("-fx-background-color: transparent");
+			gp.add(blank, (n-1)%3, ((n-1)/3));
 			n++;
 		}
 		//displaying the gridpane
@@ -324,7 +437,6 @@ public class Main extends Application {
 			completeKey = hash.substring(1, end) + "-01";
 			
 			//Creating the style button
-			System.out.println("Height: " + height + "Width: " + width);
 			Button imageButton = new Button("", ImageHandler.translateImage(completeKey, width, height));
 			imageButton.setMaxHeight(height);
 			imageButton.setMaxWidth(width);

@@ -69,7 +69,6 @@ public class BodyParts
 	 */
 	public String getFilePath()
 	{
-		System.out.println("**GETTING FP: " + filePath);
 		return filePath;
 	}
 	
@@ -98,11 +97,5 @@ public class BodyParts
 	public void setFilePath(String fP)
 	{
 		filePath = fP;
-		try {
-			System.out.println("New FilePath: " + FileOrg.findFile(fP));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

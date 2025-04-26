@@ -26,6 +26,37 @@ public class Person
 	 * hair object
 	 */
 	Hair hair;
+	
+	/**
+	 * mouth object
+	 */
+	Mouth mouth;
+	
+	/**
+	 * nose object
+	 */
+	Nose nose;
+	
+	/**
+	 * glasses object
+	 */
+	Glasses glasses;
+	
+	/**
+	 * goatee object
+	 */
+	Goatee goatee;
+	
+	/**
+	 * mustache object
+	 */
+	Mustache mustache;
+	
+	/**
+	 * mole object
+	 */
+	Mole mole;
+	
 	/**
 	 * default constructor for the person
 	 * @throws FileNotFoundException if file not found
@@ -36,6 +67,12 @@ public class Person
 		torso = new Torso();
 		eyes = new Eyes();
 		hair = new Hair();
+		mouth = new Mouth();
+		nose = new Nose();
+		glasses = new Glasses();
+		goatee = new Goatee();
+		mustache = new Mustache();
+		mole = new Mole();
 	}
 	
 	/**
@@ -57,6 +94,15 @@ public class Person
 	}
 	
 	/**
+	 * returns the torso object for the person
+	 * @return Torso: the torso object
+	 */
+	public Glasses getGlasses()
+	{
+		return glasses;
+	}
+	
+	/**
 	 * returns the eye object for the person
 	 * @return Eyes: the eyes object
 	 */
@@ -72,6 +118,35 @@ public class Person
 	public Hair getHair()
 	{
 		return hair;
+	}
+	
+	/**
+	 * returns the mouth object
+	 * @return Hair: the hair object
+	 */
+	public Mouth getMouth()
+	{
+		return mouth;
+	}
+	
+	public Nose getNose()
+	{
+		return nose;
+	}
+	
+	public Goatee getGoatee()
+	{
+		return goatee;
+	}
+	
+	public Mustache getMustache()
+	{
+		return mustache;
+	}
+	
+	public Mole getMole()
+	{
+		return mole;
 	}
 	
 	/**
