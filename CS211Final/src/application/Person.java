@@ -26,6 +26,37 @@ public class Person
 	 * hair object
 	 */
 	Hair hair;
+	
+	/**
+	 * mouth object
+	 */
+	Mouth mouth;
+	
+	/**
+	 * nose object
+	 */
+	Nose nose;
+	
+	/**
+	 * glasses object
+	 */
+	Glasses glasses;
+	
+	/**
+	 * goatee object
+	 */
+	Goatee goatee;
+	
+	/**
+	 * mustache object
+	 */
+	Mustache mustache;
+	
+	/**
+	 * mole object
+	 */
+	Mole mole;
+	
 	/**
 	 * default constructor for the person
 	 * @throws FileNotFoundException if file not found
@@ -36,6 +67,12 @@ public class Person
 		torso = new Torso();
 		eyes = new Eyes();
 		hair = new Hair();
+		mouth = new Mouth();
+		nose = new Nose();
+		glasses = new Glasses();
+		goatee = new Goatee();
+		mustache = new Mustache();
+		mole = new Mole();
 	}
 	
 	/**
@@ -57,6 +94,15 @@ public class Person
 	}
 	
 	/**
+	 * returns the torso object for the person
+	 * @return Torso: the torso object
+	 */
+	public Glasses getGlasses()
+	{
+		return glasses;
+	}
+	
+	/**
 	 * returns the eye object for the person
 	 * @return Eyes: the eyes object
 	 */
@@ -75,14 +121,41 @@ public class Person
 	}
 	
 	/**
+	 * returns the mouth object
+	 * @return Hair: the hair object
+	 */
+	public Mouth getMouth()
+	{
+		return mouth;
+	}
+	
+	public Nose getNose()
+	{
+		return nose;
+	}
+	
+	public Goatee getGoatee()
+	{
+		return goatee;
+	}
+	
+	public Mustache getMustache()
+	{
+		return mustache;
+	}
+	
+	public Mole getMole()
+	{
+		return mole;
+	}
+	
+	/**
 	 * copies a head object and set it to avatar's head
 	 * @param h - Head: the head object to be copied
 	 */
 	public void setHead(Head h)
 	{
 		head.setFilePath(h.getFilePath());
-		head.setName(h.getName());
-		head.setType(h.getType());
 		head.setXAxis(h.getXAxis());
 		head.setYAxis(h.getYAxis());
 	}
@@ -94,8 +167,6 @@ public class Person
 	public void setTorso(Torso t)
 	{
 		torso.setFilePath(t.getFilePath());
-		torso.setName(t.getName());
-		torso.setType(t.getType());
 		torso.setXAxis(t.getXAxis());
 		torso.setYAxis(t.getYAxis());
 	}
@@ -107,8 +178,6 @@ public class Person
 	public void setEyes(Eyes e)
 	{
 		eyes.setFilePath(e.getFilePath());
-		eyes.setName(e.getName());
-		eyes.setType(e.getType());
 		eyes.setXAxis(e.getXAxis());
 		eyes.setYAxis(e.getYAxis());
 	}
@@ -120,8 +189,6 @@ public class Person
 	public void setHair(Hair h)
 	{
 		hair.setFilePath(h.getFilePath());
-		hair.setName(h.getName());
-		hair.setType(h.getType());
 		hair.setXAxis(h.getXAxis());
 		hair.setYAxis(h.getYAxis());
 	}

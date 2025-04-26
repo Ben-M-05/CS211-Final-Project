@@ -8,26 +8,6 @@ import java.io.FileNotFoundException;
  */
 class Torso extends BodyParts
 {
-	/**
-	 * type
-	 */
-	String type;
-	/**
-	 * name
-	 */
-	String name;
-	/**
-	 * x axis
-	 */
-	static int xAxis = 30;
-	/**
-	 * y axis
-	 */
-	static int yAxis = 5;
-	/**
-	 * filepath
-	 */
-	String filePath;
 	
 	/**
 	 * Default constructor that sets the torso equal to option torso01

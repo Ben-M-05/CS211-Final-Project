@@ -8,26 +8,6 @@ import java.io.FileNotFoundException;
  */
 class Hair extends BodyParts
 {
-	/**
-	 * type
-	 */
-	String type;
-	/**
-	 * name
-	 */
-	String name;
-	/**
-	 * x axis
-	 */
-	static int xAxis = 30;
-	/**
-	 * y axis
-	 */
-	static int yAxis = 30;
-	/**
-	 * filepath
-	 */
-	String filePath;
 	
 	/**
 	 * Default constructor that sets the hair to Hair01 option

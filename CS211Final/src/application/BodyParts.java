@@ -10,17 +10,6 @@ import java.io.FileNotFoundException;
  */
 public class BodyParts
 {
-	/**
-	 * type
-	 */
-	String type;
-	/**
-	 * name
-	 */
-	String name;
-	/**
-	 * x axis
-	 */
 	int xAxis;
 	/**
 	 * y axis
@@ -36,8 +25,6 @@ public class BodyParts
 	 */
 	BodyParts()
 	{
-		this.type = "";
-		this.name = "";
 		this.xAxis = 0;
 		this.yAxis = 0;
 		this.filePath = "";
@@ -53,31 +40,11 @@ public class BodyParts
 	 */
 	BodyParts(String t, String n, String url, int x, int y)
 	{
-		this.type = t;
-		this.name = n;
 		this.filePath = url;
 		this.xAxis = x;
 		this.yAxis = y;
 	}
-	
-	/**
-	 * returns the type
-	 * @return the type
-	 */
-	public String getType()
-	{
-		return this.type;
-	}
-	
-	/**
-	 * returns the name
-	 * @return the name
-	 */
-	public String getName()
-	{
-		return this.name;
-	}
-	
+
 	/**
 	 * returns the xaxis
 	 * @return the xAxis
@@ -102,27 +69,7 @@ public class BodyParts
 	 */
 	public String getFilePath()
 	{
-		System.out.println("**GETTING FP: " + filePath);
 		return filePath;
-	}
-	
-	
-	/**
-	 * sets the type
-	 * @param t - the type
-	 */
-	public void setType(String t)
-	{
-		this.type = t;
-	}
-	
-	/**
-	 * sets the name
-	 * @param n - the name
-	 */
-	public void setName(String n)
-	{
-		this.name =n;
 	}
 	
 	/**
@@ -150,11 +97,5 @@ public class BodyParts
 	public void setFilePath(String fP)
 	{
 		filePath = fP;
-		try {
-			System.out.println("New FilePath: " + FileOrg.findFile(fP));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }
