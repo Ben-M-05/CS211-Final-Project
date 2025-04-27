@@ -20,6 +20,10 @@ public class BodyParts
 	 */
 	String filePath;
 	
+	int size;
+	
+	int location;
+	
 	/**
 	 * Default constructor for BodyParts
 	 */
@@ -28,6 +32,7 @@ public class BodyParts
 		this.xAxis = 0;
 		this.yAxis = 0;
 		this.filePath = "";
+		this.size = 500;
 	}
 	
 	/**
@@ -72,6 +77,11 @@ public class BodyParts
 		return filePath;
 	}
 	
+	public int getSize()
+	{
+		return size;
+	}
+	
 	/**
 	 * sets the xAxis
 	 * @param x - xAxis of where to display the image
@@ -97,5 +107,10 @@ public class BodyParts
 	public void setFilePath(String fP)
 	{
 		filePath = fP;
+	}
+	
+	public void setSize(int s)
+	{
+		size = s;
 	}
 }

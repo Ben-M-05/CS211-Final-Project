@@ -156,7 +156,7 @@ public final class FileOrg
 		noseStyle1.put("nose1-04", "CS211Final/src/Images/nose/nose1/nose1-4.png");
 		noseStyle1.put("nose1-05", "CS211Final/src/Images/nose/nose1/nose1-5.png");
 		noseStyle1.put("nose1-06", "CS211Final/src/Images/nose/nose1/nose1-6.png");
-		noseHashMap.put("mouthStyle1", noseStyle1);
+		noseHashMap.put("noseStyle1", noseStyle1);
 		
 	}
 	
@@ -303,9 +303,9 @@ public final class FileOrg
 		/* Mouth */
 		//style 1
 		colorHashMap.put("mouth1-01","#000000");
-		colorHashMap.put("mouth2-01","#e53f33");
-		colorHashMap.put("mouth2-02","#e3392b");
-		colorHashMap.put("mouth2-03","#df392d");
+		colorHashMap.put("mouth2-01","#e57034");
+		colorHashMap.put("mouth2-02","#e3392c");
+		colorHashMap.put("mouth2-03","#E0382D");
 		colorHashMap.put("mouth2-04","#d86a57");
 		colorHashMap.put("mouth2-05","#aa7094");
 		//style2

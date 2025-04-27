@@ -27,6 +27,7 @@ public class AvatarWindow {
     ImageView goateeView;
     ImageView mustacheView;
     ImageView moleView;
+    ImageView blankView;
     
     /**
      * Constructor
@@ -39,7 +40,13 @@ public class AvatarWindow {
         //TODO: Theres definitely a much better solution, but this is just for testing
 
         try {
+        	//background so that we can expand the other images without things shifting
+        	Image blankImage = new Image(
+        			String.format("file:/CS211-Final-Project/CS211Final/src/Images/blank.png"),
+        			1000, 1000, true, false );
 
+        	this.blankView = new ImageView(blankImage);
+        	
             this.eyeView = ImageHandler.translateImage(person.getEyes().getFilePath());
             this.headView = ImageHandler.translateImage(person.getHead().getFilePath());
             this.torsoView = ImageHandler.translateImage(person.getTorso().getFilePath());
@@ -72,39 +79,65 @@ public class AvatarWindow {
         switch(part) {
             case EYES:
                 this.eyeView = ImageHandler.translateImage(person.getEyes().getFilePath());
+                modifySize(pane, PARTS.EYES, person.getEyes().getSize());
+                modifyLocation(pane, PARTS.EYES, person.getEyes().getYAxis());
                 break;
             case TORSO:
                 this.torsoView = ImageHandler.translateImage(person.getTorso().getFilePath());
+                modifySize(pane, PARTS.TORSO, person.getTorso().getSize());
+                modifyLocation(pane, PARTS.TORSO, person.getTorso().getYAxis());
                 break;
             case HEAD:
                 this.headView = ImageHandler.translateImage(person.getHead().getFilePath());
+                modifySize(pane, PARTS.HEAD, person.getHead().getSize());
+                modifyLocation(pane, PARTS.HEAD, person.getHead().getYAxis());
                 break;
             case MOUTH:
                 this.mouthView = ImageHandler.translateImage(person.getMouth().getFilePath()); 
+                modifySize(pane, PARTS.MOUTH, person.getMouth().getSize());
+                modifyLocation(pane, PARTS.MOUTH, person.getMouth().getYAxis());
                 break;
             case HAIR:
                 this.hairView = ImageHandler.translateImage(person.getHair().getFilePath());
+                modifySize(pane, PARTS.HAIR, person.getHair().getSize());
+                modifyLocation(pane, PARTS.HAIR, person.getHair().getYAxis());
                 break;
             case NOSE:
                 this.noseView = ImageHandler.translateImage(person.getNose().getFilePath());
+                modifySize(pane, PARTS.NOSE, person.getNose().getSize());
+                modifyLocation(pane, PARTS.NOSE, person.getNose().getYAxis());
                 break;
             case GLASSES:
                 this.glassesView = ImageHandler.translateImage(person.getGlasses().getFilePath());
+                modifySize(pane, PARTS.GLASSES, person.getGlasses().getSize());
+                modifyLocation(pane, PARTS.GLASSES, person.getGlasses().getYAxis());
                 break;
             case MOLE:
                 this.moleView = ImageHandler.translateImage(person.getMole().getFilePath());
+                modifySize(pane, PARTS.MOLE, person.getMole().getSize());
+                modifyLocation(pane, PARTS.MOLE, person.getMole().getYAxis());
                 break;
             case MOUSTACHE:
                 this.mustacheView = ImageHandler.translateImage(person.getMustache().getFilePath());
+                modifySize(pane, PARTS.MOUSTACHE, person.getMustache().getSize());
+                modifyLocation(pane, PARTS.MOUSTACHE, person.getMustache().getYAxis());
                 break;
             case GOATEE:
                 this.goateeView = ImageHandler.translateImage(person.getGoatee().getFilePath());
+                modifySize(pane, PARTS.GOATEE, person.getGoatee().getSize());
+                modifyLocation(pane, PARTS.GOATEE, person.getGoatee().getYAxis());
                 break;
         }
 
         addToPane(pane);
     }
 
+    /**
+     * Makes the images larger or smaller depending on the size
+     * @param pane the stackpane where all the images are stored
+     * @param part the PART that is selected
+     * @param size length in pixels of one side of the square
+     */
     public  void modifySize(StackPane pane, PARTS part, int size) {
         switch(part) {
             case EYES:
@@ -156,6 +189,12 @@ public class AvatarWindow {
             
     }
 
+    /**
+     * Moves images up and down on the Y axis
+     * @param pane the stackpane where the images are located
+     * @param part the PART that is selected
+     * @param location where on the Y axis an image should be placed
+     */
     public  void modifyLocation(StackPane pane, PARTS part, int location) {
         switch(part) {
             case EYES:
@@ -197,15 +236,18 @@ public class AvatarWindow {
             
     }
 
-
+    /**
+     * Takes all the images and compiles them into a stack pane
+     * @param pane the stackpane with all the body parts layed on taop of each other
+     */
     public void addToPane(StackPane pane) {
         if(pane.getChildren().size() == 0) {
             pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
-                    glassesView, goateeView, mustacheView, moleView);
+                    glassesView, goateeView, mustacheView, moleView, blankView);
         } else {
             pane.getChildren().clear();
             pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
-                    glassesView, goateeView, mustacheView, moleView);
+                    glassesView, goateeView, mustacheView, moleView, blankView);
         }
     }
 }

@@ -154,8 +154,18 @@ public class Main extends Application {
 			styleButtonCreate(userPerson, gpMole, IMAGE_BUTTON_SIZE, "mole",
 					FileOrg.moleHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
-			//Creating a blank gridpane so that if no style is selected
-					//the buttons won't visibly shift
+			//Creating the nose gridpane and adding the buttons to it
+			/*GridPane gpNose = new GridPane();
+			gpMole.getStyleClass().add("gpOpt");
+			gpMole.setHgap(1);
+			gpMole.setVgap(1);
+			styleButtonCreate(userPerson, gpNose, IMAGE_BUTTON_SIZE, "nose",
+					FileOrg.noseHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);*/
+			
+			/*
+			 * Creating a blank gridpane so that if no style is selected
+			 * the buttons won't visibly shift
+			 */
 			GridPane blankGP = new GridPane();
 			Button blankB1 = new Button();
 			blankB1.setMinSize(IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
@@ -170,8 +180,19 @@ public class Main extends Application {
 			blankGP.add(blankB1, 0, 0);
 			blankGP.add(blankB2, 1, 0);
 			blankGP.add(blankB3, 2, 0);
-			//Button nb = new Button("", imageButton("6", IMAGE_BUTTON_SIZE));
+
 			root.setCenter(gpHead); //Presenting a GridPane to display to the user
+			
+				
+			//https://docs.oracle.com/javafx/2/ui_controls/button.html
+			/*If they select a new button for the top, a new GridPane will be display
+			 * The GridPane will only show the user the options related to the tab
+			 * Basically, if they click eye, it will show them the eye options
+			 */
+			
+			/*
+			 * Head button and associated style and presenting head styles
+			 */
 			Button headButton = new Button("Head");
 			headButton.getStyleClass().add("bMain");
 			headButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
@@ -181,12 +202,7 @@ public class Main extends Application {
 				root.setCenter(gpHead);
 				root.setRight(blankGP);
 			});
-				
-			//https://docs.oracle.com/javafx/2/ui_controls/button.html
-			/*If they select a new button for the top, a new GridPane will be display
-			 * The GridPane will only show the user the options related to the tab
-			 * Basically, if they click eye, it will show them the eye options
-			 */
+			
 			//creating the torso style gridpan
 			Button torsoButton = new Button("Torso");
 			torsoButton.getStyleClass().add("bMain");
@@ -276,10 +292,72 @@ public class Main extends Application {
 				root.setRight(blankGP);
 			});
 			
+			/*
+			 * IMPORTANT CHANGE IN CODE!
+			 * Nose only has one style and it must corrolate to the skin tone
+			 * Accordingly the user is NOT allowed to change the color because
+			 * 		the skin tone and color are already matched
+			 * So, the style buttons are not used and instead just the sliders displayed
+			 */
+			//Nose GP
+			GridPane gpNose = new GridPane();
+			
+			//Creating the sizeSlider ONLY to be used for the nose
+			Slider sizeSlider = new Slider(.1, 5, 1);
+			//Setting it to the saved size so that it corresponds to the current size
+			sizeSlider.setValue(userPerson.getNose().getSize()/100);
+			sizeSlider.setShowTickMarks(true);
+			
+			//changes image scale based off of slider input
+			sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+					public void changed(ObservableValue<? extends Number> observerable,
+							Number oldValue, Number newValue) {
+						int newSize = (int) (100 * (double) newValue);//one tick is 100 pixels
+						window.modifySize(pane, PARTS.NOSE, newSize);
+						userPerson.getNose().setSize(newSize);
+					}
+				});
+			
+			//Creating the locationSlider ONLY to be used for the nose
+			Slider locationSlider = new Slider(-1, 1, 0);
+			locationSlider.setValue(userPerson.getNose().getYAxis()/100);
+			locationSlider.setShowTickMarks(true);
+
+			//changes asset Y axis based off of slider input
+			locationSlider.valueProperty().addListener(new ChangeListener<Number>() {
+				public void changed(ObservableValue<? extends Number> observerable, Number oldValue, Number newValue) {
+					int newLocation = (int) (-100 * (double) newValue);//1 tick is 100 pixels
+					window.modifyLocation(pane, PARTS.NOSE, newLocation);
+					userPerson.getNose().setYAxis(newLocation);
+				}
+			});
+			
+			//Adding text so user knows what the sliders are for
+			Text sizeText = new Text("Size");
+			Text locationText = new Text("Location");
+			//Adding sliders and text to the gridpane
+			gpNose.add(blankGP, 0, 0);
+			gpNose.add(sizeText, 0, 1);
+			gpNose.add(sizeSlider, 0, 2);
+			gpNose.add(locationText, 0, 3);
+			gpNose.add(locationSlider, 0, 4);
+			//displaying the gridpane
+			
+			//creating the mole style gridpane
+			Button noseButton = new Button("Nose");
+			noseButton.getStyleClass().add("bMain");
+			noseButton.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+			noseButton.setMinSize(TEXT_BUTTON_WIDTH, TEXT_BUTTON_HEIGHT);
+			noseButton.setOnAction(a -> 
+			{
+				root.setCenter(blankGP);//no nose styles
+				root.setRight(gpNose);
+			});
+			
 			
 			//Preparing the options in the top button in a HBOX
 			HBox bodyParts = new HBox(headButton, torsoButton, eyeButton, hairButton,
-					mouthButton, glassesButton, goateeButton, mustacheButton, moleButton);
+					mouthButton, glassesButton, goateeButton, mustacheButton, moleButton, noseButton);
 			bodyParts.setAlignment(Pos.TOP_RIGHT);
 
 			//displaying the default avatar
@@ -298,7 +376,6 @@ public class Main extends Application {
 			primaryStage.show();
 		}
 		//Catch any and all errors
-		//FIXME this should be updated to have more specific errors
 		catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -331,6 +408,7 @@ public class Main extends Application {
 			int height, int width, AvatarWindow window) throws FileNotFoundException
 	{
 		AtomicReference<PARTS> selectedPart = new AtomicReference<>(PARTS.EYES);
+		setBodyPart(selectedPart, key);
 		//The avatar image
 		StackPane pane = new StackPane();
 
@@ -360,53 +438,21 @@ public class Main extends Application {
 			imageButton.setOnAction(a ->{
 				//Setting the file path to the correct location of the png
 				//figuring out with body part file path needs to be updated
-				if(key == "Hair")
+				if(key != "head")
 				{
-					selectedPart.set(PARTS.HAIR);
-					p.getHair().setFilePath(i);
-
+					BodyParts BP = getBodyPart(selectedPart.get(), p);
+					BP.setFilePath(i);
 				}
-				else if(key == "eye")
+				else
 				{
-					selectedPart.set(PARTS.EYES);
-					p.getEyes().setFilePath(i);
-				}
-				else if(key == "torso")
-				{
-					selectedPart.set(PARTS.TORSO);
-					p.getTorso().setFilePath(i);
-				}
-				else if(key == "head")
-				{
-					selectedPart.set(PARTS.HEAD);
 					p.getHead().setFilePath(i, p);
+					try {
+						window.update(p, PARTS.HEAD, pane);
+						window.update(p, PARTS.NOSE, pane);
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
 				}
-				else if(key == "mouth")
-				{
-					selectedPart.set(PARTS.MOUTH);
-					p.getMouth().setFilePath(i);
-				}
-				else if(key == "glasses")
-				{
-					selectedPart.set(PARTS.GLASSES);
-					p.getGlasses().setFilePath(i);
-				}
-				else if(key == "goatee")
-				{
-					selectedPart.set(PARTS.GOATEE);
-					p.getGoatee().setFilePath(i);
-				}
-				else if(key == "mustache")
-				{		
-					selectedPart.set(PARTS.MOUSTACHE);
-					p.getMustache().setFilePath(i);
-				}
-				else if(key == "mole")
-				{		
-					selectedPart.set(PARTS.MOLE);
-					p.getMole().setFilePath(i);
-				}
-
 				// Sliders for size and location modification 
 				
 				
@@ -414,7 +460,6 @@ public class Main extends Application {
 				try {
 					window.update(p, selectedPart.get(), pane);
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				r.setLeft(new  HBox(pane));
@@ -425,6 +470,10 @@ public class Main extends Application {
 			gpColor.add(imageButton, (n-1)%3, ((n-1)/3));
 			n++;
 		}
+		/*
+		 * Some things (mole) only have 1 or two options
+		 * So to stop the screen from jumping blank buttons are added
+		 */
 		while(n<=3)
 		{
 			Button blank = new Button("");
@@ -434,36 +483,52 @@ public class Main extends Application {
 			gpColor.add(blank, (n-1)%3, ((n-1)/3));
 			n++;
 		}
-
-		Slider sizeSlider = new Slider(0, 5, 1);
+		
+		/*
+		 * Slider for the scale of the image
+		 */
+		BodyParts BP = getBodyPart(selectedPart.get(), p);
+		//@author Ben Maigur
+		Slider sizeSlider = new Slider(.1, 5, 1);
+		//Setting it to the saved size so that it corresponds to the current size
+		sizeSlider.setValue(BP.getSize()/100);
 		sizeSlider.setShowTickMarks(true);
-
+		
+		//changes image scale based off of slider input
 		sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
-				public void changed(ObservableValue<? extends Number> observerable, Number oldValue, Number newValue) {
-					System.out.println("slider: " + selectedPart);
-					int newSize = (int) (100 * (double) newValue);
+				public void changed(ObservableValue<? extends Number> observerable,
+						Number oldValue, Number newValue) {
+					int newSize = (int) (100 * (double) newValue);//one tick is 100 pixels
 
 					window.modifySize(pane, selectedPart.get(), newSize);
-					System.out.println(newSize);
+					BodyParts BP = getBodyPart(selectedPart.get(), p);
+					BP.setSize(newSize);
 				}
 			});
 
-		Slider locationSlider = new Slider(0, 5, 1);
+		/*
+		 * Slider controls the Y axis changes for the assets
+		 * IMPORTANT:
+		 * It cannot have a upper limit past 1 because then head button will not work!
+		 */
+		//@author Ben Magiur
+		Slider locationSlider = new Slider(-1, 1, 0);
+		locationSlider.setValue(BP.getYAxis()/100);
 		locationSlider.setShowTickMarks(true);
 
+		//changes asset Y axis based off of slider input
 		locationSlider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> observerable, Number oldValue, Number newValue) {
-				System.out.println("slider: " + selectedPart);
-				int newLocation = (int) (100 * (double) newValue);
-
+				int newLocation = (int) (-100 * (double) newValue);//1 tick is 100 pixels
 				window.modifyLocation(pane, selectedPart.get(), newLocation);
-				System.out.println(newLocation);
+				BP.setYAxis(newLocation);
 			}
 		});
-
+		
+		//Adding text so user knows what the sliders are for
 		Text sizeText = new Text("Size");
 		Text locationText = new Text("Location");
-
+		//Adding sliders and text to the gridpane
 		gpParent.add(gpColor, 0, 0);
 		gpParent.add(sizeText, 0, 1);
 		gpParent.add(sizeSlider, 0, 2);
@@ -514,7 +579,6 @@ public class Main extends Application {
 				try {
 					colorButtonGP(p, size, key, hm.get(i), num+1, r, height, width, window);
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -523,6 +587,80 @@ public class Main extends Application {
 			//adding image button to the gridpane
 			gp.add(imageButton, (n)%3, ((n)/3));
 			n++;
+		}
+
+	}
+	
+	/**
+	 * Since polymorphism allows for BodyParts to be any child class
+	 * 		this can return what every body needs to be acted one
+	 * @param part what PARTS option is currently selected by the user
+	 * @param p the avatar being adjusted
+	 * @return the body part object currently selected by the user
+	 */
+	public static BodyParts getBodyPart(PARTS part, Person p)
+	{
+		 switch(part) {
+	        case EYES:
+	       	 	return p.getEyes();
+	        case TORSO:
+	        	return p.getTorso();
+	        case HEAD:
+	        	return p.getHead();
+	        case MOUTH:
+	        	return p.getMouth();
+	        case HAIR:
+	        	return p.getHair();
+	        case NOSE:
+	        	return p.getNose();
+	        case GLASSES:
+	        	return p.getGlasses();
+	        case MOLE:
+	        	return p.getMole();
+	        case MOUSTACHE:
+	        	return p.getMustache();
+	        case GOATEE:
+	        	return p.getGoatee();
+	    }
+		 return p.getHead();
+	}
+	
+	/**
+	 * This functions returns which of the PARTS was selected by the user
+	 * @param selectedPart what options there are to pick from
+	 * @param key the name of the body part
+	 */
+	public static void setBodyPart(AtomicReference<PARTS> selectedPart, String key)
+	{
+		switch(key)
+		{
+			case "Hair":
+				selectedPart.set(PARTS.HAIR);
+				break;
+			case "eye":
+				selectedPart.set(PARTS.EYES);
+				break;
+			case "torso":
+				selectedPart.set(PARTS.TORSO);
+				break;
+			case "head":
+				selectedPart.set(PARTS.HEAD);
+				break;
+			case "mouth":
+				selectedPart.set(PARTS.MOUTH);
+				break;
+			case "glasses":
+				selectedPart.set(PARTS.GLASSES);
+				break;
+			case "goatee":
+				selectedPart.set(PARTS.GOATEE);
+				break;
+			case "mustache":	
+				selectedPart.set(PARTS.MOUSTACHE);
+				break;
+			case "mole":	
+				selectedPart.set(PARTS.MOLE);
+				break;
 		}
 
 	}
