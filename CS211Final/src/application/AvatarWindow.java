@@ -17,39 +17,42 @@ import application.Person;
  */
 public class AvatarWindow {
 
-
+    ImageView eyeView;
+    ImageView headView;
+    ImageView torsoView;
+    ImageView hairView;
+    ImageView mouthView;
+    ImageView noseView;
+    ImageView glassesView;
+    ImageView goateeView;
+    ImageView mustacheView;
+    ImageView moleView;
+    
     /**
      * Constructor
      * @param pane The StackPane that displays all of the assets
      * @param person Pointer to the Person object tracking all assets
      */
 
-    public static void display(StackPane pane, Person person) {
+    public void displayInit(StackPane pane, Person person) {
 
         //TODO: Theres definitely a much better solution, but this is just for testing
 
         try {
 
-            ImageView eyeView = ImageHandler.translateImage(person.getEyes().getFilePath());
-            ImageView headView = ImageHandler.translateImage(person.getHead().getFilePath());
-            ImageView torsoView = ImageHandler.translateImage(person.getTorso().getFilePath());
-            ImageView hairView = ImageHandler.translateImage(person.getHair().getFilePath());
-            ImageView mouthView = ImageHandler.translateImage(person.getMouth().getFilePath());
-            ImageView noseView = ImageHandler.translateImage(person.getNose().getFilePath());
-            ImageView glassesView = ImageHandler.translateImage(person.getGlasses().getFilePath());
-            ImageView goateeView = ImageHandler.translateImage(person.getGoatee().getFilePath());
-            ImageView mustacheView = ImageHandler.translateImage(person.getMustache().getFilePath());
-            ImageView moleView = ImageHandler.translateImage(person.getMole().getFilePath());
+            this.eyeView = ImageHandler.translateImage(person.getEyes().getFilePath());
+            this.headView = ImageHandler.translateImage(person.getHead().getFilePath());
+            this.torsoView = ImageHandler.translateImage(person.getTorso().getFilePath());
+            this.hairView = ImageHandler.translateImage(person.getHair().getFilePath());
+            this.mouthView = ImageHandler.translateImage(person.getMouth().getFilePath());
+            this.noseView = ImageHandler.translateImage(person.getNose().getFilePath());
+            this.glassesView = ImageHandler.translateImage(person.getGlasses().getFilePath());
+            this.goateeView = ImageHandler.translateImage(person.getGoatee().getFilePath());
+            this.mustacheView = ImageHandler.translateImage(person.getMustache().getFilePath());
+            this.moleView = ImageHandler.translateImage(person.getMole().getFilePath());
             
-
-            if(pane.getChildren().size() == 0) {
-            	pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
-                		glassesView, goateeView, mustacheView, moleView);
-            } else {
-                pane.getChildren().clear();
-                pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
-                		glassesView, goateeView, mustacheView, moleView);
-            }
+            addToPane(pane);
+            
             //github.com/Ben-M-05/CS211-Final-Project.git
         } catch(Exception e) {
             System.out.println(e);
@@ -57,106 +60,151 @@ public class AvatarWindow {
         
     }
 
-    public static void modifySize(StackPane pane, PARTS part, int size) {
+    /**
+     * Updates an individual component
+     *<p> 
+     *This is to make sure all of the components are not refreshed when a new one is selected
+     * @param part Part type
+     * @param person The Person object holding all of the assets
+     * @throws FileNotFoundException 
+     */
+    public void update(Person person, PARTS part, StackPane pane) throws FileNotFoundException {
         switch(part) {
             case EYES:
-                ImageView eyeView = (ImageView) pane.getChildren().get(2);
-                eyeView.setFitHeight(size);
-                eyeView.setFitWidth(size);
+                this.eyeView = ImageHandler.translateImage(person.getEyes().getFilePath());
                 break;
             case TORSO:
-                ImageView torsoView = (ImageView) pane.getChildren().get(0);
-                torsoView.setFitHeight(size);
-                torsoView.setFitWidth(size);
+                this.torsoView = ImageHandler.translateImage(person.getTorso().getFilePath());
                 break;
             case HEAD:
-                ImageView headView = (ImageView) pane.getChildren().get(1);
-                headView.setFitHeight(size);
-                headView.setFitWidth(size);
+                this.headView = ImageHandler.translateImage(person.getHead().getFilePath());
                 break;
             case MOUTH:
-                ImageView mouthView = (ImageView) pane.getChildren().get(4);
-                mouthView.setFitHeight(size);
-                mouthView.setFitWidth(size);
+                this.mouthView = ImageHandler.translateImage(person.getMouth().getFilePath()); 
                 break;
             case HAIR:
-                ImageView hairView = (ImageView) pane.getChildren().get(3);
-                hairView.setFitHeight(size);
-                hairView.setFitWidth(size);
+                this.hairView = ImageHandler.translateImage(person.getHair().getFilePath());
                 break;
             case NOSE:
-                ImageView noseView = (ImageView) pane.getChildren().get(5);
-                noseView.setFitHeight(size);
-                noseView.setFitWidth(size);
+                this.noseView = ImageHandler.translateImage(person.getNose().getFilePath());
                 break;
             case GLASSES:
-                ImageView glassesView = (ImageView) pane.getChildren().get(6);
-                glassesView.setFitHeight(size);
-                glassesView.setFitWidth(size);
+                this.glassesView = ImageHandler.translateImage(person.getGlasses().getFilePath());
                 break;
             case MOLE:
-                ImageView moleView = (ImageView) pane.getChildren().get(9);
-                moleView.setFitHeight(size);
-                moleView.setFitWidth(size);
+                this.moleView = ImageHandler.translateImage(person.getMole().getFilePath());
                 break;
             case MOUSTACHE:
-                ImageView moustacheView = (ImageView) pane.getChildren().get(8);
-                moustacheView.setFitHeight(size);
-                moustacheView.setFitWidth(size);
+                this.mustacheView = ImageHandler.translateImage(person.getMustache().getFilePath());
                 break;
             case GOATEE:
-                ImageView goateeView = (ImageView) pane.getChildren().get(7);
-                goateeView.setFitHeight(size);
-                goateeView.setFitWidth(size);
+                this.goateeView = ImageHandler.translateImage(person.getGoatee().getFilePath());
+                break;
+        }
+
+        addToPane(pane);
+    }
+
+    public  void modifySize(StackPane pane, PARTS part, int size) {
+        switch(part) {
+            case EYES:
+                this.eyeView.setFitHeight(size);
+                this.eyeView.setFitWidth(size);
+                break;
+            case TORSO:
+
+                this.torsoView.setFitHeight(size);
+                this.torsoView.setFitWidth(size);
+                break;
+            case HEAD:
+                this.headView.setFitHeight(size);
+                this.headView.setFitWidth(size);
+                break;
+            case MOUTH:
+
+                this.mouthView.setFitHeight(size);
+                this.mouthView.setFitWidth(size);
+                break;
+            case HAIR:
+                this.hairView.setFitHeight(size);
+                this.hairView.setFitWidth(size);
+                break;
+            case NOSE:
+                this.noseView.setFitHeight(size);
+               this. noseView.setFitWidth(size);
+                break;
+            case GLASSES:
+        
+                this.glassesView.setFitHeight(size);
+                this.glassesView.setFitWidth(size);
+                break;
+            case MOLE:
+                this.moleView.setFitHeight(size);
+                this.moleView.setFitWidth(size);
+                break;
+            case MOUSTACHE:
+                
+                this.mustacheView.setFitHeight(size);
+                this.mustacheView.setFitWidth(size);
+                break;
+            case GOATEE:
+    
+                this.goateeView.setFitHeight(size);
+                this.goateeView.setFitWidth(size);
                 break;
         }
             
     }
 
-    public static void modifyLocation(StackPane pane, PARTS part, int location) {
+    public  void modifyLocation(StackPane pane, PARTS part, int location) {
         switch(part) {
             case EYES:
-                ImageView eyeView = (ImageView) pane.getChildren().get(2);
                 eyeView.setTranslateY(location);
                 break;
             case TORSO:
-                ImageView torsoView = (ImageView) pane.getChildren().get(0);
+
                 torsoView.setTranslateY(location);
                 break;
             case HEAD:
-                ImageView headView = (ImageView) pane.getChildren().get(1);
                 headView.setTranslateY(location);
                 break;
             case MOUTH:
-                ImageView mouthView = (ImageView) pane.getChildren().get(4);
+
                 mouthView.setTranslateY(location);
                 break;
             case HAIR:
-                ImageView hairView = (ImageView) pane.getChildren().get(3);
-                hairView.setTranslateY(location);
                 break;
             case NOSE:
-                ImageView noseView = (ImageView) pane.getChildren().get(5);
                 noseView.setTranslateY(location);
                 break;
             case GLASSES:
-                ImageView glassesView = (ImageView) pane.getChildren().get(6);
+        
                 glassesView.setTranslateY(location);
                 break;
             case MOLE:
-                ImageView moleView = (ImageView) pane.getChildren().get(9);
                 moleView.setTranslateY(location);
                 break;
             case MOUSTACHE:
-                ImageView moustacheView = (ImageView) pane.getChildren().get(8);
-                moustacheView.setTranslateY(location);
+                
+                mustacheView.setTranslateY(location);
                 break;
             case GOATEE:
-                ImageView goateeView = (ImageView) pane.getChildren().get(7);
+    
                 goateeView.setTranslateY(location);
                 break;
         }
             
     }
 
+
+    public void addToPane(StackPane pane) {
+        if(pane.getChildren().size() == 0) {
+            pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
+                    glassesView, goateeView, mustacheView, moleView);
+        } else {
+            pane.getChildren().clear();
+            pane.getChildren().addAll(torsoView, headView, eyeView, hairView, mouthView, noseView,
+                    glassesView, goateeView, mustacheView, moleView);
+        }
+    }
 }
