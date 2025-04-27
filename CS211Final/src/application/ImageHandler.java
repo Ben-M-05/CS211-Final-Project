@@ -4,8 +4,6 @@ import java.io.FileNotFoundException;
 
 //package com.javamaker.Api;
 
-import java.util.regex.Pattern;
-
 //import com.javamaker.Modules.FileOrg;
 
 import javafx.scene.image.Image;
@@ -15,7 +13,7 @@ import javafx.scene.image.ImageView;
  * 
  * The ImageHandler class will handle processing the images to display on the frontend.
  * @author Ben Maigur
- * @version 0.0.1
+ * @version 1.0.1
  */
 public class ImageHandler {
     
@@ -45,7 +43,7 @@ public class ImageHandler {
         
         String file = FileOrg.findFile(fileName);
 
-        Image image = new Image(String.format("file:" + file), 500, 500, false, false);
+        Image image = new Image(String.format("file:" + file), 500, 500, true, false);
         return new ImageView(image);
     }
 
