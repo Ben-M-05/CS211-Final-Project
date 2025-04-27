@@ -173,6 +173,7 @@ public class AvatarWindow {
                 mouthView.setTranslateY(location);
                 break;
             case HAIR:
+                hairView.setTranslateY(location);
                 break;
             case NOSE:
                 noseView.setTranslateY(location);
