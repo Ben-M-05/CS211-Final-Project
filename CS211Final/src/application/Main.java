@@ -58,6 +58,8 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			Person userPerson = new Person();
 			StackPane pane = new StackPane();
+
+			AvatarWindow window = new AvatarWindow();
 			
 			// Tracks the selected part to be modified by the sliders
 			// https://stackoverflow.com/questions/30026824/modifying-local-variable-from-inside-lambda
@@ -69,7 +71,7 @@ public class Main extends Application {
 			partsOption.setAlignment(Pos.TOP_RIGHT);
 			root.setRight(partsOption);
 			colorButtonGP(userPerson, IMAGE_BUTTON_SIZE, "head",
-			FileOrg.headHashMap.get("headStyle1"), 1, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+			FileOrg.headHashMap.get("headStyle1"), 1, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			// Head Buttons	- OG Sarah Parr	New Joy Janney
 			//https://www.w3schools.com/howto/howto_css_button_on_image.asp
@@ -85,7 +87,7 @@ public class Main extends Application {
 			gpEye.setHgap(1);
 			gpEye.setVgap(1);
 			styleButtonCreate(userPerson, gpEye, IMAGE_BUTTON_SIZE, "eye",
-					FileOrg.eyeHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.eyeHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating the hair gridpane and adding the buttons to it
 			GridPane gpHair = new GridPane();
@@ -93,7 +95,7 @@ public class Main extends Application {
 			gpHair.setHgap(1);
 			gpHair.setVgap(1);
 			styleButtonCreate(userPerson, gpHair, IMAGE_BUTTON_SIZE, "Hair",
-					FileOrg.hairHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.hairHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating the torso gridpane and adding the buttons to it
 			GridPane gpTorso = new GridPane();
@@ -101,7 +103,7 @@ public class Main extends Application {
 			gpTorso.setHgap(1);
 			gpTorso.setVgap(1);
 			styleButtonCreate(userPerson, gpTorso, IMAGE_BUTTON_SIZE, "torso",
-					FileOrg.torsoHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.torsoHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 						
 			
 			//Creating the head gridpane and adding the buttons to it
@@ -110,7 +112,7 @@ public class Main extends Application {
 			gpHead.setHgap(1);
 			gpHead.setVgap(1);
 			styleButtonCreate(userPerson, gpHead, IMAGE_BUTTON_SIZE, "head",
-					FileOrg.headHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.headHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating the mouth gridpane and adding the buttons to it
 			GridPane gpMouth = new GridPane();
@@ -118,7 +120,7 @@ public class Main extends Application {
 			gpMouth.setHgap(1);
 			gpMouth.setVgap(1);
 			styleButtonCreate(userPerson, gpMouth, IMAGE_BUTTON_SIZE, "mouth",
-					FileOrg.mouthHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.mouthHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating the glasses gridpane and adding the buttons to it
 			GridPane gpGlasses = new GridPane();
@@ -126,7 +128,7 @@ public class Main extends Application {
 			gpGlasses.setHgap(1);
 			gpGlasses.setVgap(1);
 			styleButtonCreate(userPerson, gpGlasses, IMAGE_BUTTON_SIZE, "glasses",
-					FileOrg.glassesHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.glassesHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating the goatee gridpane and adding the buttons to it
 			GridPane gpGoatee = new GridPane();
@@ -134,7 +136,7 @@ public class Main extends Application {
 			gpGoatee.setHgap(1);
 			gpGoatee.setVgap(1);
 			styleButtonCreate(userPerson, gpGoatee, IMAGE_BUTTON_SIZE, "goatee",
-					FileOrg.goateeHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.goateeHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating the mustache gridpane and adding the buttons to it
 			GridPane gpMustache = new GridPane();
@@ -142,7 +144,7 @@ public class Main extends Application {
 			gpMustache.setHgap(1);
 			gpMustache.setVgap(1);
 			styleButtonCreate(userPerson, gpMustache, IMAGE_BUTTON_SIZE, "mustache",
-					FileOrg.mustacheHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.mustacheHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating the mole gridpane and adding the buttons to it
 			GridPane gpMole = new GridPane();
@@ -150,7 +152,7 @@ public class Main extends Application {
 			gpMole.setHgap(1);
 			gpMole.setVgap(1);
 			styleButtonCreate(userPerson, gpMole, IMAGE_BUTTON_SIZE, "mole",
-					FileOrg.moleHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE);
+					FileOrg.moleHashMap, root, IMAGE_BUTTON_SIZE, IMAGE_BUTTON_SIZE, window);
 			
 			//Creating a blank gridpane so that if no style is selected
 					//the buttons won't visibly shift
@@ -281,7 +283,7 @@ public class Main extends Application {
 			bodyParts.setAlignment(Pos.TOP_RIGHT);
 
 			//displaying the default avatar
-			AvatarWindow.display(pane, userPerson);
+			window.displayInit(pane, userPerson);
 			root.setLeft(new  HBox(pane));
 			
 
@@ -326,7 +328,7 @@ public class Main extends Application {
 	 */
 	public void colorButtonGP(Person p, int size, String key,
 			HashMap<String, String> hm, int styleNum,BorderPane r,
-			int height, int width) throws FileNotFoundException
+			int height, int width, AvatarWindow window) throws FileNotFoundException
 	{
 		AtomicReference<PARTS> selectedPart = new AtomicReference<>(PARTS.EYES);
 		//The avatar image
@@ -409,7 +411,12 @@ public class Main extends Application {
 				
 				
 				//displaying the updated avatar
-				AvatarWindow.display(pane, p);
+				try {
+					window.update(p, selectedPart.get(), pane);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				r.setLeft(new  HBox(pane));
 					
 			});
@@ -436,7 +443,7 @@ public class Main extends Application {
 					System.out.println("slider: " + selectedPart);
 					int newSize = (int) (100 * (double) newValue);
 
-					AvatarWindow.modifySize(pane, selectedPart.get(), newSize);
+					window.modifySize(pane, selectedPart.get(), newSize);
 					System.out.println(newSize);
 				}
 			});
@@ -449,7 +456,7 @@ public class Main extends Application {
 				System.out.println("slider: " + selectedPart);
 				int newLocation = (int) (100 * (double) newValue);
 
-				AvatarWindow.modifyLocation(pane, selectedPart.get(), newLocation);
+				window.modifyLocation(pane, selectedPart.get(), newLocation);
 				System.out.println(newLocation);
 			}
 		});
@@ -480,7 +487,7 @@ public class Main extends Application {
 	 */
 	public void styleButtonCreate(Person p, GridPane gp, int size, String key,
 			HashMap<String, HashMap<String, String>> hm, BorderPane r,
-			int height, int width) throws FileNotFoundException
+			int height, int width, AvatarWindow window) throws FileNotFoundException
 	{
 		//The buttons should be set to the right
 		gp.setAlignment(Pos.TOP_RIGHT);
@@ -505,7 +512,7 @@ public class Main extends Application {
 			//If the button is selected, add the style color options
 			imageButton.setOnAction(a -> {
 				try {
-					colorButtonGP(p, size, key, hm.get(i), num+1, r, height, width);
+					colorButtonGP(p, size, key, hm.get(i), num+1, r, height, width, window);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
