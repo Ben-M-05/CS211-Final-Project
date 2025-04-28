@@ -402,6 +402,7 @@ public class Main extends Application {
 	 * @param width - int: the width of the button
 	 * @param r - BorderPane: the root node of the stage
 	 * @throws FileNotFoundException - if file not found
+	 * @param window the display window
 	 */
 	public void colorButtonGP(Person p, int size, String key,
 			HashMap<String, String> hm, int styleNum,BorderPane r,
@@ -548,7 +549,9 @@ public class Main extends Application {
 	 * @param r - BorderPane: the root node that should be updated
 	 * @param height - int: height of the button
 	 * @param width - int: width of the button
+	 * @param window the display window
 	 * @throws FileNotFoundException - if file not found
+	 * 
 	 */
 	public void styleButtonCreate(Person p, GridPane gp, int size, String key,
 			HashMap<String, HashMap<String, String>> hm, BorderPane r,

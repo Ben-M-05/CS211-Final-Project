@@ -10,6 +10,9 @@ import java.io.FileNotFoundException;
  */
 public class BodyParts
 {
+	/**
+	 * where on the xAxis the iamge is placed
+	 */
 	int xAxis;
 	/**
 	 * y axis
@@ -20,10 +23,11 @@ public class BodyParts
 	 */
 	String filePath;
 	
+	/**
+	 * the scale size of the image
+	 */
 	int size;
-	
-	int location;
-	
+
 	/**
 	 * Default constructor for BodyParts
 	 */
@@ -77,6 +81,10 @@ public class BodyParts
 		return filePath;
 	}
 	
+	/**
+	 * returns the scalable size of the image
+	 * @return the size of the image
+	 */
 	public int getSize()
 	{
 		return size;

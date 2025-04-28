@@ -20,6 +20,7 @@ public final class FileOrg
 
 			//importing eyes with no lashes
 		eyeStyle1.put("eye1-01", "Images/eyes/noLash/eyes1-1.png");
+		
 		eyeStyle1.put("eye1-02", "Images/eyes/noLash/eyes1-2.png");
 		eyeStyle1.put("eye1-03", "Images/eyes/noLash/eyes1-3.png");
 		eyeStyle1.put("eye1-04", "Images/eyes/noLash/eyes1-4.png");

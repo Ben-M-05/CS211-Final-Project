@@ -24,6 +24,7 @@ class Head extends BodyParts
 	 * Since the nose has a skin tone, the nose must be updated
 	 * 		to match the skin tone
 	 * @param fp - the filepath of the image to set the eye to
+	 * @param p the avatar being edited
 	 */
 	public void setFilePath(String fp, Person p)
 	{
