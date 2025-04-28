@@ -122,28 +122,44 @@ public class Person
 	
 	/**
 	 * returns the mouth object
-	 * @return Hair: the hair object
+	 * @return Mouth: the mouth object
 	 */
 	public Mouth getMouth()
 	{
 		return mouth;
 	}
 	
+	/**
+	 * returns the nose object
+	 * @return Nose: the nose object
+	 */
 	public Nose getNose()
 	{
 		return nose;
 	}
 	
+	/**
+	 * returns the goatee object
+	 * @return Goatee: the goatee object
+	 */
 	public Goatee getGoatee()
 	{
 		return goatee;
 	}
 	
+	/**
+	 * returns the moustache object
+	 * @return Mustache: the mustache object
+	 */
 	public Mustache getMustache()
 	{
 		return mustache;
 	}
 	
+	/**
+	 * returns the Mole object
+	 * @return Mole: the mole object
+	 */
 	public Mole getMole()
 	{
 		return mole;

@@ -17,16 +17,49 @@ import application.Person;
  */
 public class AvatarWindow {
 
+	/**
+	 * the image view for the eye
+	 */
     ImageView eyeView;
+	/**
+	 * the image view for the head
+	 */
     ImageView headView;
+	/**
+	 * the image view for the torso
+	 */
     ImageView torsoView;
+	/**
+	 * the image view for the hair
+	 */
     ImageView hairView;
+	/**
+	 * the image view for the mouth
+	 */
     ImageView mouthView;
+	/**
+	 * the image view for the nose
+	 */
     ImageView noseView;
+	/**
+	 * the image view for the glasses
+	 */
     ImageView glassesView;
+	/**
+	 * the image view for the goatee
+	 */
     ImageView goateeView;
+	/**
+	 * the image view for the mustache
+	 */
     ImageView mustacheView;
+	/**
+	 * the image view for the mole
+	 */
     ImageView moleView;
+	/**
+	 * the image view for blank background
+	 */
     ImageView blankView;
     
     /**
@@ -73,7 +106,8 @@ public class AvatarWindow {
      *This is to make sure all of the components are not refreshed when a new one is selected
      * @param part Part type
      * @param person The Person object holding all of the assets
-     * @throws FileNotFoundException 
+     * @param pane the stackpane being displayed to the user
+     * @throws FileNotFoundException if image file not found
      */
     public void update(Person person, PARTS part, StackPane pane) throws FileNotFoundException {
         switch(part) {

@@ -1,0 +1,4 @@
+Main-Class: application.Main
+Rsrc-Class-Path: javafx-swt.jar javafx.base.jar javafx.controls.jar j
+ avafx.fxml.jar javafx.graphics.jar javafx.media.jar javafx.swing.jar ja
+ vafx.web.jar
