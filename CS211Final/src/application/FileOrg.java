@@ -19,23 +19,23 @@ public final class FileOrg
 		eyeHashMap.put("eyeStyle1", eyeStyle1);//https://www.baeldung.com/java-initialize-hashmap
 
 			//importing eyes with no lashes
-		eyeStyle1.put("eye1-01", "CS211Final/src/Images/eyes/noLash/eyes1-1.png");
-		eyeStyle1.put("eye1-02", "CS211Final/src/Images/eyes/noLash/eyes1-2.png");
-		eyeStyle1.put("eye1-03", "CS211Final/src/Images/eyes/noLash/eyes1-3.png");
-		eyeStyle1.put("eye1-04", "CS211Final/src/Images/eyes/noLash/eyes1-4.png");
-		eyeStyle1.put("eye1-05", "CS211Final/src/Images/eyes/noLash/eyes1-5.png");
-		eyeStyle1.put("eye1-06", "CS211Final/src/Images/eyes/noLash/eyes1-6.png");
+		eyeStyle1.put("eye1-01", "Images/eyes/noLash/eyes1-1.png");
+		eyeStyle1.put("eye1-02", "Images/eyes/noLash/eyes1-2.png");
+		eyeStyle1.put("eye1-03", "Images/eyes/noLash/eyes1-3.png");
+		eyeStyle1.put("eye1-04", "Images/eyes/noLash/eyes1-4.png");
+		eyeStyle1.put("eye1-05", "Images/eyes/noLash/eyes1-5.png");
+		eyeStyle1.put("eye1-06", "Images/eyes/noLash/eyes1-6.png");
 
 		HashMap<String, String> eyeStyle2 = new HashMap<String, String>();
 		eyeHashMap.put("eyeStyle2", eyeStyle2);//https://www.baeldung.com/java-initialize-hashmap
 
 			//importing eyes with lashes
-		eyeStyle2.put("eye2-01", "CS211Final/src/Images/eyes/withLash/eyes2-1.png");
-		eyeStyle2.put("eye2-02", "CS211Final/src/Images/eyes/withLash/eyes2-2.png");
-		eyeStyle2.put("eye2-03", "CS211Final/src/Images/eyes/withLash/eyes2-3.png");
-		eyeStyle2.put("eye2-04", "CS211Final/src/Images/eyes/withLash/eyes2-4.png");
-		eyeStyle2.put("eye2-05", "CS211Final/src/Images/eyes/withLash/eyes2-5.png");
-		eyeStyle2.put("eye2-06", "CS211Final/src/Images/eyes/withLash/eyes2-6.png");
+		eyeStyle2.put("eye2-01", "Images/eyes/withLash/eyes2-1.png");
+		eyeStyle2.put("eye2-02", "Images/eyes/withLash/eyes2-2.png");
+		eyeStyle2.put("eye2-03", "Images/eyes/withLash/eyes2-3.png");
+		eyeStyle2.put("eye2-04", "Images/eyes/withLash/eyes2-4.png");
+		eyeStyle2.put("eye2-05", "Images/eyes/withLash/eyes2-5.png");
+		eyeStyle2.put("eye2-06", "Images/eyes/withLash/eyes2-6.png");
 		
 	}
 	
@@ -47,35 +47,35 @@ public final class FileOrg
 		HashMap<String, String> hairStyle1 = new HashMap<String, String>();
 		hairHashMap.put("hairStyle1", hairStyle1);
 		//front female hair
-		hairStyle1.put("Hair1-01", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-1.png");
-		hairStyle1.put("Hair1-02", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-2.png");
-		hairStyle1.put("Hair1-03", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-3.png");
-		hairStyle1.put("Hair1-04", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-4.png");
-		hairStyle1.put("Hair1-05", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-5.png");
-		hairStyle1.put("Hair1-06", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-6.png");
-		hairStyle1.put("Hair1-07", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-7.png");
-		hairStyle1.put("Hair1-08", "CS211Final/src/Images/hair/hairFront/Female/hairFrontF1-8.png");
+		hairStyle1.put("Hair1-01", "Images/hair/hairFront/Female/hairFrontF1-1.png");
+		hairStyle1.put("Hair1-02", "Images/hair/hairFront/Female/hairFrontF1-2.png");
+		hairStyle1.put("Hair1-03", "Images/hair/hairFront/Female/hairFrontF1-3.png");
+		hairStyle1.put("Hair1-04", "Images/hair/hairFront/Female/hairFrontF1-4.png");
+		hairStyle1.put("Hair1-05", "Images/hair/hairFront/Female/hairFrontF1-5.png");
+		hairStyle1.put("Hair1-06", "Images/hair/hairFront/Female/hairFrontF1-6.png");
+		hairStyle1.put("Hair1-07", "Images/hair/hairFront/Female/hairFrontF1-7.png");
+		hairStyle1.put("Hair1-08", "Images/hair/hairFront/Female/hairFrontF1-8.png");
 		
 		HashMap<String, String> hairStyle2 = new HashMap<String, String>();
 		hairHashMap.put("hairStyle2", hairStyle2);
 		//front male hair
-		hairStyle2.put("Hair2-01","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-1.png");
-		hairStyle2.put("Hair2-02","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-2.png");
-		hairStyle2.put("Hair2-03","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-3.png");
-		hairStyle2.put("Hair2-04","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-4.png");
-		hairStyle2.put("Hair2-05","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-5.png");
-		hairStyle2.put("Hair2-06","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-6.png");
-		hairStyle2.put("Hair2-07","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-7.png");
-		hairStyle2.put("Hair2-08","CS211Final/src/Images/hair/hairFront/Male/hairFrontM1-8.png");
+		hairStyle2.put("Hair2-01","Images/hair/hairFront/Male/hairFrontM1-1.png");
+		hairStyle2.put("Hair2-02","Images/hair/hairFront/Male/hairFrontM1-2.png");
+		hairStyle2.put("Hair2-03","Images/hair/hairFront/Male/hairFrontM1-3.png");
+		hairStyle2.put("Hair2-04","Images/hair/hairFront/Male/hairFrontM1-4.png");
+		hairStyle2.put("Hair2-05","Images/hair/hairFront/Male/hairFrontM1-5.png");
+		hairStyle2.put("Hair2-06","Images/hair/hairFront/Male/hairFrontM1-6.png");
+		hairStyle2.put("Hair2-07","Images/hair/hairFront/Male/hairFrontM1-7.png");
+		hairStyle2.put("Hair2-08","Images/hair/hairFront/Male/hairFrontM1-8.png");
 		//importing back female hair
-		/*hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-1.png");
-		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-2.png");
-		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-3.png");
-		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-4.png");
-		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-5.png");
-		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-6.png");
-		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-7.png");
-		hairHashMap.put("","src/Images/hair/hairBack/Female/hairBackF1-8.png");*/
+		/*hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-1.png");
+		hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-2.png");
+		hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-3.png");
+		hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-4.png");
+		hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-5.png");
+		hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-6.png");
+		hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-7.png");
+		hairHashMap.put("","Images/hair/hairBack/Female/hairBackF1-8.png");*/
 		
 		
 	}
@@ -88,12 +88,12 @@ public final class FileOrg
 		HashMap<String, String> headStyle1 = new HashMap<String, String>();
 		headHashMap.put("headStyle1", headStyle1);
 		//importing the heads
-		headStyle1.put("head1-01","CS211Final/src/Images/head/head1-1.png");
-		headStyle1.put("head1-02","CS211Final/src/Images/head/head1-2.png");
-		headStyle1.put("head1-03","CS211Final/src/Images/head/head1-3.png");
-		headStyle1.put("head1-04","CS211Final/src/Images/head/head1-4.png");
-		headStyle1.put("head1-05","CS211Final/src/Images/head/head1-5.png");
-		headStyle1.put("head1-06","CS211Final/src/Images/head/head1-6.png");
+		headStyle1.put("head1-01","Images/head/head1-1.png");
+		headStyle1.put("head1-02","Images/head/head1-2.png");
+		headStyle1.put("head1-03","Images/head/head1-3.png");
+		headStyle1.put("head1-04","Images/head/head1-4.png");
+		headStyle1.put("head1-05","Images/head/head1-5.png");
+		headStyle1.put("head1-06","Images/head/head1-6.png");
 	}
 	/**
 	 * Holds the torso style hashmaps
@@ -103,18 +103,18 @@ public final class FileOrg
 		HashMap<String, String> torsoStyle1 = new HashMap<String, String>();
 		torsoHashMap.put("torsoStyle1", torsoStyle1);
 		//importing the torsos
-		torsoStyle1.put("torso1-12","CS211Final/src/Images/torso/torso1-01.png");
-		torsoStyle1.put("torso1-02","CS211Final/src/Images/torso/torso1-02.png");
-		torsoStyle1.put("torso1-03","CS211Final/src/Images/torso/torso1-03.png");
-		torsoStyle1.put("torso1-04","CS211Final/src/Images/torso/torso1-04.png");
-		torsoStyle1.put("torso1-05","CS211Final/src/Images/torso/torso1-05.png");
-		torsoStyle1.put("torso1-06","CS211Final/src/Images/torso/torso1-06.png");
-		torsoStyle1.put("torso1-07","CS211Final/src/Images/torso/torso1-07.png");
-		torsoStyle1.put("torso1-08","CS211Final/src/Images/torso/torso1-08.png");
-		torsoStyle1.put("torso1-09","CS211Final/src/Images/torso/torso1-09.png");
-		torsoStyle1.put("torso1-10","CS211Final/src/Images/torso/torso1-10.png");
-		torsoStyle1.put("torso1-11","CS211Final/src/Images/torso/torso1-11.png");
-		torsoStyle1.put("torso1-01","CS211Final/src/Images/torso/torso1-12.png");	
+		torsoStyle1.put("torso1-12","Images/torso/torso1-01.png");
+		torsoStyle1.put("torso1-02","Images/torso/torso1-02.png");
+		torsoStyle1.put("torso1-03","Images/torso/torso1-03.png");
+		torsoStyle1.put("torso1-04","Images/torso/torso1-04.png");
+		torsoStyle1.put("torso1-05","Images/torso/torso1-05.png");
+		torsoStyle1.put("torso1-06","Images/torso/torso1-06.png");
+		torsoStyle1.put("torso1-07","Images/torso/torso1-07.png");
+		torsoStyle1.put("torso1-08","Images/torso/torso1-08.png");
+		torsoStyle1.put("torso1-09","Images/torso/torso1-09.png");
+		torsoStyle1.put("torso1-10","Images/torso/torso1-10.png");
+		torsoStyle1.put("torso1-11","Images/torso/torso1-11.png");
+		torsoStyle1.put("torso1-01","Images/torso/torso1-12.png");	
 	}
 	
 	/**
@@ -127,7 +127,7 @@ public final class FileOrg
 		mouthHashMap.put("mouthStyle1", mouthStyle1);//https://www.baeldung.com/java-initialize-hashmap
 
 			//line
-		mouthStyle1.put("mouth1-01", "CS211Final/src/Images/mouth/mouth1/mouth1-1.png");
+		mouthStyle1.put("mouth1-01", "Images/mouth/mouth1/mouth1-1.png");
 		
 		
 		HashMap<String, String> mouthStyle2 = new HashMap<String, String>();
@@ -135,11 +135,11 @@ public final class FileOrg
 		mouthHashMap.put("mouthStyle2", mouthStyle2);//https://www.baeldung.com/java-initialize-hashmap
 
 			//lips
-		mouthStyle2.put("mouth2-01", "CS211Final/src/Images/mouth/mouth2/mouth2-1.png");
-		mouthStyle2.put("mouth2-02", "CS211Final/src/Images/mouth/mouth2/mouth2-2.png");
-		mouthStyle2.put("mouth2-03", "CS211Final/src/Images/mouth/mouth2/mouth2-3.png");
-		mouthStyle2.put("mouth2-04", "CS211Final/src/Images/mouth/mouth2/mouth2-4.png");
-		mouthStyle2.put("mouth2-05", "CS211Final/src/Images/mouth/mouth2/mouth2-5.png");
+		mouthStyle2.put("mouth2-01", "Images/mouth/mouth2/mouth2-1.png");
+		mouthStyle2.put("mouth2-02", "Images/mouth/mouth2/mouth2-2.png");
+		mouthStyle2.put("mouth2-03", "Images/mouth/mouth2/mouth2-3.png");
+		mouthStyle2.put("mouth2-04", "Images/mouth/mouth2/mouth2-4.png");
+		mouthStyle2.put("mouth2-05", "Images/mouth/mouth2/mouth2-5.png");
 		
 	}
 	
@@ -150,12 +150,12 @@ public final class FileOrg
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		//only one style currently
 		HashMap<String, String> noseStyle1 = new HashMap<String, String>();
-		noseStyle1.put("nose1-01", "CS211Final/src/Images/nose/nose1/nose1-1.png");
-		noseStyle1.put("nose1-02", "CS211Final/src/Images/nose/nose1/nose1-2.png");
-		noseStyle1.put("nose1-03", "CS211Final/src/Images/nose/nose1/nose1-3.png");
-		noseStyle1.put("nose1-04", "CS211Final/src/Images/nose/nose1/nose1-4.png");
-		noseStyle1.put("nose1-05", "CS211Final/src/Images/nose/nose1/nose1-5.png");
-		noseStyle1.put("nose1-06", "CS211Final/src/Images/nose/nose1/nose1-6.png");
+		noseStyle1.put("nose1-01", "Images/nose/nose1/nose1-1.png");
+		noseStyle1.put("nose1-02", "Images/nose/nose1/nose1-2.png");
+		noseStyle1.put("nose1-03", "Images/nose/nose1/nose1-3.png");
+		noseStyle1.put("nose1-04", "Images/nose/nose1/nose1-4.png");
+		noseStyle1.put("nose1-05", "Images/nose/nose1/nose1-5.png");
+		noseStyle1.put("nose1-06", "Images/nose/nose1/nose1-6.png");
 		noseHashMap.put("noseStyle1", noseStyle1);
 		
 	}
@@ -166,15 +166,15 @@ public final class FileOrg
 	static HashMap<String, HashMap<String, String>> goateeHashMap = new HashMap<String, HashMap<String, String>>();
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		HashMap<String, String> goateeStyle1 = new HashMap<String, String>();
-		goateeStyle1.put("goatee1-01", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-1.png");
-		goateeStyle1.put("goatee1-02", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-2.png");
-		goateeStyle1.put("goatee1-03", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-3.png");
-		goateeStyle1.put("goatee1-04", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-4.png");
-		goateeStyle1.put("goatee1-05", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-5.png");
-		goateeStyle1.put("goatee1-06", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-6.png");
-		goateeStyle1.put("goatee1-07", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-7.png");
-		goateeStyle1.put("goatee1-08", "CS211Final/src/Images/facial/goatee/goatee1/goatee1-8.png");
-		goateeStyle1.put("goatee1-09", "CS211Final/src/Images/blank.png");
+		goateeStyle1.put("goatee1-01", "Images/facial/goatee/goatee1/goatee1-1.png");
+		goateeStyle1.put("goatee1-02", "Images/facial/goatee/goatee1/goatee1-2.png");
+		goateeStyle1.put("goatee1-03", "Images/facial/goatee/goatee1/goatee1-3.png");
+		goateeStyle1.put("goatee1-04", "Images/facial/goatee/goatee1/goatee1-4.png");
+		goateeStyle1.put("goatee1-05", "Images/facial/goatee/goatee1/goatee1-5.png");
+		goateeStyle1.put("goatee1-06", "Images/facial/goatee/goatee1/goatee1-6.png");
+		goateeStyle1.put("goatee1-07", "Images/facial/goatee/goatee1/goatee1-7.png");
+		goateeStyle1.put("goatee1-08", "Images/facial/goatee/goatee1/goatee1-8.png");
+		goateeStyle1.put("goatee1-09", "Images/blank.png");
 		
 		
 		goateeHashMap.put("goateeStyle1", goateeStyle1);
@@ -187,15 +187,15 @@ public final class FileOrg
 	static {
 		
 		HashMap<String, String> mustahceStyle1 = new HashMap<String, String>();
-		mustahceStyle1.put("mustache1-01", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-1.png");
-		mustahceStyle1.put("mustache1-02", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-2.png");
-		mustahceStyle1.put("mustache1-03", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-3.png");
-		mustahceStyle1.put("mustache1-04", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-4.png");
-		mustahceStyle1.put("mustache1-05", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-5.png");
-		mustahceStyle1.put("mustache1-06", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-6.png");
-		mustahceStyle1.put("mustache1-07", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-7.png");
-		mustahceStyle1.put("mustache1-08", "CS211Final/src/Images/facial/mustache/mustache1/mustache1-8.png");
-		mustahceStyle1.put("mustache1-09", "CS211Final/src/Images/blank.png");
+		mustahceStyle1.put("mustache1-01", "Images/facial/mustache/mustache1/mustache1-1.png");
+		mustahceStyle1.put("mustache1-02", "Images/facial/mustache/mustache1/mustache1-2.png");
+		mustahceStyle1.put("mustache1-03", "Images/facial/mustache/mustache1/mustache1-3.png");
+		mustahceStyle1.put("mustache1-04", "Images/facial/mustache/mustache1/mustache1-4.png");
+		mustahceStyle1.put("mustache1-05", "Images/facial/mustache/mustache1/mustache1-5.png");
+		mustahceStyle1.put("mustache1-06", "Images/facial/mustache/mustache1/mustache1-6.png");
+		mustahceStyle1.put("mustache1-07", "Images/facial/mustache/mustache1/mustache1-7.png");
+		mustahceStyle1.put("mustache1-08", "Images/facial/mustache/mustache1/mustache1-8.png");
+		mustahceStyle1.put("mustache1-09", "Images/blank.png");
 		
 		mustacheHashMap.put("facialStyle1", mustahceStyle1);
 		
@@ -208,13 +208,13 @@ public final class FileOrg
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		
 		HashMap<String, String> glassesStyle1 = new HashMap<String, String>();
-		glassesStyle1.put("glasses1-01", "CS211Final/src/Images/glasses/glasses1/glasses1-1.png");
-		glassesStyle1.put("glasses1-02", "CS211Final/src/Images/glasses/glasses1/glasses1-2.png");
-		glassesStyle1.put("glasses1-03", "CS211Final/src/Images/glasses/glasses1/glasses1-3.png");
-		glassesStyle1.put("glasses1-04", "CS211Final/src/Images/glasses/glasses1/glasses1-4.png");
-		glassesStyle1.put("glasses1-05", "CS211Final/src/Images/glasses/glasses1/glasses1-5.png");
-		glassesStyle1.put("glasses1-06", "CS211Final/src/Images/glasses/glasses1/glasses1-6.png");
-		glassesStyle1.put("glasses1-07", "CS211Final/src/Images/blank.png");
+		glassesStyle1.put("glasses1-01", "Images/glasses/glasses1/glasses1-1.png");
+		glassesStyle1.put("glasses1-02", "Images/glasses/glasses1/glasses1-2.png");
+		glassesStyle1.put("glasses1-03", "Images/glasses/glasses1/glasses1-3.png");
+		glassesStyle1.put("glasses1-04", "Images/glasses/glasses1/glasses1-4.png");
+		glassesStyle1.put("glasses1-05", "Images/glasses/glasses1/glasses1-5.png");
+		glassesStyle1.put("glasses1-06", "Images/glasses/glasses1/glasses1-6.png");
+		glassesStyle1.put("glasses1-07", "Images/blank.png");
 		
 		
 		glassesHashMap.put("glasssesStyle1", glassesStyle1);
@@ -228,8 +228,8 @@ public final class FileOrg
 	static{//https://www.baeldung.com/java-initialize-hashmap
 		//options are mole or no mole
 		HashMap<String, String> moleStyle1 = new HashMap<String, String>();
-		moleStyle1.put("mole1-01", "CS211Final/src/Images/mole/mole1/mole1-1.png");
-		moleStyle1.put("mole1-02", "CS211Final/src/Images/blank.png");
+		moleStyle1.put("mole1-01", "Images/mole/mole1/mole1-1.png");
+		moleStyle1.put("mole1-02", "Images/blank.png");
 		
 		moleHashMap.put("moleStyle1", moleStyle1);
 		
